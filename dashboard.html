@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - المنصة التعليمية</title>
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js للرسوم البيانية -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --gray-color: #6b7280;
+            --sidebar-width: 250px;
+            --header-height: 70px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            direction: rtl;
+        }
+        
+        /* تخطيط الصفحة */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* الشريط الجانبي */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .sidebar-logo i {
+            font-size: 1.8rem;
+        }
+        
+        .sidebar-user {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        .user-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        
+        .user-role {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .sidebar-nav {
+            padding: 1rem 0;
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .nav-link i {
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        /* المحتوى الرئيسي */
+        .main-content {
+            flex: 1;
+            margin-right: var(--sidebar-width);
+            padding: 1rem;
+        }
+        
+        /* شريط الرأس العلوي */
+        .topbar {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .page-title h1 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-bar {
+            position: relative;
+        }
+        
+        .search-bar input {
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 250px;
+        }
+        
+        .search-bar i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-color);
+        }
+        
+        .notification-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* بطاقات الترحيب */
+        .welcome-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .welcome-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .welcome-text p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* إحصائيات سريعة */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .stat-info h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-info p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        /* قسم الرسوم البيانية */
+        .charts-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chart-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-header h3 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        
+        .chart-container {
+            height: 300px;
+        }
+        
+        /* الدورات النشطة */
+        .active-courses {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+        }
+        
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .course-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .course-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-image {
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+        
+        .course-progress {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-top: 0.3rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 3px;
+        }
+        
+        .course-content {
+            padding: 1rem;
+        }
+        
+        .course-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .course-instructor {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .course-action {
+            text-align: left;
+        }
+        
+        .btn-continue {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-continue:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* الجدول الأخير */
+        .recent-activity {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .activity-table th,
+        .activity-table td {
+            padding: 1rem;
+            text-align: right;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .activity-table th {
+            background: #f9fafb;
+            color: var(--gray-color);
+            font-weight: 600;
+        }
+        
+        .activity-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .activity-type.course {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .activity-type.video {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .activity-type.quiz {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        /* التنبيهات */
+        .notifications-panel {
+            position: fixed;
+            top: 0;
+            left: -400px;
+            width: 350px;
+            height: 100vh;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .notifications-panel.show {
+            left: 0;
+        }
+        
+        .notifications-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notifications-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .notification-item {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background: #f9fafb;
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        .notification-item.unread {
+            background: #e0e7ff;
+            border-right-color: var(--primary-color);
+        }
+        
+        .notification-time {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            margin-top: 0.5rem;
+        }
+        
+        /* زر القائمة المتحركة للجوال */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+        
+        /* التجاوب */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(100%);
+            }
+            
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-right: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-bar input {
+                width: 200px;
+            }
+            
+            .topbar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- الشريط الجانبي -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>منصتي التعليمية</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="صورة المستخدم" class="user-avatar">
+                <div class="user-name" id="userName">محمد أحمد</div>
+                <div class="user-role" id="userRole">طالب</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <a href="dashboard.html" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>الرئيسية</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="my-courses.html" class="nav-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>دوراتي</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="progress.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>تقدمي</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="certificates.html" class="nav-link">
+                        <i class="fas fa-certificate"></i>
+                        <span>شهاداتي</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>ملفي الشخصي</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#" class="nav-link" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>تسجيل الخروج</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- شريط الرأس العلوي -->
+            <header class="topbar">
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="page-title">
+                    <h1>لوحة التحكم</h1>
+                </div>
+                
+                <div class="topbar-actions">
+                    <div class="search-bar">
+                        <input type="text" placeholder="ابحث عن دورة...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <button class="notification-btn" onclick="toggleNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-toggle" onclick="toggleUserMenu()">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="صورة المستخدم" class="user-avatar" style="width: 40px; height: 40px;">
+                            <span>محمد أحمد</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- بطاقة الترحيب -->
+            <section class="welcome-card">
+                <div class="welcome-text">
+                    <h2>مرحباً محمد أحمد! 👋</h2>
+                    <p>استمر في التعلم وحقق أهدافك التعليمية</p>
+                </div>
+                
+                <div class="welcome-stats">
+                    <div class="welcome-stat">
+                        <h3>75%</h3>
+                        <p>متوسط تقدمك</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- إحصائيات سريعة -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalCourses">5</h3>
+                        <p>الدورات المسجلة</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="studyHours">48</h3>
+                        <p>ساعة دراسة</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="certificates">2</h3>
+                        <p>شهادات مكتسبة</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="avgScore">4.8</h3>
+                        <p>متوسط التقييم</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- الرسوم البيانية -->
+            <section class="charts-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>ساعات الدراسة الأسبوعية</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="studyChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>التقدم التعليمي</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- الدورات النشطة -->
+            <section class="active-courses">
+                <div class="section-header">
+                    <h2>الدورات النشطة</h2>
+                    <a href="my-courses.html" class="view-all">عرض الكل</a>
+                </div>
+                
+                <div class="courses-grid" id="activeCourses">
+                    <!-- سيتم تعبئة الدورات عبر JavaScript -->
+                </div>
+            </section>
+            
+            <!-- النشاط الأخير -->
+            <section class="recent-activity">
+                <div class="section-header">
+                    <h2>آخر النشاطات</h2>
+                </div>
+                
+                <table class="activity-table">
+                    <thead>
+                        <tr>
+                            <th>النشاط</th>
+                            <th>الدورة</th>
+                            <th>الوقت</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTable">
+                        <!-- سيتم تعبئة النشاطات عبر JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        
+        <!-- لوحة التنبيهات -->
+        <div class="notifications-panel" id="notificationsPanel">
+            <div class="notifications-header">
+                <h3>التنبيهات</h3>
+                <button onclick="toggleNotifications()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="notifications-list" id="notificationsList">
+                <!-- سيتم تعبئة التنبيهات عبر JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // بيانات تجريبية
+        const sampleData = {
+            user: {
+                name: "محمد أحمد",
+                role: "طالب",
+                email: "mohamed@example.com"
+            },
+            stats: {
+                totalCourses: 5,
+                studyHours: 48,
+                certificates: 2,
+                avgScore: 4.8
+            },
+            courses: [
+                {
+                    id: 1,
+                    title: "دورة تطوير الويب المتكاملة",
+                    instructor: "أحمد محمد",
+                    progress: 75,
+                    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                },
+                {
+                    id: 2,
+                    title: "دورة React المتقدمة",
+                    instructor: "سارة عبدالله",
+                    progress: 45,
+                    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                },
+                {
+                    id: 3,
+                    title: "دورة تصميم UI/UX",
+                    instructor: "خالد سعيد",
+                    progress: 90,
+                    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                }
+            ],
+            activities: [
+                {
+                    activity: "أكملت درس HTML الأساسي",
+                    course: "تطوير الويب",
+                    time: "منذ ساعتين",
+                    type: "video"
+                },
+                {
+                    activity: "سجلت في دورة React",
+                    course: "React المتقدمة",
+                    time: "منذ يوم",
+                    type: "course"
+                },
+                {
+                    activity: "أنهيت اختبار CSS",
+                    course: "تطوير الويب",
+                    time: "منذ 3 أيام",
+                    type: "quiz"
+                },
+                {
+                    activity: "حصلت على شهادة JavaScript",
+                    course: "تطوير الويب",
+                    time: "منذ أسبوع",
+                    type: "certificate"
+                }
+            ],
+            notifications: [
+                {
+                    id: 1,
+                    title: "اختبار جديد متاح",
+                    message: "اختبار CSS متاح الآن في دورة تطوير الويب",
+                    time: "منذ 5 دقائق",
+                    read: false
+                },
+                {
+                    id: 2,
+                    title: "تم إضافة درس جديد",
+                    message: "تم إضافة درس React Hooks في دورة React",
+                    time: "منذ ساعة",
+                    read: false
+                },
+                {
+                    id: 3,
+                    title: "تذكير بالدرس",
+                    message: "لديك درس JavaScript لم تتم مشاهدته",
+                    time: "منذ يوم",
+                    read: true
+                }
+            ]
+        };
+
+        // تهيئة لوحة التحكم
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحميل بيانات المستخدم
+            loadUserData();
+            
+            // تحميل الإحصائيات
+            loadStats();
+            
+            // تحميل الدورات
+            loadActiveCourses();
+            
+            // تحميل النشاطات
+            loadActivities();
+            
+            // تحميل التنبيهات
+            loadNotifications();
+            
+            // إنشاء الرسوم البيانية
+            createCharts();
+            
+            // إعداد أحداث المستخدم
+            setupEventListeners();
+            
+            // التحقق من تسجيل الدخول
+            checkLogin();
+        });
+
+        // تحميل بيانات المستخدم
+        function loadUserData() {
+            const user = sampleData.user;
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userRole').textContent = user.role;
+            
+            // تحديث معلومات المستخدم في القائمة العلوية
+            const userNameElements = document.querySelectorAll('.user-dropdown-toggle span');
+            userNameElements.forEach(el => {
+                el.textContent = user.name;
+            });
+        }
+
+        // تحميل الإحصائيات
+        function loadStats() {
+            const stats = sampleData.stats;
+            document.getElementById('totalCourses').textContent = stats.totalCourses;
+            document.getElementById('studyHours').textContent = stats.studyHours;
+            document.getElementById('certificates').textContent = stats.certificates;
+            document.getElementById('avgScore').textContent = stats.avgScore;
+        }
+
+        // تحميل الدورات النشطة
+        function loadActiveCourses() {
+            const container = document.getElementById('activeCourses');
+            const courses = sampleData.courses;
+            
+            let html = '';
+            courses.forEach(course => {
+                html += `
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('${course.image}'); background-size: cover;">
+                            <div class="course-progress">
+                                <span>${course.progress}% مكتمل</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${course.progress}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h3 class="course-title">${course.title}</h3>
+                            <p class="course-instructor">${course.instructor}</p>
+                            <div class="course-action">
+                                <a href="course.html?id=${course.id}" class="btn-continue">متابعة التعلم</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // تحميل النشاطات
+        function loadActivities() {
+            const tbody = document.getElementById('activityTable');
+            const activities = sampleData.activities;
+            
+            let html = '';
+            activities.forEach(activity => {
+                let typeClass = '';
+                let typeText = '';
+                
+                switch(activity.type) {
+                    case 'course':
+                        typeClass = 'course';
+                        typeText = 'دورة';
+                        break;
+                    case 'video':
+                        typeClass = 'video';
+                        typeText = 'فيديو';
+                        break;
+                    case 'quiz':
+                        typeClass = 'quiz';
+                        typeText = 'اختبار';
+                        break;
+                    default:
+                        typeClass = 'course';
+                        typeText = 'نشاط';
+                }
+                
+                html += `
+                    <tr>
+                        <td>${activity.activity}</td>
+                        <td>${activity.course}</td>
+                        <td>${activity.time}</td>
+                        <td><span class="activity-type ${typeClass}">${typeText}</span></td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // تحميل التنبيهات
+        function loadNotifications() {
+            const container = document.getElementById('notificationsList');
+            const notifications = sampleData.notifications;
+            
+            let html = '';
+            notifications.forEach(notification => {
+                const readClass = notification.read ? '' : 'unread';
+                html += `
+                    <div class="notification-item ${readClass}">
+                        <strong>${notification.title}</strong>
+                        <p>${notification.message}</p>
+                        <div class="notification-time">${notification.time}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // إنشاء الرسوم البيانية
+        function createCharts() {
+            // مخطط ساعات الدراسة
+            const studyCtx = document.getElementById('studyChart').getContext('2d');
+            const studyChart = new Chart(studyCtx, {
+                type: 'line',
+                data: {
+                    labels: ['الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد'],
+                    datasets: [{
+                        label: 'ساعات الدراسة',
+                        data: [2, 3, 4, 3, 5, 6, 4],
+                        borderColor: '#4f46e5',
+                        backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + ' ساعة';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // مخطط التقدم التعليمي
+            const progressCtx = document.getElementById('progressChart').getContext('2d');
+            const progressChart = new Chart(progressCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['مكتمل', 'قيد التنفيذ', 'لم يبدأ'],
+                    datasets: [{
+                        data: [60, 30, 10],
+                        backgroundColor: [
+                            '#10b981',
+                            '#f59e0b',
+                            '#e5e7eb'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            rtl: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // إعداد أحداث المستخدم
+        function setupEventListeners() {
+            // البحث
+            const searchInput = document.querySelector('.search-bar input');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchCourses(this.value);
+                    }
+                });
+            }
+            
+            // قائمة المستخدم المنسدلة
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.user-dropdown')) {
+                    closeUserMenu();
+                }
+            });
+        }
+
+        // التحقق من تسجيل الدخول
+        function checkLogin() {
+            // في حالة حقيقية، سيكون هناك تحقق من التوكن
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            
+            if (!isLoggedIn) {
+                // عرض رسالة بدلاً من إعادة التوجيه القسري
+                showMessage('يجب تسجيل الدخول للوصول للوحة التحكم', 'warning');
+                
+                // إضافة زر تسجيل دخول في مكان ما
+                const welcomeCard = document.querySelector('.welcome-card');
+                if (welcomeCard) {
+                    welcomeCard.innerHTML += `
+                        <div style="margin-top: 1rem;">
+                            <a href="login.html" class="btn-continue">تسجيل الدخول</a>
+                            <a href="register.html" class="btn-continue" style="background: #6b7280; margin-right: 1rem;">إنشاء حساب</a>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // وظائف التحكم
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        function toggleNotifications() {
+            const panel = document.getElementById('notificationsPanel');
+            panel.classList.toggle('show');
+            
+            // تحديث عدد التنبيهات غير المقروءة
+            updateNotificationBadge();
+        }
+
+        function toggleUserMenu() {
+            // يمكن إضافة قائمة منسدلة هنا
+            console.log('فتح قائمة المستخدم');
+        }
+
+        function closeUserMenu() {
+            // إغلاق قائمة المستخدم
+        }
+
+        function updateNotificationBadge() {
+            const badge = document.querySelector('.notification-badge');
+            const unreadCount = sampleData.notifications.filter(n => !n.read).length;
+            badge.textContent = unreadCount;
+            
+            if (unreadCount === 0) {
+                badge.style.display = 'none';
+            } else {
+                badge.style.display = 'flex';
+            }
+        }
+
+        function searchCourses(query) {
+            if (query.trim()) {
+                showMessage(`جاري البحث عن: ${query}`, 'info');
+                // في حالة حقيقية، سيتم إجراء بحث حقيقي
+            }
+        }
+
+        function showMessage(message, type = 'info') {
+            // إنشاء عنصر الرسالة
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `notification ${type}`;
+            messageDiv.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                                      type === 'error' ? 'exclamation-circle' : 
+                                      type === 'warning' ? 'exclamation-triangle' : 
+                                      'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            // إضافة الأنماط
+            messageDiv.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                background: ${type === 'success' ? '#d1fae5' :
+                            type === 'error' ? '#fee2e2' :
+                            type === 'warning' ? '#fef3c7' :
+                            '#e0e7ff'};
+                color: ${type === 'success' ? '#065f46' :
+                        type === 'error' ? '#991b1b' :
+                        type === 'warning' ? '#92400e' :
+                        '#3730a3'};
+                border: 1px solid ${type === 'success' ? '#a7f3d0' :
+                                  type === 'error' ? '#fecaca' :
+                                  type === 'warning' ? '#fde68a' :
+                                  '#c7d2fe'};
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                max-width: 400px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            `;
+            
+            // إضافة إلى الصفحة
+            document.body.appendChild(messageDiv);
+            
+            // إزالة تلقائية بعد 5 ثواني
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 5000);
+        }
+
+        function logout() {
+            // مسح بيانات الجلسة
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userEmail');
+            
+            // عرض رسالة
+            showMessage('تم تسجيل الخروج بنجاح', 'success');
+            
+            // إعادة التوجيه للصفحة الرئيسية
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+
+        // جعل الدوال متاحة عالمياً
+        window.toggleSidebar = toggleSidebar;
+        window.toggleNotifications = toggleNotifications;
+        window.toggleUserMenu = toggleUserMenu;
+        window.logout = logout;
+    </script>
+</body>
+</html>

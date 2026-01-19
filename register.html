@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - المنصة التعليمية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            color: #4f46e5;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        
+        .logo i {
+            font-size: 40px;
+            color: #4f46e5;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+        
+        .password-container {
+            position: relative;
+        }
+        
+        .password-container input {
+            padding-right: 45px;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #4338ca;
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .message {
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+            display: block;
+        }
+        
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            display: block;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .login-link a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .terms {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        .terms input {
+            width: auto;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>منصتي التعليمية</h1>
+        </div>
+        
+        <h2>إنشاء حساب جديد</h2>
+        
+        <div id="message" class="message"></div>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="name">الاسم الكامل</label>
+                <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" placeholder="example@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required minlength="6">
+                    <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">تأكيد كلمة المرور</label>
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group terms">
+                <label>
+                    <input type="checkbox" id="agreeTerms" required>
+                    أوافق على الشروط والأحكام
+                </label>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">
+                <span id="btnText">إنشاء حساب</span>
+                <div id="spinner" class="spinner" style="display: none;"></div>
+            </button>
+        </form>
+        
+        <div class="login-link">
+            <p>لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+        </div>
+    </div>
+
+    <script>
+        // تبديل عرض كلمة المرور
+        function togglePassword(fieldId) {
+            const input = document.getElementById(fieldId);
+            const icon = input.nextElementSibling.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        // التحقق من صحة البريد الإلكتروني
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // عرض رسالة
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+        }
+        
+        // إخفاء رسالة
+        function hideMessage() {
+            document.getElementById('message').style.display = 'none';
+        }
+        
+        // إظهار/إخفاء مؤشر التحميل
+        function showLoading() {
+            document.getElementById('btnText').style.display = 'none';
+            document.getElementById('spinner').style.display = 'inline-block';
+            document.getElementById('submitBtn').disabled = true;
+        }
+        
+        function hideLoading() {
+            document.getElementById('btnText').style.display = 'inline-block';
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('submitBtn').disabled = false;
+        }
+        
+        // معالجة التسجيل
+        async function handleRegister(event) {
+            event.preventDefault();
+            
+            // جمع البيانات
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // التحقق من البيانات
+            if (!name) {
+                showMessage('الرجاء إدخال الاسم الكامل', 'error');
+                return;
+            }
+            
+            if (!email || !isValidEmail(email)) {
+                showMessage('الرجاء إدخال بريد إلكتروني صالح', 'error');
+                return;
+            }
+            
+            if (!password || password.length < 6) {
+                showMessage('كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showMessage('كلمات المرور غير متطابقة', 'error');
+                return;
+            }
+            
+            if (!agreeTerms) {
+                showMessage('الرجاء الموافقة على الشروط والأحكام', 'error');
+                return;
+            }
+            
+            try {
+                // إظهار التحميل
+                showLoading();
+                
+                // محاكاة الاتصال بالسيرفر (يمكنك استبدال هذا بـ API حقيقي)
+                await simulateRegister({ name, email, password });
+                
+                // إخفاء التحميل
+                hideLoading();
+                
+                // عرض رسالة النجاح
+                showMessage('تم إنشاء الحساب بنجاح! يتم الآن تسجيل الدخول...', 'success');
+                
+                // حفظ بيانات المستخدم (في الواقع سيكون توكن من السيرفر)
+                localStorage.setItem('userName', name);
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('isLoggedIn', 'true');
+                
+                // الانتقال إلى لوحة التحكم بعد 2 ثانية
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+                
+            } catch (error) {
+                hideLoading();
+                showMessage(error.message, 'error');
+            }
+        }
+        
+        // محاكاة تسجيل الدخول (استبدل هذا بالـ API الحقيقي)
+        function simulateRegister(userData) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    // التحقق إذا كان البريد مسجلاً مسبقاً (في localStorage)
+                    const users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const userExists = users.some(user => user.email === userData.email);
+                    
+                    if (userExists) {
+                        reject(new Error('البريد الإلكتروني مسجل مسبقاً'));
+                    } else {
+                        // حفظ المستخدم
+                        users.push(userData);
+                        localStorage.setItem('users', JSON.stringify(users));
+                        resolve({ success: true });
+                    }
+                }, 1500);
+            });
+        }
+        
+        // إضافة حدث للنموذج
+        document.getElementById('registerForm').addEventListener('submit', handleRegister);
+        
+        // التحقق من تطابق كلمة المرور أثناء الكتابة
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.style.borderColor = '#ef4444';
+            } else {
+                this.style.borderColor = password && confirmPassword ? '#10b981' : '#ddd';
+            }
+        });
+        
+        // التحقق من صحة البريد الإلكتروني أثناء الكتابة
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value;
+            
+            if (email && !isValidEmail(email)) {
+                this.style.borderColor = '#ef4444';
+            } else if (email) {
+                this.style.borderColor = '#10b981';
+            } else {
+                this.style.borderColor = '#ddd';
+            }
+        });
+    </script>
+    
+    <!-- Font Awesome للآيكونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</body>
+</html>

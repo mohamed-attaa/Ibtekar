@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ابتكر - تعلم بذكاء</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* Reset and Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+:root {
+    --primary-gold: #D4AF37;
+    --gold-light: #FFE8A3;
+    --gold-dark: #B8860B;
+    --white: #FFFFFF;
+    --black: #000000;
+    --gray-dark: #1A1A1A;
+    --gray-medium: #333333;
+    --gray-light: #F5F5F5;
+    --bg: #FAFAFA;
+    --text: #2C2C2C;
+    --accent: #D4AF37;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    background: rgba(255,255,255,0.98);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Logo on the right */
+.nav-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    justify-content: flex-start;
+}
+.logo-links .has-dropdown {
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.logo-img {
+    width: 100px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.logo-links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo-links a {
+    text-decoration: none;
+    color: var(--gray-medium);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.logo-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
+    transition: width 0.3s ease;
+}
+
+.logo-links a:hover::after,
+.logo-links a.active::after {
+    width: 100%;
+}
+
+.logo-links a:hover,
+.logo-links a.active {
+    color: var(--primary-gold);
+}
+
+/* Search in center */
+.search-container {
+    flex: 2;
+    max-width: 600px;
+    margin: 0 30px;
+    position: relative;
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 45px 12px 20px;
+    border: 2px solid var(--gold-light);
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    background: var(--white);
+    color: var(--gray-dark);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--primary-gold);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+}
+
+.search-button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--primary-gold);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--gray-medium);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--primary-gold);
+}
+
+/* Nav left section (buttons and cart) */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.cart-container {
+    position: relative;
+}
+
+.cart {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFFBF0, #FFF5E1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--primary-gold);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 15px;
+    border: none;
+    white-space: nowrap;
+}
+
+.btn-login {
+    background: var(--white);
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+.btn-login:hover {
+    background: var(--primary-gold);
+    color: var(--white);
+}
+
+.btn-signup {
+    color: var(--white);
+    background: linear-gradient(135deg, var(--gold-light), var(--primary-gold));
+}
+
+.btn-signup:hover {
+    transform: translateY(-3px);
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--primary-gold);
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* ========== CART MODAL ========== */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: none;
+    justify-content: flex-end;
+}
+
+.cart-modal.show {
+    display: flex;
+}
+
+.cart-sidebar {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold-light);
+    margin-bottom: 20px;
+}
+
+.cart-header h3 {
+    color: var(--gray-dark);
+    font-size: 24px;
+    margin: 0;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--primary-gold);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    min-height: 300px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--gray-light);
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.cart-item-price {
+    color: var(--primary-gold);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.remove-from-cart {
+    background: none;
+    border: none;
+    color: #ff4444;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.remove-from-cart:hover {
+    background: #ffeeee;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--gray-medium);
+}
+
+.cart-empty i {
+    font-size: 60px;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+}
+
+.cart-empty p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart-total {
+    padding: 20px;
+    background: var(--gray-light);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.total-row.final {
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--gray-dark);
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px solid var(--gold-light);
+}
+
+.cart-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-btn {
+    background: linear-gradient(135deg, var(--primary-gold), var(--gold-dark));
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+.continue-btn {
+    background: white;
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+    padding: 16px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+    background: var(--primary-gold);
+    color: white;
+}
+
+/* ========== SEARCH RESULTS DROPDOWN ========== */
+.search-results-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    max-height: 500px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    margin-top: 10px;
+    border: 2px solid var(--gold-light);
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.search-result-item:hover {
+    background: var(--gray-light);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.search-result-item h4 {
+    margin: 0 0 5px 0;
+    color: var(--gray-dark);
+    font-size: 16px;
+    flex: 1;
+}
+
+.search-result-item p {
+    margin: 0;
+    color: var(--gray-medium);
+    font-size: 14px;
+}
+
+.search-result-item .price {
+    color: var(--primary-gold);
+    font-weight: 700;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.no-results {
+    padding: 30px;
+    text-align: center;
+    color: var(--gray-medium);
+    font-size: 16px;
+}
+
+/* ========== DROPDOWN MENU FOR "تعلم" LINK ========== */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* يبدأ من نهاية العنصر */
+    right: 0;
+    margin-top: 0; /* إزالة أي هامش */
+    padding-top: 0;
+    background: white;
+    border-radius: 0 0 15px 15px; /* زوايا مستديرة فقط من الأسفل */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    min-width: 200px;
+    display: none;
+    z-index: 1000;
+    border: 2px solid var(--gold-light);
+    overflow: hidden;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 15px 20px;
+    color: var(--gray-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.dropdown-item:hover {
+    background: var(--gray-light);
+    color: var(--primary-gold);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+/* Mobile Sidebar */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--white);
+    z-index: 9999;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+    transition: right 0.4s;
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-sidebar.active {
+    right: 0;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-search {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.mobile-search-input {
+    width: 100%;
+    padding: 12px 45px 12px 20px;
+    border: 2px solid var(--gold-light);
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+.mobile-search-button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--primary-gold);
+    font-size: 18px;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.mobile-nav-links a {
+    padding: 15px 20px;
+    color: var(--gray-dark);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-nav-links a i {
+    width: 25px;
+    text-align: center;
+    color: var(--primary-gold);
+}
+
+.mobile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: auto;
+}
+
+/* ========== HERO SECTION WITH ANIMATION ========== */
+.hero-advanced {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 50%, var(--white) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 80px;
+    padding: 40px 5%;
+}
+
+/* Animated Background Particles */
+.hero-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: floatParticle 15s infinite linear;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-50px) translateX(20px) rotate(180deg);
+        opacity: 0.2;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+        opacity: 0.1;
+    }
+}
+
+.hero-center {
+    text-align: center;
+    z-index: 10;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.hero-title {
+    font-size: clamp(32px, 5vw, 48px);
+    background: linear-gradient(90deg, var(--primary-gold) 0%, var(--gold-dark) 50%, var(--primary-gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    background-size: 200% auto;
+    animation: shimmer 3s infinite linear;
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
+    animation: titleUnderline 2s ease-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes titleUnderline {
+    to {
+        width: 100%;
+    }
+}
+
+.hero-text {
+    max-width: 700px;
+    margin: 30px auto 40px;
+    color: var(--gray-medium);
+    font-size: clamp(16px, 2.5vw, 20px);
+    line-height: 1.8;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: textReveal 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes textReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-cta {
+    margin-top: 40px;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 35px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    color: var(--white);
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--gold-light), var(--primary-gold), var(--gold-dark));
+    background-size: 200% auto;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+    transition: all 0.4s ease;
+    animation: buttonGlow 2s infinite alternate, buttonFloat 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: auto;
+    max-width: 100%;
+}
+
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+    }
+    100% {
+        box-shadow: 0 20px 45px rgba(212, 175, 55, 0.6);
+    }
+}
+
+@keyframes buttonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.hero-cta:hover::before {
+    left: 100%;
+}
+
+.hero-cta:hover {
+    background-position: right center;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.7);
+}
+
+/* Floating Icons Animation */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.floating-element {
+    position: absolute;
+    font-size: 90px;
+    opacity: 0.2;
+    animation: floating 8s infinite ease-in-out;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 0.4;
+    }
+}
+
+.floating-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.floating-2 { top: 15%; right: 15%; animation-delay: 1s; }
+.floating-3 { bottom: 20%; left: 20%; animation-delay: 2s; }
+.floating-4 { bottom: 15%; right: 10%; animation-delay: 3s; }
+
+/* Animated Background Shapes */
+.hero-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.shape {
+    position: absolute;
+    background: linear-gradient(45deg, var(--gold-light), transparent);
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.1;
+    animation: shapeMove 20s infinite linear;
+}
+
+@keyframes shapeMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(100px, 100px) rotate(360deg);
+    }
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    animation-duration: 25s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+    animation-duration: 20s;
+    animation-delay: 5s;
+}
+
+/* ========== ABOUT SECTION ========== */
+.about-section {
+    padding: 100px 5%;
+    background: linear-gradient(180deg, var(--white), var(--gray-light));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.about-title {
+    color: var(--primary-gold);
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 25px;
+}
+
+.about-text {
+    color: var(--gray-medium);
+    line-height: 1.9;
+    font-size: clamp(15px, 1.8vw, 17px);
+    margin-bottom: 25px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.about-feature {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.about-feature:hover {
+    transform: translateY(-5px);
+}
+
+.about-feature i {
+    font-size: 26px;
+    color: var(--primary-gold);
+    background: #FFFBF0;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease;
+}
+
+.about-feature:hover i {
+    transform: rotateY(360deg);
+}
+
+.about-feature h4 {
+    margin: 0 0 8px;
+    color: var(--gray-dark);
+    font-size: 18px;
+}
+
+.about-feature p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--gray-medium);
+    line-height: 1.6;
+}
+
+/* ========== STAGE SECTION ========== */
+.stage-section {
+    padding: 100px 5%;
+    text-align: center;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stage-section h2 {
+    color: var(--primary-gold);
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 60px;
+}
+
+.stage-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.stage-card {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 40px 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.07);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.stage-card:nth-child(1) { animation-delay: 0.1s; }
+.stage-card:nth-child(2) { animation-delay: 0.2s; }
+.stage-card:nth-child(3) { animation-delay: 0.3s; }
+.stage-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stage-card:hover {
+    transform: translateY(-15px);
+}
+
+.stage-icon {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.stage-card:hover .stage-icon {
+    transform: scale(1.1);
+}
+
+.red { background: #FFF0F0; color: var(--black); border: 2px solid var(--black); }
+.blue { background: #F0F5FF; color: var(--black); border: 2px solid var(--black); }
+.green { background: #F0FFF0; color: var(--black); border: 2px solid var(--black); }
+.purple { background: #F5F0FF; color: var(--black); border: 2px solid var(--black); }
+
+.stage-card h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-dark);
+}
+
+.start-btn {
+    margin-top: 60px;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+/* ========== TRIAL SECTION ========== */
+.trial-section {
+    padding: 100px 5%;
+    background: linear-gradient(180deg, var(--white), var(--gray-light));
+    display: flex;
+    justify-content: center;
+}
+
+.trial-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+.lessons {
+    flex: 1;
+    min-width: 300px;
+}
+
+.lesson-box {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px 25px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideInRight 0.6s ease forwards;
+}
+
+.lesson-box:nth-child(1) { animation-delay: 0.1s; }
+.lesson-box:nth-child(2) { animation-delay: 0.2s; }
+.lesson-box:nth-child(3) { animation-delay: 0.3s; }
+.lesson-box:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.lesson-box:hover {
+    transform: translateX(8px);
+}
+
+.lesson-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.lesson-left i {
+    font-size: 20px;
+    color: var(--primary-gold);
+}
+
+.badge {
+    background: linear-gradient(90deg, #FFFBF0, #FFF5E1);
+    color: var(--primary-gold);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.trial-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.trial-text h2 {
+    color: var(--primary-gold);
+    font-size: clamp(28px, 4vw, 34px);
+    margin-bottom: 25px;
+}
+
+.trial-text p {
+    color: var(--gray-medium);
+    line-height: 1.9;
+    font-size: clamp(15px, 1.8vw, 17px);
+}
+
+.try-btn {
+    margin-top: 35px;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.try-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+/* ========== COURSES SECTION ========== */
+.section {
+    padding: 100px 5%;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section h2 {
+    text-align: center;
+    color: var(--primary-gold);
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 40px;
+}
+
+.top-bar {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filters button {
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: 1px solid var(--primary-gold);
+    background: var(--white);
+    color: var(--primary-gold);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.filters button:hover,
+.filters button.active {
+    background: linear-gradient(90deg, var(--primary-gold), var(--gold-dark));
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.arrows i {
+    background: var(--white);
+    padding: 12px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.1);
+    transition: all 0.3s ease;
+    color: var(--primary-gold);
+    font-size: 16px;
+}
+
+.arrows i:hover {
+    background: linear-gradient(90deg, var(--primary-gold), var(--gold-dark));
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.cards-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    animation: cardReveal 0.5s ease forwards;
+}
+
+@keyframes cardReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0,0,0,.15);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.08);
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card-content h1 {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--gray-dark);
+    font-weight: 700;
+}
+
+.card-content p {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: var(--gray-medium);
+}
+
+.price {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.price span {
+    color: var(--primary-gold);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.price button {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.price button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* ========== SHOWCASE SECTION ========== */
+.showcase-section {
+    padding: 120px 5%;
+    background: linear-gradient(180deg, var(--white), var(--gray-light));
+    display: flex;
+    justify-content: center;
+}
+
+.showcase-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+/* العنوان */
+.showcase-content h1 {
+    color: var(--primary-gold); /* ذهبي */
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 20px;
+}
+
+/* البرجراف */
+.showcase-content p {
+    color: var(--gray-medium);
+    font-size: clamp(15px, 1.8vw, 17px);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* الصورة */
+.showcase-image {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 30px;
+
+    background-image: url("./Imges/باك\ .jpeg");
+    background-size: contain;   /* الصورة كاملة */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ========== FOOTER ========== */
+.footer {
+    background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
+    color: var(--white);
+    padding: 40px 5% 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo i {
+    color: var(--primary-gold);
+    font-size: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-gold);
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--primary-gold);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #aaa;
+    font-size: 13px;
+    width: 100%;
+}
+
+/* ========== WHATSAPP BUTTON ========== */
+.whatsapp-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366, var(--primary-gold));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    }
+    50% { 
+        transform: scale(1.1);
+        box-shadow: 0 20px 45px rgba(37, 211, 102, 0.6);
+    }
+}
+
+.whatsapp-chat:hover {
+    transform: scale(1.15);
+    box-shadow: 0 25px 50px rgba(37, 211, 102, 0.7);
+    animation: none;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+    .search-container {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .search-container {
+        max-width: 400px;
+    }
+    
+    .logo-links,
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .logo-links,
+    .nav-links,
+    .search-container {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-logo-section {
+        justify-content: center;
+    }
+    
+    .logo {
+        margin-right: 0;
+    }
+    
+    .mobile-search {
+        display: block;
+    }
+    
+    /* Hide animations on mobile for better performance */
+    .floating-elements,
+    .hero-shapes,
+    .hero-particles {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+    }
+    
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .hero-advanced {
+        min-height: auto;
+        padding: 60px 5%;
+        margin-top: 70px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-text {
+        font-size: 16px;
+    }
+    
+    .hero-cta {
+        padding: 15px 40px;
+        font-size: 16px;
+    }
+    
+    .about-section,
+    .stage-section,
+    .trial-section,
+    .section,
+    .showcase-section {
+        padding: 70px 5%;
+    }
+    
+    .trial-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    
+    .showcase-images {
+        flex-direction: column;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .cart {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .stage-cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-left {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 24px;
+    }
+    
+    .hero-cta {
+        padding: 14px 30px;
+        font-size: 16px;
+    }
+    
+    .stage-section h2,
+    .section h2,
+    .trial-text h2 {
+        font-size: 24px;
+    }
+    
+    .btn-login,
+    .btn-signup {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== UNIVERSITIES DROPDOWN IN NAVBAR ========== */
+.nav-universities-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.universities-btn {
+    background: none;
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.universities-btn:hover {
+    background: var(--primary-gold);
+    color: var(--white);
+}
+
+.universities-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    width: 300px;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1000;
+    border: 2px solid transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.universities-dropdown.show {
+    max-height: 400px;
+    border-color: var(--gold-light);
+    opacity: 1;
+    visibility: visible;
+    margin-top: 5px;
+}
+
+.universities-search {
+    padding: 15px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+}
+
+.universities-search input {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: 1px solid var(--gold-light);
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+}
+
+.universities-search i {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-gold);
+}
+
+.universities-list {
+    padding: 10px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.university-item {
+    display: block;
+    padding: 12px 20px;
+    color: var(--gray-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+}
+
+.university-item:hover {
+    background: var(--gray-light);
+    color: var(--primary-gold);
+    padding-right: 25px;
+}
+
+.university-item:last-child {
+    border-bottom: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Logo and Links on Right -->
+    <div class="nav-logo-section">
+        <a href="#" class="logo">
+            <img src="./Imges/logo.jpeg" alt="ابتكر" class="logo-img">
+            <span>ابتكر</span>
+        </a>
+        
+        <div class="logo-links">
+            <a href="#" class="active">الرئيسية</a>
+            <a href="university.html" class="has-dropdown">تعلم</a>
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="university.html" class="dropdown-item">مواد جامعية</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Search in Center -->
+    <div class="search-container">
+        <div class="search-results-container">
+            <form class="search-form" id="searchForm">
+                <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن مادة أو كورس...">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+    
+    <!-- Navigation Links -->
+    <div class="nav-links">
+<div class="dropdown-wrapper">
+        <button class="universities-btn" id="universitiesBtn">جميع الجامعات</button>
+        <div class="universities-dropdown" id="universitiesDropdown">
+            <div class="universities-search">
+                <input type="text" placeholder="ابحث عن جامعة..." id="universitySearch">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="universities-list">
+                <a href="#" class="university-item" data-university="all">جميع الجامعات</a>
+                <a href="#" class="university-item" data-university="king-khalid">جامعة الملك خالد</a>
+                <a href="#" class="university-item" data-university="king-faisal">جامعة الملك فيصل</a>
+                <a href="#" class="university-item" data-university="taibah">جامعة طيبة</a>
+                <a href="#" class="university-item" data-university="taif">جامعة الطائف</a>
+                <a href="#" class="university-item" data-university="jeddah">جامعة جدة</a>
+                <a href="#" class="university-item" data-university="umm-alqura">جامعة أم القرى</a>
+                <a href="#" class="university-item" data-university="al-baha">جامعة الباحة</a>
+                <a href="#" class="university-item" data-university="qassim">جامعة القصيم</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+        <a href="#about">عن ابتكر</a>
+        <a href="#courses">الكورسات</a>
+    </div>
+    
+    <!-- Left Section (Cart and Buttons) -->
+    <div class="nav-left">
+        <!-- Cart -->
+        <div class="cart-container">
+            <div class="cart" id="cartButton">
+                🛒
+                <div class="cart-count" id="cartCount">0</div>
+            </div>
+        </div>
+        <a href="Get Your Course.html">
+        <button class="btn btn-login">اطلب مقررك</button>
+    </a>
+        <!-- Buttons -->
+        <a href="login.html">
+            <button class="btn btn-login">دخول</button>
+        </a>
+        <a href="register.html">
+            <button class="btn btn-signup">انضم الآن</button>
+        </a>
+    </div>
+</div>
+
+<!-- Cart Modal -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>عربة التسوق</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be inserted here by JavaScript -->
+        </div>
+        <div class="cart-total" id="cartTotal">
+            <!-- Total will be calculated by JavaScript -->
+        </div>
+        <div class="cart-buttons">
+            <button class="checkout-btn" id="checkoutBtn">إتمام الشراء</button>
+            <button class="continue-btn" id="continueBtn">مواصلة التسوق</button>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <!-- Mobile Search -->
+    <div class="mobile-search">
+        <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="ابحث عن مادة...">
+        <button class="mobile-search-button" id="mobileSearchButton">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    
+    <div class="mobile-nav-links">
+        <a href="Get Your Course.html">
+        <button class="btn btn-login">اطلب مقررك</button>
+    </a>
+        <a href="#" class="active"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="university.html"><i class="fas fa-book-open"></i> تعلم</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> عن ابتكر</a>
+        <a href="#courses"><i class="fas fa-graduation-cap"></i> الكورسات</a>
+        <a href="#contact"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
+    </div>
+    
+    <div class="mobile-buttons">
+        <a href="login.html" style="width: 100%;">
+            <button class="btn btn-login" style="width: 100%;">دخول</button>
+        </a>
+        <a href="register.html" style="width: 100%;">
+            <button class="btn btn-signup" style="width: 100%;">انضم الآن</button>
+        </a>
+    </div>
+</div>
+
+<!-- HERO SECTION WITH ANIMATION -->
+<section class="hero-advanced">
+    <!-- Animated Background Particles -->
+    <div class="hero-particles" id="hero-particles"></div>
+    
+    <!-- Animated Background Shapes -->
+    <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+    
+    <!-- Floating Icons -->
+    <div class="floating-elements">
+        <div class="floating-element floating-1">📚</div>
+        <div class="floating-element floating-2">🎓</div>
+        <div class="floating-element floating-3">💡</div>
+        <div class="floating-element floating-4">🌟</div>
+    </div>
+    
+    <div class="hero-center">
+        <h1 class="hero-title">تعلم بذكاء</h1>
+        <p class="hero-text">
+            في بيئة تفاعلية مع أفضل المعلمين والمدربين، معك في كل مرحلة من الثانوية
+            إلى التحصيلي والقدرات ثم الجامعة والمسارات الاحترافية في ابتكر
+        </p>
+        <button class="hero-cta" id="heroCta">ابدأ رحلتك التعليمية</button>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section" id="about">
+    <div class="about-container">
+        <div class="about-content">
+            <h2 class="about-title">مرحبًا بكم في منصة ابتكر</h2>
+            <p class="about-text">
+                مرحبًا بكم في منصة ابتكر، المنصة التعليمية التي تهدف إلى تقديم شروحات متخصصة لطلاب الجامعات، لتمكينهم من فهم المواد الدراسية بسهولة وبشكل عملي.
+                نسعى دائمًا لتطوير المنصة، لإدراج جامعات وإضافة مواد جديدة، وفي حالة عدم العثور على المقرر الذي يحتاجه الطالب، يمكنه التواصل معنا وسيتم إضافته قريبًا بإذن الله.
+                كما نوفر تدريبًا مهنيًا للخريجين في أقل من ثلاثة أيام، لتأهيلهم لسوق العمل واجتياز المقابلات الشخصية في مجال المحاسبة، بإذن الله.
+                معظم الشروحات حاليا من شرح الدكتور محمد خالد بكر. مالك منصه ابتكر
+            </p>
+            
+            <div class="about-features">
+                <div class="about-feature">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>
+                        <h4>معلم ممتاذ</h4>
+                        <p>حبرة في الشرح والتدريس لقد طور من اجيال كثيرة</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-video"></i>
+                    <div>
+                        <h4>شرح تفاعلي</h4>
+                        <p>محاضرات مسجلة ومباشرة عالية الجودة مع أسئلة تفاعلية</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <h4>مواد شاملة</h4>
+                        <p>شروحات كاملة لجميع المواد الدراسية والجامعية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STAGE SECTION -->
+<section class="stage-section">
+    <h2>ابدأ رحلتك مع ابتكر</h2>
+    <div class="stage-cards">
+        <div class="stage-card">
+            <div class="stage-icon red">1</div>
+            <h3>اشترك</h3>
+        </div>
+        <div class="stage-card">
+            <div class="stage-icon blue">2</div>
+            <h3>تعلم</h3>
+        </div>
+        <div class="stage-card">
+            <div class="stage-icon green">3</div>
+            <h3>اختبار</h3>
+        </div>
+        <div class="stage-card">
+            <div class="stage-icon purple">4</div>
+            <h3>احصل على الشهادة</h3>
+        </div>
+    </div>
+    <button class="start-btn" id="startBtn">ابدأ الآن</button>
+</section>
+
+<!-- TRIAL SECTION -->
+<section class="trial-section">
+    <div class="trial-container">
+        <div class="lessons">
+            <div class="lesson-box">
+                <span class="badge">تجربة مجانية</span>
+                <span>الفصل الأول</span>
+            </div>
+            <div class="lesson-box">
+                <div class="lesson-left">
+                    <i class="fa-solid fa-play"></i>
+                    <span>الدرس الأول</span>
+                </div>
+                <span>15 د</span>
+            </div>
+            <div class="lesson-box">
+                <div class="lesson-left">
+                    <i class="fa-solid fa-play"></i>
+                    <span>الدرس الثاني</span>
+                </div>
+                <span>15 د</span>
+            </div>
+            <div class="lesson-box">
+                <div class="lesson-left">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>الدرس الثالث</span>
+                </div>
+                <span>15 د</span>
+            </div>
+        </div>
+        <div class="trial-text">
+            <h2>تجربة مجانية</h2>
+            <p>
+                احصل على تجربة مجانية لكل محتوى تعليمي، قيم
+                جودة الشرح والمحتوى بنفسك ومن ثم بإمكانك
+                الاشتراك
+            </p>
+            <button class="try-btn" id="tryBtn">جرب الآن</button>
+        </div>
+    </div>
+</section>
+
+<!-- COURSES SECTION WITH ALL CARDS -->
+<section class="section" id="courses">
+    <h2>الكورسات التعليمية</h2>
+    <div class="top-bar">
+        <div class="filters">
+            <button class="active">مواد دراسية</button>
+        </div>
+        <div class="arrows">
+            <i class="fa fa-arrow-right" id="prev"></i>
+            <i class="fa fa-arrow-left" id="next"></i>
+        </div>
+    </div>
+    <div class="cards-grid">
+        <!-- PAGE 1 -->
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (1).jpeg"><div class="card-content"><h1>محاسبه تكاليف </h1><p>شرح شامل</p><p>جامعه الباحه</p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (2).jpeg"><div class="card-content"><h1>المحاسبه المتقدمه</h1><p>جامعه الباحه </p><p>تبسيط كامل</p><div class="price"><span>100 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM.jpeg"><div class="card-content"><h1> 2المحاسبه المتوسطه</h1><p>جامعه الباحه </p><p></p><div class="price"><span>100 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM (1).jpeg"><div class="card-content"><h1>1 مقرر محاسبه ماليه متوسطه</h1><p> جامعه طيبه  </p><p></p><div class="price"><span>90 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM.jpeg"><div class="card-content"><h1>2 مقرر محاسبه ماليه متوسطه</h1><p>جامعه طيبة</p><p>شرح مبسط</p><div class="price"><span>90 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM (1).jpeg"><div class="card-content"><h1>التكاليف والمحاسبه الاداريه </h1><p>جامعه طيبة</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM.jpeg"><div class="card-content"><h1>المحاسبه الماليه المتقدمه </h1><p> جامعه طيبة </p><p></p><div class="price"><span>100 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg"><div class="card-content"><h1>محاسبه متوسطه 2</h1><p>جامعه القصيم </p><p></p><div class="price"><span>90</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg"><div class="card-content"><h1>  مبادئ الاقتصاد الجزئي</h1><p> جامعه الملك خالد </p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg"><div class="card-content"><h1>  الاحصاء التطبيقي</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg"><div class="card-content"><h1>محاسبه متوسطه 1</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg"><div class="card-content"><h1>  رياضيات التمويل والاستثمار </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg"><div class="card-content"><h1>   مبادئالاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه   </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg"><div class="card-content"><h1>   الرياضيات للاقتصاد والعلوم الاداريه والماليه </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>100 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg"><div class="card-content"><h1>    محاسبة المنشات الماليه  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg"><div class="card-content"><h1>    محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg"><div class="card-content"><h1>  ادارة مالية 2 </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg"><div class="card-content"><h1>    مفاهيم واهداف محاسبة التكاليف</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+
+        <!-- PAGE 2 -->
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg"><div class="card-content"><h1>محاسبه متوسطه 1 </h1><p>محاسبه علي اساس الاستحقاق</p><p>جامعه ام القري</p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg"><div class="card-content"><h1>محاسبة</h1><p>جامعه الطائف</p><p> </p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg"><div class="card-content"><h1>محاسبه التكاليف </h1><p>جامعه الطائف </p><p></p><div class="price"><span>20 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM.jpeg"><div class="card-content"><h1>المحاسبه المتوسطه الجزء الثاني </h1><p>جامعه الطائف </p><p>أمثلة</p><div class="price"><span>80</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (1).jpeg"><div class="card-content"><h1>المحاسبه المتوسطه الجزء الاول </h1><p>جامعه الطائف </p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (2).jpeg"><div class="card-content"><h1> مبادئ الخطر والتامين</h1><p>جامعه الطائف</p><p></p><div class="price"><span>20 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM.jpeg"><div class="card-content"><h1>الاحصاء التطبيقي  </h1><p>جامعه الطائف</p><p></p><div class="price"><span>70 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM (1).jpeg"><div class="card-content"><h1>مبادئ الادارة الماليه </h1><p>جامعه الملك فيصل </p><p>تطبيقات</p><div class="price"><span>90 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (2).jpeg"><div class="card-content"><h1>  المحاسبه الماليه دبلوم  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM.jpeg"><div class="card-content"><h1>  مبادئ المحاسبه </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.50 AM.jpeg"><div class="card-content"><h1>  Business Combinations </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg"><div class="card-content"><h1>  محاسبه تكاليف وادارية </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg"><div class="card-content"><h1>  ادارة ماليه 1 </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg"><div class="card-content"><h1>    محاسبة الزكاى والضريبة  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg"><div class="card-content"><h1>    المحاسبة عن عمليات البضاعة  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg"><div class="card-content"><h1>    تحليل قائمه المركز المالي </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+    </div>
+</section>
+
+<!-- SHOWCASE SECTION -->
+<section class="showcase-section">
+    <div class="showcase-content">
+
+        <h1>مقررات الجامعات</h1>
+        <p>
+            لدينا شرح للعديد من الجامعات بتخصصاتها وموادها المختلفة
+        </p>
+
+        <div class="showcase-image"></div>
+
+    </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>ابتكر</span>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">الرئيسية</a>
+            <a href="#about">عن ابتكر</a>
+            <a href="#courses">الكورسات</a>
+            <a href="#">تواصل معنا</a>
+            <a href="#">سياسة الخصوصية</a>
+            <a href="#">الشروط والأحكام</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        
+        <div class="footer-copyright">
+            © 2023 منصة ابتكر التعليمية. جميع الحقوق محفوظة.
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/201015117547" target="_blank" class="whatsapp-chat">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+// Mobile Menu Functionality
+const menuToggle = document.getElementById('menuToggle');
+const mobileSidebar = document.getElementById('mobileSidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+menuToggle.addEventListener('click', function() {
+    mobileSidebar.classList.add('active');
+    sidebarOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+sidebarOverlay.addEventListener('click', function() {
+    mobileSidebar.classList.remove('active');
+    this.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Close sidebar when clicking links
+document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Course Pagination
+let currentPage = 1;
+const totalPages = 2;
+
+// Initially show page 1 cards
+document.querySelectorAll('.page-1').forEach(card => {
+    card.style.display = 'block';
+});
+
+document.querySelectorAll('.page-2').forEach(card => {
+    card.style.display = 'none';
+});
+
+function showPage(page) {
+    // Hide all cards
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.display = 'none';
+    });
+    
+    // Show cards for selected page
+    document.querySelectorAll('.page-' + page).forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    // Update current page
+    currentPage = page;
+}
+
+document.getElementById("next").addEventListener('click', function() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+    }
+});
+
+document.getElementById("prev").addEventListener('click', function() {
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+    }
+});
+
+// ========== SHOPPING CART FUNCTIONALITY ==========
+const cartButton = document.getElementById('cartButton');
+const cartModal = document.getElementById('cartModal');
+const closeCart = document.getElementById('closeCart');
+const cartItemsContainer = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotalContainer = document.getElementById('cartTotal');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const continueBtn = document.getElementById('continueBtn');
+
+// Load cart from localStorage or initialize empty array
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Update cart count
+function updateCartCount() {
+    cartCount.textContent = cart.length;
+}
+
+// Update cart modal
+function updateCartModal() {
+    cartItemsContainer.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>عربة التسوق فارغة</p>
+            </div>
+        `;
+        cartTotalContainer.innerHTML = `
+            <div class="total-row">
+                <span>المجموع:</span>
+                <span>0 ريال</span>
+            </div>
+            <div class="total-row final">
+                <span>الإجمالي:</span>
+                <span>0 ريال</span>
+            </div>
+        `;
+        return;
+    }
+    
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        const priceNum = parseInt(item.price.replace(/\D/g, ''));
+        total += priceNum;
+        
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.title}">
+            <div class="cart-item-details">
+                <div class="cart-item-title">${item.title}</div>
+                <div class="cart-item-price">${item.price}</div>
+            </div>
+            <button class="remove-from-cart" data-index="${index}">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        
+        cartItemsContainer.appendChild(cartItem);
+    });
+    
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-from-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartModal();
+            updateCartCount();
+        });
+    });
+    
+    cartTotalContainer.innerHTML = `
+        <div class="total-row">
+            <span>المجموع:</span>
+            <span>${total} ريال</span>
+        </div>
+        <div class="total-row final">
+            <span>الإجمالي:</span>
+            <span>${total} ريال</span>
+        </div>
+    `;
+}
+
+// Open cart modal
+cartButton.addEventListener('click', function() {
+    cartModal.classList.add('show');
+    updateCartModal();
+    document.body.style.overflow = 'hidden';
+});
+
+// Close cart modal
+closeCart.addEventListener('click', function() {
+    cartModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+});
+
+continueBtn.addEventListener('click', function() {
+    cartModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+});
+
+// Checkout button
+checkoutBtn.addEventListener('click', function() {
+    if (cart.length === 0) {
+        alert('عربة التسوق فارغة');
+        return;
+    }
+    alert('سيتم توجيهك إلى صفحة الدفع');
+    cartModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+});
+
+// Close cart when clicking outside
+cartModal.addEventListener('click', function(e) {
+    if (e.target === cartModal) {
+        cartModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Add to cart functionality
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const card = this.closest('.card');
+        const title = card.querySelector('h1').textContent;
+        const price = card.querySelector('.price span').textContent;
+        const image = card.querySelector('img').src;
+        
+        cart.push({
+            title: title,
+            price: price,
+            image: image
+        });
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        
+        alert('تمت إضافة الكورس إلى السلة');
+    });
+});
+
+// Initialize cart
+updateCartCount();
+
+// ========== SEARCH FUNCTIONALITY ==========
+const coursesData = [
+    // Page 1 courses with correct image paths
+    { title: "محاسبه تكاليف", description: "شرح شامل", university: "جامعه الباحه", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (1).jpeg" },
+    { title: "المحاسبه المتقدمه", description: "جامعه الباحه", university: "تبسيط كامل", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (2).jpeg" },
+    { title: "2المحاسبه المتوسطه", description: "جامعه الباحه", university: "", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM.jpeg" },
+    { title: "1 مقرر محاسبه ماليه متوسطه", description: "جامعه طيبه", university: "", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM (1).jpeg" },
+    { title: "2 مقرر محاسبه ماليه متوسطه", description: "جامعه طيبة", university: "شرح مبسط", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM.jpeg" },
+    { title: "التكاليف والمحاسبه الاداريه", description: "جامعه طيبة", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM (1).jpeg" },
+    { title: "المحاسبه الماليه المتقدمه", description: "جامعه طيبة", university: "", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM.jpeg" },
+    { title: "محاسبه متوسطه 2", description: "جامعه القصيم", university: "", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg" },
+    { title: "مبادئ الاقتصاد الجزئي", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg" },
+    { title: "الاحصاء التطبيقي", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg" },
+    { title: "محاسبه متوسطه 1", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg" },
+    { title: "رياضيات التمويل والاستثمار", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg" },
+    { title: "مبادئالاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg" },
+    { title: "الرياضيات للاقتصاد والعلوم الاداريه والماليه", description: "جامعه الملك خالد", university: "", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg" },
+    { title: "محاسبة المنشات الماليه", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg" },
+    { title: "محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg" },
+    { title: "ادارة مالية 2", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg" },
+    { title: "مفاهيم واهداف محاسبة التكاليف", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg" },
+    
+    // Page 2 courses
+    { title: "محاسبه متوسطه 1", description: "محاسبه علي اساس الاستحقاق", university: "جامعه ام القري", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg" },
+    { title: "محاسبة", description: "جامعه الطائف", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg" },
+    { title: "محاسبه التكاليف", description: "جامعه الطائف", university: "", price: "20 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg" },
+    { title: "المحاسبه المتوسطه الجزء الثاني", description: "جامعه الطائف", university: "أمثلة", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM.jpeg" },
+    { title: "المحاسبه المتوسطه الجزء الاول", description: "جامعه الطائف", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (1).jpeg" },
+    { title: "مبادئ الخطر والتامين", description: "جامعه الطائف", university: "", price: "20 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (2).jpeg" },
+    { title: "الاحصاء التطبيقي", description: "جامعه الطائف", university: "", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM.jpeg" },
+    { title: "مبادئ الادارة الماليه", description: "جامعه الملك فيصل", university: "تطبيقات", price: "90 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM (1).jpeg" },
+    { title: "المحاسبه الماليه دبلوم", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (2).jpeg" },
+    { title: "مبادئ المحاسبه", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM.jpeg" },
+    { title: "Business Combinations", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.50 AM.jpeg" },
+    { title: "محاسبه تكاليف وادارية", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg" },
+    { title: "ادارة ماليه 1", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg" },
+    { title: "محاسبة الزكاى والضريبة", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg" },
+    { title: "المحاسبة عن عمليات البضاعة", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg" },
+    { title: "تحليل قائمه المركز المالي", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg" }
+];
+
+const searchInput = document.getElementById('searchInput');
+const searchForm = document.getElementById('searchForm');
+const searchResults = document.getElementById('searchResults');
+const mobileSearchInput = document.getElementById('mobileSearchInput');
+const mobileSearchButton = document.getElementById('mobileSearchButton');
+
+// Display search results
+function displaySearchResults(query) {
+    searchResults.innerHTML = '';
+    
+    if (!query.trim()) {
+        searchResults.style.display = 'none';
+        return;
+    }
+    
+    const filtered = coursesData.filter(course => 
+        course.title.toLowerCase().includes(query.toLowerCase()) ||
+        course.description.toLowerCase().includes(query.toLowerCase()) ||
+        course.university.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    if (filtered.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">لا توجد نتائج</div>';
+        searchResults.style.display = 'block';
+    } else {
+        filtered.forEach(course => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            resultItem.innerHTML = `
+                <img src="${course.image}" alt="${course.title}">
+                <div>
+                    <h4>${course.title}</h4>
+                    <p>${course.description} - ${course.university}</p>
+                </div>
+                <div class="price">${course.price}</div>
+            `;
+            
+            resultItem.addEventListener('click', function() {
+                showPage(course.page);
+                searchInput.value = '';
+                searchResults.style.display = 'none';
+                
+                // Scroll to courses section
+                document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+        
+        searchResults.style.display = 'block';
+    }
+}
+
+// Desktop search
+searchInput.addEventListener('input', function() {
+    displaySearchResults(this.value);
+});
+
+searchForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    displaySearchResults(searchInput.value);
+});
+
+// Mobile search
+if (mobileSearchButton) {
+    mobileSearchButton.addEventListener('click', function() {
+        const query = mobileSearchInput.value.trim();
+        if (query) {
+            const filtered = coursesData.filter(course => 
+                course.title.toLowerCase().includes(query.toLowerCase()) ||
+                course.description.toLowerCase().includes(query.toLowerCase()) ||
+                course.university.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            if (filtered.length > 0) {
+                showPage(filtered[0].page);
+                mobileSearchInput.value = '';
+                mobileSidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('لم يتم العثور على نتائج');
+            }
+        }
+    });
+    
+    mobileSearchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            mobileSearchButton.click();
+        }
+    });
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', function(e) {
+    if (!searchForm.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = 'none';
+    }
+});
+
+// ========== DROPDOWN MENU FOR "تعلم" ==========
+const dropdownMenu = document.getElementById('dropdownMenu');
+const learnLink = document.querySelector('.has-dropdown');
+
+// Show dropdown on hover
+learnLink.addEventListener('mouseenter', function() {
+    dropdownMenu.classList.add('show');
+});
+
+// Hide dropdown when mouse leaves
+learnLink.addEventListener('mouseleave', function() {
+    setTimeout(() => {
+        if (!dropdownMenu.matches(':hover')) {
+            dropdownMenu.classList.remove('show');
+        }
+    }, 200);
+});
+
+dropdownMenu.addEventListener('mouseleave', function() {
+    dropdownMenu.classList.remove('show');
+});
+
+// ========== BUTTON FUNCTIONALITY ==========
+// Hero CTA button
+document.getElementById('heroCta').addEventListener('click', function() {
+    window.location.href = 'register.html';
+});
+
+// Start button
+document.getElementById('startBtn').addEventListener('click', function() {
+    window.location.href = 'register.html';
+});
+
+// Try button - Go to university.html
+document.getElementById('tryBtn').addEventListener('click', function() {
+    window.location.href = 'university.html';
+});
+
+// Login and register buttons
+document.querySelectorAll('a[href*="login.html"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'login.html';
+    });
+});
+
+document.querySelectorAll('a[href*="register.html"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'register.html';
+    });
+});
+
+// Create hero particles animation
+function createHeroParticles() {
+    const container = document.querySelector('.hero-particles');
+    if (!container || window.innerWidth <= 900) return;
+    
+    const particleCount = 25;
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 8 + 2;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 15;
+        
+        particle.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            left: ${posX}%;
+            top: ${posY}%;
+            animation-delay: ${delay}s;
+            animation-duration: ${duration}s;
+        `;
+        
+        container.appendChild(particle);
+    }
+}
+
+// Initialize animations
+window.addEventListener('load', function() {
+    createHeroParticles();
+    
+    // Animate cards on load
+    document.querySelectorAll('.card').forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.05}s`;
+    });
+});
+
+// Close sidebar on resize for large screens
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 900) {
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href !== '#') {
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========== UNIVERSITIES DROPDOWN FUNCTIONALITY ==========
+const universitiesBtn = document.getElementById('universitiesBtn');
+const universitiesDropdown = document.getElementById('universitiesDropdown');
+const universitySearch = document.getElementById('universitySearch');
+
+// Show/hide universities dropdown
+if (universitiesBtn && universitiesDropdown) {
+    universitiesBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // منع إغلاق القائمة
+        universitiesDropdown.classList.toggle('show');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!universitiesBtn.contains(e.target) && !universitiesDropdown.contains(e.target)) {
+            universitiesDropdown.classList.remove('show');
+        }
+    });
+    
+    // Filter universities when typing in search
+    if (universitySearch) {
+        universitySearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const items = universitiesDropdown.querySelectorAll('.university-item');
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+    
+    // Handle university selection
+    const universityItems = universitiesDropdown.querySelectorAll('.university-item');
+    universityItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const university = this.getAttribute('data-university');
+            
+            // Show notification
+            if (university === 'all') {
+                showNotification('تم عرض جميع الكورسات', 'success');
+            } else {
+                showNotification(`تم عرض كورسات ${this.textContent}`, 'success');
+            }
+            
+            // Show all cards (أو فلتر حسب الجامعة)
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.display = 'block';
+            });
+            
+            // Close dropdown
+            universitiesDropdown.classList.remove('show');
+            if (universitySearch) universitySearch.value = '';
+        });
+    });
+}
+
+// Function to show notification
+function showNotification(message, type) {
+    // Remove existing notification
+    const existing = document.querySelector('.university-notification');
+    if (existing) existing.remove();
+    
+    const notification = document.createElement('div');
+    notification.className = `university-notification ${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    // Add styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .university-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: ${type === 'success' ? '#4CAF50' : '#2196F3'};
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+            font-size: 14px;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+        style.remove();
+    }, 3000);
+}
+</script>
+</body>
+</html>

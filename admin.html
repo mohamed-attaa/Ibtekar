@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة - المنصة التعليمية</title>
+    <link rel="stylesheet" href="css/arabic-fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/all.min.css">
+</head>
+
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- الشريط الجانبي -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>لوحة التحكم</span>
+            </div>
+
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="admin-dashboard.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>الإحصائيات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-courses.html">
+                            <i class="fas fa-book"></i>
+                            <span>الدورات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-users.html">
+                            <i class="fas fa-users"></i>
+                            <span>المستخدمين</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-videos.html">
+                            <i class="fas fa-video"></i>
+                            <span>الفيديوهات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>التحليلات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-reports.html">
+                            <i class="fas fa-flag"></i>
+                            <span>التقارير</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="admin-main">
+            <!-- شريط الأدوات العلوي -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>لوحة الإدارة</h1>
+                </div>
+
+                <div class="header-right">
+                    <div class="admin-search">
+                        <input type="text" placeholder="بحث...">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <div class="admin-user">
+                        <img src="assets/images/admin-avatar.jpg" alt="المدير">
+                        <span>أحمد المدير</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- بطاقات الإحصائيات -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalUsers">0</h3>
+                        <p>إجمالي المستخدمين</p>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>12%</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalCourses">0</h3>
+                        <p>الدورات النشطة</p>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>8%</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalVideos">0</h3>
+                        <p>الفيديوهات المرفوعة</p>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>15%</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalRevenue">0</h3>
+                        <p>إجمالي الإيرادات</p>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>20%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الرسوم البيانية -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>نمو المستخدمين</h3>
+                        <select id="userGrowthPeriod">
+                            <option value="week">أسبوع</option>
+                            <option value="month" selected>شهر</option>
+                            <option value="year">سنة</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>الدورات الأكثر مشاهدة</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="popularCoursesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الجدول الأخير -->
+            <div class="recent-section">
+                <div class="recent-card">
+                    <div class="card-header">
+                        <h3>آخر المستخدمين المسجلين</h3>
+                        <a href="admin-users.html" class="view-all">عرض الكل</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>الاسم</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>النوع</th>
+                                    <th>تاريخ التسجيل</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentUsersTable">
+                                <!-- سيتم تحميل البيانات عبر JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="recent-card">
+                    <div class="card-header">
+                        <h3>آخر النشاطات المشبوهة</h3>
+                        <a href="admin-reports.html" class="view-all">عرض الكل</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>المستخدم</th>
+                                    <th>نشاط</th>
+                                    <th>التاريخ</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="suspiciousActivitiesTable">
+                                <!-- سيتم تحميل البيانات عبر JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/api.js"></script>
+</body>
+
+</html>

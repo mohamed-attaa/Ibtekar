@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - المنصة التعليمية</title>
+    <link rel="stylesheet" href="css/arabic-fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/all.min.css">
+</head>
+
+<body class="profile-page">
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>منصتي التعليمية</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="dashboard.html">لوحة التحكم</a>
+                <a href="courses.html">الدورات</a>
+                <a href="my-courses.html">دوراتي</a>
+                <a href="profile.html" class="active">ملفي الشخصي</a>
+                <a href="settings.html">الإعدادات</a>
+
+                <div class="user-dropdown">
+                    <button class="user-dropdown-toggle">
+                        <img src="assets/images/avatar.jpg" alt="صورة المستخدم" class="nav-avatar">
+                        <span>محمد أحمد</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>الملف الشخصي</span>
+                        </a>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                        <a href="my-courses.html">
+                            <i class="fas fa-book-open"></i>
+                            <span>دوراتي</span>
+                        </a>
+                        <a href="#" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>تسجيل الخروج</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- رأس الملف الشخصي -->
+    <header class="profile-header">
+        <div class="container">
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img src="assets/images/avatar.jpg" alt="صورة المستخدم" class="avatar-image" id="avatarImage">
+                    <label for="avatarInput" class="avatar-upload" title="تغيير الصورة">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="profile-details">
+                    <h1 id="userName">محمد أحمد</h1>
+                    <p class="profile-title" id="userTitle">طالب - مطور ويب</p>
+
+                    <div class="profile-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="userEmail">mohamed@example.com</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-phone"></i>
+                            <span id="userPhone">0501234567</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="userLocation">الرياض، السعودية</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="joinDate">منذ يناير 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" onclick="openEditModal()">
+                            <i class="fas fa-edit"></i>
+                            تعديل الملف
+                        </button>
+                        <button class="btn btn-outline" onclick="shareProfile()">
+                            <i class="fas fa-share-alt"></i>
+                            مشاركة الملف
+                        </button>
+                        <a href="certificates.html" class="btn btn-secondary">
+                            <i class="fas fa-certificate"></i>
+                            الشهادات
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="profile-content">
+        <div class="container">
+            <!-- علامات التبويب -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="overview">نظرة عامة</button>
+                <button class="tab-btn" data-tab="courses">الدورات</button>
+                <button class="tab-btn" data-tab="achievements">الإنجازات</button>
+                <button class="tab-btn" data-tab="activity">النشاط</button>
+                <button class="tab-btn" data-tab="settings">الإعدادات</button>
+            </div>
+
+            <!-- محتوى علامات التبويب -->
+            <div class="tab-content active" id="overviewTab">
+                <!-- الإحصائيات -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-value" id="coursesCount">5</div>
+                        <div class="stat-label">الدورات المسجلة</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-value" id="studyHours">120</div>
+                        <div class="stat-label">ساعة دراسة</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="stat-value" id="certificatesCount">3</div>
+                        <div class="stat-label">شهادات مكتسبة</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-value" id="avgRating">4.8</div>
+                        <div class="stat-label">متوسط التقييم</div>
+                    </div>
+                </div>
+
+                <!-- معلومات شخصية -->
+                <div class="profile-card">
+                    <h2>معلومات شخصية</h2>
+                    <div class="info-grid">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" value="محمد أحمد" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" value="mohamed@example.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" value="0501234567" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>البلد</label>
+                            <input type="text" value="السعودية" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>المدينة</label>
+                            <input type="text" value="الرياض" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>تاريخ الميلاد</label>
+                            <input type="text" value="15/03/1995" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>المسمى الوظيفي</label>
+                            <input type="text" value="مطور ويب" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>الشركة</label>
+                            <input type="text" value="شركة التقنية المتقدمة" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- السيرة الذاتية -->
+                <div class="profile-card">
+                    <h2>السيرة الذاتية</h2>
+                    <div id="bioContent">
+                        <p>مطور ويب بخبرة 5 سنوات في تطوير التطبيقات والمواقع الإلكترونية. متخصص في تقنيات JavaScript
+                            الحديثة مثل React و Node.js. مهتم بالتعلم المستديد وتطوير المهارات في مجال الذكاء الاصطناعي
+                            وتعلم الآلة.</p>
+
+                        <h3>المهارات التقنية:</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+
+                        <h3>اللغات:</h3>
+                        <div class="languages-list">
+                            <div class="language-item">
+                                <span>العربية</span>
+                                <div class="language-level">
+                                    <div class="level-bar" style="width: 100%"></div>
+                                    <span>اللغة الأم</span>
+                                </div>
+                            </div>
+                            <div class="language-item">
+                                <span>الإنجليزية</span>
+                                <div class="language-level">
+                                    <div class="level-bar" style="width: 80%"></div>
+                                    <span>متقدم</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تبويب الدورات -->
+            <div class="tab-content" id="coursesTab">
+                <div class="profile-card">
+                    <h2>الدورات المسجلة</h2>
+                    <div class="courses-grid" id="userCoursesGrid">
+                        <!-- سيتم تحميل الدورات عبر JavaScript -->
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h2>الدورات المكتملة</h2>
+                    <div class="completed-courses" id="completedCourses">
+                        <!-- سيتم تحميل الدورات عبر JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- تبويب الإنجازات -->
+            <div class="tab-content" id="achievementsTab">
+                <div class="profile-card">
+                    <h2>الإنجازات والشهادات</h2>
+                    <div class="achievements-grid" id="achievementsGrid">
+                        <!-- سيتم تحميل الإنجازات عبر JavaScript -->
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h2>المسار التعليمي</h2>
+                    <div class="timeline" id="educationTimeline">
+                        <!-- سيتم تحميل الخط الزمني عبر JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- نافذة تعديل الملف -->
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>تعديل الملف الشخصي</h2>
+                <button class="modal-close" onclick="closeEditModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- سيتم تحميل نموذج التعديل عبر JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+</body>
+
+</html>
