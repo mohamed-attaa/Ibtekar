@@ -821,6 +821,17 @@ body {
     min-height: 42px;
 }
 
+.card-university {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
 .card-price{
     display: flex;
     align-items: center;
@@ -1438,10 +1449,10 @@ body {
     display: inline-block;
     background: var(--primary-gold);
     color: white;
-    padding: 5px 15px;
+    padding: 8px 20px;
     border-radius: 20px;
-    font-size: 14px;
-    margin-right: 10px;
+    font-size: 16px;
+    margin: 20px 0;
     animation: fadeIn 0.3s ease;
 }
 
@@ -1449,28 +1460,22 @@ body {
     background: none;
     border: none;
     color: white;
-    margin-right: 5px;
+    margin-right: 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
 }
 
+/* Search highlight for filtered courses */
+.card.highlight {
+    animation: highlightCard 1s ease;
+    box-shadow: 0 0 0 3px var(--primary-gold);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@keyframes highlightCard {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
 
 </style>
 </head>
@@ -1514,35 +1519,35 @@ body {
     
     <!-- Navigation Links -->
     <div class="nav-links">
- <div class="dropdown-wrapper">
-        <button class="universities-btn" id="universitiesBtn">جميع الجامعات</button>
-        <div class="universities-dropdown" id="universitiesDropdown">
-            <div class="universities-search">
-                <input type="text" placeholder="ابحث عن جامعة..." id="universitySearch">
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="universities-list">
-                <a href="#" class="university-item" data-university="all">جميع الجامعات</a>
-                <a href="#" class="university-item" data-university="king-khalid">جامعة الملك خالد</a>
-                <a href="#" class="university-item" data-university="king-faisal">جامعة الملك فيصل</a>
-                <a href="#" class="university-item" data-university="taibah">جامعة طيبة</a>
-                <a href="#" class="university-item" data-university="taif">جامعة الطائف</a>
-                <a href="#" class="university-item" data-university="jeddah">جامعة جدة</a>
-                <a href="#" class="university-item" data-university="umm-alqura">جامعة أم القرى</a>
-                <a href="#" class="university-item" data-university="al-baha">جامعة الباحة</a>
-                <a href="#" class="university-item" data-university="qassim">جامعة القصيم</a>
+        <div class="dropdown-wrapper">
+            <button class="universities-btn" id="universitiesBtn">جميع الجامعات</button>
+            <div class="universities-dropdown" id="universitiesDropdown">
+                <div class="universities-search">
+                    <input type="text" placeholder="ابحث عن جامعة..." id="universitySearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="universities-list">
+                    <a href="#" class="university-item" data-university="all">جميع الجامعات</a>
+                    <a href="#" class="university-item" data-university="king-khalid">جامعة الملك خالد</a>
+                    <a href="#" class="university-item" data-university="king-faisal">جامعة الملك فيصل</a>
+                    <a href="#" class="university-item" data-university="taibah">جامعة طيبة</a>
+                    <a href="#" class="university-item" data-university="taif">جامعة الطائف</a>
+                    <a href="#" class="university-item" data-university="jeddah">جامعة جدة</a>
+                    <a href="#" class="university-item" data-university="umm-alqura">جامعة أم القرى</a>
+                    <a href="#" class="university-item" data-university="al-baha">جامعة الباحة</a>
+                    <a href="#" class="university-item" data-university="qassim">جامعة القصيم</a>
+                </div>
             </div>
         </div>
-    </div>
         <a href="index.html#courses">الكورسات</a>
     </div>
     
     <!-- Left Section (Cart and Buttons) -->
     <div class="nav-left">
         <!-- Cart -->
- <a href="Get Your Course.html">
-        <button class="btn btn-login">اطلب مقررك</button>
-    </a>
+        <a href="Get Your Course.html">
+            <button class="btn btn-login">اطلب مقررك</button>
+        </a>
         <div class="cart-container">
             <div class="cart" id="cartButton">
                 🛒
@@ -1594,9 +1599,9 @@ body {
     </div>
     
     <div class="mobile-nav-links">
-   <a href="Get Your Course.html" style="width: 100%;">
-        <button class="btn btn-signup" style="width: 100%; background: linear-gradient(135deg, var(--gold-light), var(--primary-gold));">اطلب مقررك</button>
-    </a>
+        <a href="Get Your Course.html" style="width: 100%;">
+            <button class="btn btn-signup" style="width: 100%; background: linear-gradient(135deg, var(--gold-light), var(--primary-gold));">اطلب مقررك</button>
+        </a>
         <a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a>
         <a href="university.html"><i class="fas fa-book-open"></i> تعلم</a>
         <a href="index.html#about"><i class="fas fa-info-circle"></i> عن ابتكر</a>
@@ -1618,330 +1623,548 @@ body {
     <h1>المواد الجامعية</h1>
     <p>أفضل الكورسات المختارة لك، تم اختيارها بعناية من قبل خبراء التعليم</p>
 
-        </div>
+    <!-- مؤشر الفلترة النشطة -->
+    <div class="filter-indicator" id="filterIndicator" style="display: none;">
+        <span id="activeFilterText">جميع الجامعات</span>
+        <button id="clearFilter">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
-    
-    <!-- فلاتر سريعة -->
-    
-</div>
-
-<!-- مؤشر الفلترة النشطة -->
-<div class="filter-indicator" id="filterIndicator" style="display: none;">
-    <span id="activeFilterText"></span>
-    <button id="clearFilter">
-        <i class="fas fa-times"></i>
-    </button>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div class="cards-wrapper">
         <!-- ===== GROUP 1 ===== -->
         <div class="cards-group active" id="group1">
             <!-- كارد 1 -->
-            <div class="card" data-course-id="1" data-course-name="المحاسبة الحكومية" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM.jpeg">
+            <div class="card" data-course-id="1" data-course-name="محاسبه تكاليف" data-course-price="80" data-university="جامعة الباحة">
                 <div class="card-image">
                     <span class="card-badge">الأكثر مبيعاً</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM.jpeg" alt="المحاسبة الحكومية">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (1).jpeg" alt="محاسبه تكاليف">
                 </div>
                 <div class="card-content">
-                    <h3>المحاسبة الحكومية</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>محاسبه تكاليف</h3>
+                    <div class="card-university">جامعة الباحة</div>
                     <div class="card-price">
                         <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 2 -->
-            <div class="card" data-course-id="2" data-course-name="أساسيات الرياضيات والإحصاء" data-course-price="90" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM (1).jpeg">
+            <div class="card" data-course-id="2" data-course-name="المحاسبه المتقدمه" data-course-price="100" data-university="جامعة الباحة">
                 <div class="card-image">
                     <span class="card-badge">جديد</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM (1).jpeg" alt="أساسيات الرياضيات والإحصاء">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (2).jpeg" alt="المحاسبه المتقدمه">
                 </div>
                 <div class="card-content">
-                    <h3>أساسيات الرياضيات والإحصاء</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>المحاسبه المتقدمه</h3>
+                    <div class="card-university">جامعة الباحة</div>
                     <div class="card-price">
-                        <span>90 ريال</span>
+                        <span>100 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 3 -->
-            <div class="card" data-course-id="3" data-course-name="المحاسبة المتوسطة 1" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM (2).jpeg">
+            <div class="card" data-course-id="3" data-course-name="2المحاسبه المتوسطه" data-course-price="100" data-university="جامعة الباحة">
                 <div class="card-image">
-                    <span class="card-badge">متميز</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM (2).jpeg" alt="المحاسبة المتوسطة 1">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM.jpeg" alt="2المحاسبه المتوسطه">
                 </div>
                 <div class="card-content">
-                    <h3>المحاسبة المتوسطة 1</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>2المحاسبه المتوسطه</h3>
+                    <div class="card-university">جامعة الباحة</div>
                     <div class="card-price">
-                        <span>80 ريال</span>
+                        <span>100 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 4 -->
-            <div class="card" data-course-id="4" data-course-name="أساسيات المحاسبة الإدارية والتكاليف" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM.jpeg">
+            <div class="card" data-course-id="4" data-course-name="1 مقرر محاسبه ماليه متوسطه" data-course-price="90" data-university="جامعة طيبة">
                 <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM.jpeg" alt="أساسيات المحاسبة الإدارية والتكاليف">
+                    <span class="card-badge">متميز</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM (1).jpeg" alt="1 مقرر محاسبه ماليه متوسطه">
                 </div>
                 <div class="card-content">
-                    <h3>أساسيات المحاسبة الإدارية والتكاليف</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>1 مقرر محاسبه ماليه متوسطه</h3>
+                    <div class="card-university">جامعة طيبة</div>
                     <div class="card-price">
-                        <span>80 ريال</span>
+                        <span>90 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 5 -->
-            <div class="card" data-course-id="5" data-course-name="مبادئ المحاسبة" data-course-price="90" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM (1).jpeg">
+            <div class="card" data-course-id="5" data-course-name="2 مقرر محاسبه ماليه متوسطه" data-course-price="90" data-university="جامعة طيبة">
                 <div class="card-image">
-                    <span class="card-badge">محدود</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM (1).jpeg" alt="مبادئ المحاسبة">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM.jpeg" alt="2 مقرر محاسبه ماليه متوسطه">
                 </div>
                 <div class="card-content">
-                    <h3>مبادئ المحاسبة</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>2 مقرر محاسبه ماليه متوسطه</h3>
+                    <div class="card-university">جامعة طيبة</div>
                     <div class="card-price">
                         <span>90 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 6 -->
-            <div class="card" data-course-id="6" data-course-name="سياسة مالية" data-course-price="90" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM (2).jpeg">
+            <div class="card" data-course-id="6" data-course-name="التكاليف والمحاسبه الاداريه" data-course-price="80" data-university="جامعة طيبة">
                 <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM (2).jpeg" alt="سياسة مالية">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM (1).jpeg" alt="التكاليف والمحاسبه الاداريه">
                 </div>
                 <div class="card-content">
-                    <h3>سياسة مالية</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>التكاليف والمحاسبه الاداريه</h3>
+                    <div class="card-university">جامعة طيبة</div>
                     <div class="card-price">
-                        <span>90 ريال</span>
+                        <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 7 -->
-            <div class="card" data-course-id="7" data-course-name="مالية شركات" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM.jpeg">
+            <div class="card" data-course-id="7" data-course-name="المحاسبه الماليه المتقدمه" data-course-price="100" data-university="جامعة طيبة">
                 <div class="card-image">
                     <span class="card-badge">الأكثر تقييماً</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM.jpeg" alt="مالية شركات">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM.jpeg" alt="المحاسبه الماليه المتقدمه">
                 </div>
                 <div class="card-content">
-                    <h3>مالية شركات</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>المحاسبه الماليه المتقدمه</h3>
+                    <div class="card-university">جامعة طيبة</div>
                     <div class="card-price">
-                        <span>80 ريال</span>
+                        <span>100 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
             <!-- كارد 8 -->
-            <div class="card" data-course-id="8" data-course-name="إدارة مالية 2" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.05 AM (1).jpeg">
+            <div class="card" data-course-id="8" data-course-name="محاسبه متوسطه 2" data-course-price="90" data-university="جامعة القصيم">
                 <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.05 AM (1).jpeg" alt="إدارة مالية 2">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg" alt="محاسبه متوسطه 2">
                 </div>
                 <div class="card-content">
-                    <h3>إدارة مالية 2</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
+                    <h3>محاسبه متوسطه 2</h3>
+                    <div class="card-university">جامعة القصيم</div>
+                    <div class="card-price">
+                        <span>90 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 9 -->
+            <div class="card" data-course-id="9" data-course-name="مبادئ الاقتصاد الجزئي" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">محدود</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg" alt="مبادئ الاقتصاد الجزئي">
+                </div>
+                <div class="card-content">
+                    <h3>مبادئ الاقتصاد الجزئي</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
                     <div class="card-price">
                         <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 10 -->
+            <div class="card" data-course-id="10" data-course-name="الاحصاء التطبيقي" data-course-price="70" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg" alt="الاحصاء التطبيقي">
+                </div>
+                <div class="card-content">
+                    <h3>الاحصاء التطبيقي</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>70 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 11 -->
+            <div class="card" data-course-id="11" data-course-name="محاسبه متوسطه 1" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">جديد</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg" alt="محاسبه متوسطه 1">
+                </div>
+                <div class="card-content">
+                    <h3>محاسبه متوسطه 1</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 12 -->
+            <div class="card" data-course-id="12" data-course-name="رياضيات التمويل والاستثمار" data-course-price="70" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg" alt="رياضيات التمويل والاستثمار">
+                </div>
+                <div class="card-content">
+                    <h3>رياضيات التمويل والاستثمار</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>70 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 13 -->
+            <div class="card" data-course-id="13" data-course-name="مبادئ الاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه" data-course-price="70" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">متميز</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg" alt="مبادئ الاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه">
+                </div>
+                <div class="card-content">
+                    <h3>مبادئ الاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>70 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 14 -->
+            <div class="card" data-course-id="14" data-course-name="الرياضيات للاقتصاد والعلوم الاداريه والماليه" data-course-price="100" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg" alt="الرياضيات للاقتصاد والعلوم الاداريه والماليه">
+                </div>
+                <div class="card-content">
+                    <h3>الرياضيات للاقتصاد والعلوم الاداريه والماليه</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>100 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 15 -->
+            <div class="card" data-course-id="15" data-course-name="محاسبة المنشات الماليه" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">الأكثر مبيعاً</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg" alt="محاسبة المنشات الماليه">
+                </div>
+                <div class="card-content">
+                    <h3>محاسبة المنشات الماليه</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 16 -->
+            <div class="card" data-course-id="16" data-course-name="محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg" alt="محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة">
+                </div>
+                <div class="card-content">
+                    <h3>محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 17 -->
+            <div class="card" data-course-id="17" data-course-name="ادارة مالية 2" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">الأكثر تقييماً</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg" alt="ادارة مالية 2">
+                </div>
+                <div class="card-content">
+                    <h3>ادارة مالية 2</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 18 -->
+            <div class="card" data-course-id="18" data-course-name="مفاهيم واهداف محاسبة التكاليف" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg" alt="مفاهيم واهداف محاسبة التكاليف">
+                </div>
+                <div class="card-content">
+                    <h3>مفاهيم واهداف محاسبة التكاليف</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
         </div>
 
         <!-- ===== GROUP 2 ===== -->
         <div class="cards-group" id="group2">
-            <!-- كارد 9 -->
-            <div class="card" data-course-id="9" data-course-name="المحاسبة والتقرير المالي" data-course-price="90" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 3.55.05 AM.jpeg">
+            <!-- كارد 19 -->
+            <div class="card" data-course-id="19" data-course-name="محاسبه متوسطه 1" data-course-price="80" data-university="جامعة أم القرى">
                 <div class="card-image">
                     <span class="card-badge">الأكثر مبيعاً</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.05 AM.jpeg" alt="المحاسبة والتقرير المالي">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg" alt="محاسبه متوسطه 1">
                 </div>
                 <div class="card-content">
-                    <h3>المحاسبة والتقرير المالي</h3>
-                    <div class="card-desc">جامعة الملك فيصل</div>
-                    <div class="card-price">
-                        <span>90 ريال</span>
-                    </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
-                </div>
-            </div>
-
-            <!-- كارد 10 -->
-            <div class="card" data-course-id="10" data-course-name="محاسبة الأصول الثابتة" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.04 AM (1).jpeg">
-                <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.04 AM (1).jpeg" alt="محاسبة الأصول الثابتة">
-                </div>
-                <div class="card-content">
-                    <h3>محاسبة الأصول الثابتة</h3>
-                    <div class="card-desc">جامعة جدة</div>
+                    <h3>محاسبه متوسطه 1</h3>
+                    <div class="card-desc">محاسبه علي اساس الاستحقاق</div>
+                    <div class="card-university">جامعة أم القرى</div>
                     <div class="card-price">
                         <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
-            <!-- كارد 11 -->
-            <div class="card" data-course-id="11" data-course-name="أساسيات العرض والطلب ونظام الأسعار" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.04 AM.jpeg">
+            <!-- كارد 20 -->
+            <div class="card" data-course-id="20" data-course-name="محاسبة" data-course-price="80" data-university="جامعة الطائف">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg" alt="محاسبة">
+                </div>
+                <div class="card-content">
+                    <h3>محاسبة</h3>
+                    <div class="card-university">جامعة الطائف</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 21 -->
+            <div class="card" data-course-id="21" data-course-name="محاسبه التكاليف" data-course-price="20" data-university="جامعة الطائف">
+                <div class="card-image">
+                    <span class="card-badge">عرض خاص</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg" alt="محاسبه التكاليف">
+                </div>
+                <div class="card-content">
+                    <h3>محاسبه التكاليف</h3>
+                    <div class="card-university">جامعة الطائف</div>
+                    <div class="card-price">
+                        <span>20 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 22 -->
+            <div class="card" data-course-id="22" data-course-name="المحاسبه المتوسطه الجزء الثاني" data-course-price="80" data-university="جامعة الطائف">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM.jpeg" alt="المحاسبه المتوسطه الجزء الثاني">
+                </div>
+                <div class="card-content">
+                    <h3>المحاسبه المتوسطه الجزء الثاني</h3>
+                    <div class="card-desc">أمثلة</div>
+                    <div class="card-university">جامعة الطائف</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 23 -->
+            <div class="card" data-course-id="23" data-course-name="المحاسبه المتوسطه الجزء الاول" data-course-price="80" data-university="جامعة الطائف">
+                <div class="card-image">
+                    <span class="card-badge">جديد</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (1).jpeg" alt="المحاسبه المتوسطه الجزء الاول">
+                </div>
+                <div class="card-content">
+                    <h3>المحاسبه المتوسطه الجزء الاول</h3>
+                    <div class="card-university">جامعة الطائف</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 24 -->
+            <div class="card" data-course-id="24" data-course-name="مبادئ الخطر والتامين" data-course-price="20" data-university="جامعة الطائف">
+                <div class="card-image">
+                    <span class="card-badge">عرض خاص</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (2).jpeg" alt="مبادئ الخطر والتامين">
+                </div>
+                <div class="card-content">
+                    <h3>مبادئ الخطر والتامين</h3>
+                    <div class="card-university">جامعة الطائف</div>
+                    <div class="card-price">
+                        <span>20 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 25 -->
+            <div class="card" data-course-id="25" data-course-name="الاحصاء التطبيقي" data-course-price="70" data-university="جامعة الطائف">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM.jpeg" alt="الاحصاء التطبيقي">
+                </div>
+                <div class="card-content">
+                    <h3>الاحصاء التطبيقي</h3>
+                    <div class="card-university">جامعة الطائف</div>
+                    <div class="card-price">
+                        <span>70 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 26 -->
+            <div class="card" data-course-id="26" data-course-name="مبادئ الادارة الماليه" data-course-price="90" data-university="جامعة الملك فيصل">
                 <div class="card-image">
                     <span class="card-badge">متميز</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.04 AM.jpeg" alt="أساسيات العرض والطلب ونظام الأسعار">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM (1).jpeg" alt="مبادئ الادارة الماليه">
                 </div>
                 <div class="card-content">
-                    <h3>أساسيات العرض والطلب ونظام الأسعار</h3>
-                    <div class="card-desc">جامعة جدة</div>
-                    <div class="card-price">
-                        <span>80 ريال</span>
-                    </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
-                </div>
-            </div>
-
-            <!-- كارد 12 -->
-            <div class="card" data-course-id="12" data-course-name="تحليل وكتابة التقارير المالية" data-course-price="90" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (1).jpeg">
-                <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (1).jpeg" alt="تحليل وكتابة التقارير المالية">
-                </div>
-                <div class="card-content">
-                    <h3>تحليل وكتابة التقارير المالية</h3>
-                    <div class="card-desc">جامعة الملك خالد دبلوم</div>
+                    <h3>مبادئ الادارة الماليه</h3>
+                    <div class="card-desc">تطبيقات</div>
+                    <div class="card-university">جامعة الملك فيصل</div>
                     <div class="card-price">
                         <span>90 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
-            <!-- كارد 13 -->
-            <div class="card" data-course-id="13" data-course-name="محاسبة تكاليف" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (2).jpeg">
+            <!-- كارد 27 -->
+            <div class="card" data-course-id="27" data-course-name="المحاسبه الماليه دبلوم" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (2).jpeg" alt="المحاسبه الماليه دبلوم">
+                </div>
+                <div class="card-content">
+                    <h3>المحاسبه الماليه دبلوم</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 28 -->
+            <div class="card" data-course-id="28" data-course-name="مبادئ المحاسبه" data-course-price="70" data-university="جامعة الملك خالد">
                 <div class="card-image">
                     <span class="card-badge">محدود</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (2).jpeg" alt="محاسبة تكاليف">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM.jpeg" alt="مبادئ المحاسبه">
                 </div>
                 <div class="card-content">
-                    <h3>محاسبة تكاليف</h3>
-                    <div class="card-desc">جامعة الملك خالد دبلوم</div>
+                    <h3>مبادئ المحاسبه</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
                     <div class="card-price">
-                        <span>80 ريال</span>
+                        <span>70 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
-            <!-- كارد 14 -->
-            <div class="card" data-course-id="14" data-course-name="محاسبة مالية" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (3).jpeg">
+            <!-- كارد 29 -->
+            <div class="card" data-course-id="29" data-course-name="Business Combinations" data-course-price="80" data-university="جامعة الملك خالد">
                 <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (3).jpeg" alt="محاسبة مالية">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.50 AM.jpeg" alt="Business Combinations">
                 </div>
                 <div class="card-content">
-                    <h3>محاسبة مالية</h3>
-                    <div class="card-desc">جامعة الملك خالد دبلوم</div>
+                    <h3>Business Combinations</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
                     <div class="card-price">
                         <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
-            <!-- كارد 15 -->
-            <div class="card" data-course-id="15" data-course-name="المحاسبة الحكومية" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM.jpeg">
+            <!-- كارد 30 -->
+            <div class="card" data-course-id="30" data-course-name="محاسبه تكاليف وادارية" data-course-price="80" data-university="جامعة الملك خالد">
                 <div class="card-image">
                     <span class="card-badge">الأكثر تقييماً</span>
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM.jpeg" alt="المحاسبة الحكومية">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg" alt="محاسبه تكاليف وادارية">
                 </div>
                 <div class="card-content">
-                    <h3>المحاسبة الحكومية</h3>
-                    <div class="card-desc">جامعة الملك خالد</div>
+                    <h3>محاسبه تكاليف وادارية</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
                     <div class="card-price">
                         <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
 
-            <!-- كارد 16 -->
-            <div class="card" data-course-id="16" data-course-name="المحاسبة المتوسطة" data-course-price="80" data-course-image="./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (1).jpeg">
+            <!-- كارد 31 -->
+            <div class="card" data-course-id="31" data-course-name="ادارة ماليه 1" data-course-price="80" data-university="جامعة الملك خالد">
                 <div class="card-image">
-                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (1).jpeg" alt="المحاسبة المتوسطة">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg" alt="ادارة ماليه 1">
                 </div>
                 <div class="card-content">
-                    <h3>المحاسبة المتوسطة</h3>
-                    <div class="card-desc">جامعة الملك خالد دبلوم</div>
+                    <h3>ادارة ماليه 1</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
                     <div class="card-price">
                         <span>80 ريال</span>
                     </div>
-                    <button class="subscribe-btn add-to-cart-btn">اشترك الآن</button>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 32 -->
+            <div class="card" data-course-id="32" data-course-name="محاسبة الزكاة والضريبة" data-course-price="70" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">جديد</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg" alt="محاسبة الزكاة والضريبة">
+                </div>
+                <div class="card-content">
+                    <h3>محاسبة الزكاة والضريبة</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>70 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 33 -->
+            <div class="card" data-course-id="33" data-course-name="المحاسبة عن عمليات البضاعة" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg" alt="المحاسبة عن عمليات البضاعة">
+                </div>
+                <div class="card-content">
+                    <h3>المحاسبة عن عمليات البضاعة</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
+                </div>
+            </div>
+
+            <!-- كارد 34 -->
+            <div class="card" data-course-id="34" data-course-name="تحليل قائمه المركز المالي" data-course-price="80" data-university="جامعة الملك خالد">
+                <div class="card-image">
+                    <span class="card-badge">متميز</span>
+                    <img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg" alt="تحليل قائمه المركز المالي">
+                </div>
+                <div class="card-content">
+                    <h3>تحليل قائمه المركز المالي</h3>
+                    <div class="card-university">جامعة الملك خالد</div>
+                    <div class="card-price">
+                        <span>80 ريال</span>
+                    </div>
+                    <button class="subscribe-btn add-to-cart-btn">اشترك</button>
                 </div>
             </div>
         </div>
@@ -1984,7 +2207,7 @@ body {
     </div>
     
     <div class="footer-bottom">
-        <p>© 2024 ابتكر. جميع الحقوق محفوظة</p>
+        <p>© 2026 ابتكر. جميع الحقوق محفوظة</p>
     </div>
 </footer>
 
@@ -2215,26 +2438,44 @@ cartModal.addEventListener('click', function(e) {
 });
 
 // ========== SEARCH FUNCTIONALITY ==========
-const coursesData = [
+const allCourses = [
     // Group 1 courses
-    { title: "المحاسبة الحكومية", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "80", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM.jpeg", group: 1 },
-    { title: "أساسيات الرياضيات والإحصاء", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "90", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM (1).jpeg", group: 1 },
-    { title: "المحاسبة المتوسطة 1", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "80", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM (2).jpeg", group: 1 },
-    { title: "أساسيات المحاسبة الإدارية والتكاليف", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "80", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.03 AM.jpeg", group: 1 },
-    { title: "مبادئ المحاسبة", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "90", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM (1).jpeg", group: 1 },
-    { title: "سياسة مالية", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "90", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM (2).jpeg", group: 1 },
-    { title: "مالية شركات", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "80", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.04 AM.jpeg", group: 1 },
-    { title: "إدارة مالية 2", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "80", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.05 AM (1).jpeg", group: 1 },
+    { title: "محاسبه تكاليف", description: "شرح شامل", university: "جامعة الباحة", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (1).jpeg" },
+    { title: "المحاسبه المتقدمه", description: "تبسيط كامل", university: "جامعة الباحة", price: "100", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (2).jpeg" },
+    { title: "2المحاسبه المتوسطه", description: "", university: "جامعة الباحة", price: "100", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM.jpeg" },
+    { title: "1 مقرر محاسبه ماليه متوسطه", description: "", university: "جامعة طيبة", price: "90", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM (1).jpeg" },
+    { title: "2 مقرر محاسبه ماليه متوسطه", description: "شرح مبسط", university: "جامعة طيبة", price: "90", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM.jpeg" },
+    { title: "التكاليف والمحاسبه الاداريه", description: "", university: "جامعة طيبة", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM (1).jpeg" },
+    { title: "المحاسبه الماليه المتقدمه", description: "", university: "جامعة طيبة", price: "100", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM.jpeg" },
+    { title: "محاسبه متوسطه 2", description: "", university: "جامعة القصيم", price: "90", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg" },
+    { title: "مبادئ الاقتصاد الجزئي", description: "", university: "جامعة الملك خالد", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg" },
+    { title: "الاحصاء التطبيقي", description: "", university: "جامعة الملك خالد", price: "70", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg" },
+    { title: "محاسبه متوسطه 1", description: "", university: "جامعة الملك خالد", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg" },
+    { title: "رياضيات التمويل والاستثمار", description: "", university: "جامعة الملك خالد", price: "70", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg" },
+    { title: "مبادئ الاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه", description: "", university: "جامعة الملك خالد", price: "70", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg" },
+    { title: "الرياضيات للاقتصاد والعلوم الاداريه والماليه", description: "", university: "جامعة الملك خالد", price: "100", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg" },
+    { title: "محاسبة المنشات الماليه", description: "", university: "جامعة الملك خالد", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg" },
+    { title: "محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة", description: "", university: "جامعة الملك خالد", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg" },
+    { title: "ادارة مالية 2", description: "", university: "جامعة الملك خالد", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg" },
+    { title: "مفاهيم واهداف محاسبة التكاليف", description: "", university: "جامعة الملك خالد", price: "80", group: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg" },
     
     // Group 2 courses
-    { title: "المحاسبة والتقرير المالي", description: "جامعة الملك فيصل", university: "جامعة الملك فيصل", price: "90", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.05 AM.jpeg", group: 2 },
-    { title: "محاسبة الأصول الثابتة", description: "جامعة جدة", university: "جامعة جدة", price: "80", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.04 AM (1).jpeg", group: 2 },
-    { title: "أساسيات العرض والطلب ونظام الأسعار", description: "جامعة جدة", university: "جامعة جدة", price: "80", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.04 AM.jpeg", group: 2 },
-    { title: "تحليل وكتابة التقارير المالية", description: "جامعة الملك خالد دبلوم", university: "جامعة الملك خالد", price: "90", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (1).jpeg", group: 2 },
-    { title: "محاسبة تكاليف", description: "جامعة الملك خالد دبلوم", university: "جامعة الملك خالد", price: "80", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (2).jpeg", group: 2 },
-    { title: "محاسبة مالية", description: "جامعة الملك خالد دبلوم", university: "جامعة الملك خالد", price: "80", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM (3).jpeg", group: 2 },
-    { title: "المحاسبة الحكومية", description: "جامعة الملك خالد", university: "جامعة الملك خالد", price: "80", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.50 AM.jpeg", group: 2 },
-    { title: "المحاسبة المتوسطة", description: "جامعة الملك خالد دبلوم", university: "جامعة الملك خالد", price: "80", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (1).jpeg", group: 2 }
+    { title: "محاسبه متوسطه 1", description: "محاسبه علي اساس الاستحقاق", university: "جامعة أم القرى", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg" },
+    { title: "محاسبة", description: "", university: "جامعة الطائف", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg" },
+    { title: "محاسبه التكاليف", description: "", university: "جامعة الطائف", price: "20", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg" },
+    { title: "المحاسبه المتوسطه الجزء الثاني", description: "أمثلة", university: "جامعة الطائف", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM.jpeg" },
+    { title: "المحاسبه المتوسطه الجزء الاول", description: "", university: "جامعة الطائف", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (1).jpeg" },
+    { title: "مبادئ الخطر والتامين", description: "", university: "جامعة الطائف", price: "20", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (2).jpeg" },
+    { title: "الاحصاء التطبيقي", description: "", university: "جامعة الطائف", price: "70", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM.jpeg" },
+    { title: "مبادئ الادارة الماليه", description: "تطبيقات", university: "جامعة الملك فيصل", price: "90", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM (1).jpeg" },
+    { title: "المحاسبه الماليه دبلوم", description: "", university: "جامعة الملك خالد", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (2).jpeg" },
+    { title: "مبادئ المحاسبه", description: "", university: "جامعة الملك خالد", price: "70", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM.jpeg" },
+    { title: "Business Combinations", description: "", university: "جامعة الملك خالد", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.50 AM.jpeg" },
+    { title: "محاسبه تكاليف وادارية", description: "", university: "جامعة الملك خالد", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg" },
+    { title: "ادارة ماليه 1", description: "", university: "جامعة الملك خالد", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg" },
+    { title: "محاسبة الزكاة والضريبة", description: "", university: "جامعة الملك خالد", price: "70", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg" },
+    { title: "المحاسبة عن عمليات البضاعة", description: "", university: "جامعة الملك خالد", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg" },
+    { title: "تحليل قائمه المركز المالي", description: "", university: "جامعة الملك خالد", price: "80", group: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg" }
 ];
 
 const searchInput = document.getElementById('searchInput');
@@ -2252,7 +2493,7 @@ function displaySearchResults(query) {
         return;
     }
     
-    const filtered = coursesData.filter(course => 
+    const filtered = allCourses.filter(course => 
         course.title.toLowerCase().includes(query.toLowerCase()) ||
         course.description.toLowerCase().includes(query.toLowerCase()) ||
         course.university.toLowerCase().includes(query.toLowerCase())
@@ -2275,18 +2516,8 @@ function displaySearchResults(query) {
             `;
             
             resultItem.addEventListener('click', function() {
-                // Navigate to the correct group
-                const group = document.getElementById(`group${course.group}`);
-                if (group) {
-                    // Show the correct group
-                    document.querySelectorAll('.cards-group').forEach(g => {
-                        g.classList.remove('active');
-                    });
-                    group.classList.add('active');
-                    
-                    // Scroll to the section
-                    document.querySelector('.slider-section').scrollIntoView({ behavior: 'smooth' });
-                }
+                // Navigate to the correct group and highlight the course
+                navigateToCourse(course.title);
                 
                 searchInput.value = '';
                 searchResults.style.display = 'none';
@@ -2296,6 +2527,51 @@ function displaySearchResults(query) {
         });
         
         searchResults.style.display = 'block';
+    }
+}
+
+// Navigate to specific course
+function navigateToCourse(courseTitle) {
+    // Find the card with the matching title
+    const cards = document.querySelectorAll('.card');
+    let foundCard = null;
+    let foundGroup = null;
+    
+    cards.forEach(card => {
+        const cardTitle = card.querySelector('h3').textContent;
+        if (cardTitle === courseTitle) {
+            foundCard = card;
+            foundGroup = card.closest('.cards-group');
+        }
+    });
+    
+    if (foundCard && foundGroup) {
+        // Show the correct group
+        document.querySelectorAll('.cards-group').forEach(g => {
+            g.classList.remove('active');
+        });
+        foundGroup.classList.add('active');
+        
+        // Highlight the card
+        cards.forEach(card => {
+            card.classList.remove('highlight');
+        });
+        foundCard.classList.add('highlight');
+        
+        // Scroll to the section
+        document.querySelector('.slider-section').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+        });
+        
+        // Remove highlight after 3 seconds
+        setTimeout(() => {
+            foundCard.classList.remove('highlight');
+        }, 3000);
+        
+        showNotification(`تم العثور على الكورس: ${courseTitle}`, 'success');
+    } else {
+        showNotification('لم يتم العثور على الكورس المطلوب', 'warning');
     }
 }
 
@@ -2313,7 +2589,7 @@ searchForm.addEventListener('submit', function(e) {
 mobileSearchButton.addEventListener('click', function() {
     const query = mobileSearchInput.value.trim();
     if (query) {
-        const filtered = coursesData.filter(course => 
+        const filtered = allCourses.filter(course => 
             course.title.toLowerCase().includes(query.toLowerCase()) ||
             course.description.toLowerCase().includes(query.toLowerCase()) ||
             course.university.toLowerCase().includes(query.toLowerCase())
@@ -2321,21 +2597,12 @@ mobileSearchButton.addEventListener('click', function() {
         
         if (filtered.length > 0) {
             const course = filtered[0];
-            const group = document.getElementById(`group${course.group}`);
-            if (group) {
-                document.querySelectorAll('.cards-group').forEach(g => {
-                    g.classList.remove('active');
-                });
-                group.classList.add('active');
-                
-                // Close mobile sidebar
-                mobileSidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                
-                // Scroll to the section
-                document.querySelector('.slider-section').scrollIntoView({ behavior: 'smooth' });
-            }
+            navigateToCourse(course.title);
+            
+            // Close mobile sidebar
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
             mobileSearchInput.value = '';
         } else {
             showNotification('لم يتم العثور على نتائج', 'info');
@@ -2568,71 +2835,29 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// ========== INITIALIZE ==========
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart
-    updateCartCount();
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-    
-    // Close sidebar on resize for large screens
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 992) {
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ========== UNIVERSITIES FILTER ==========
 const universitiesBtn = document.getElementById('universitiesBtn');
 const universitiesDropdown = document.getElementById('universitiesDropdown');
 const universitySearch = document.getElementById('universitySearch');
 const universityItems = document.querySelectorAll('.university-item');
+const filterIndicator = document.getElementById('filterIndicator');
+const activeFilterText = document.getElementById('activeFilterText');
+const clearFilter = document.getElementById('clearFilter');
+
+let currentFilter = 'all';
+
+// University name mapping
+const universityNames = {
+    'all': 'جميع الجامعات',
+    'king-khalid': 'جامعة الملك خالد',
+    'king-faisal': 'جامعة الملك فيصل',
+    'taibah': 'جامعة طيبة',
+    'taif': 'جامعة الطائف',
+    'jeddah': 'جامعة جدة',
+    'umm-alqura': 'جامعة أم القرى',
+    'al-baha': 'جامعة الباحة',
+    'qassim': 'جامعة القصيم'
+};
 
 // Toggle universities dropdown
 universitiesBtn.addEventListener('click', function(e) {
@@ -2666,17 +2891,17 @@ universityItems.forEach(item => {
     item.addEventListener('click', function(e) {
         e.preventDefault();
         const university = this.getAttribute('data-university');
+        currentFilter = university;
         
-        if (university === 'all') {
-            // Show all courses
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.display = 'block';
-            });
-            showNotification('تم عرض جميع الكورسات', 'info');
-        } else {
-            // Filter courses by university
-            filterCoursesByUniversity(university);
-        }
+        // Update filter indicator
+        activeFilterText.textContent = universityNames[university];
+        filterIndicator.style.display = 'inline-block';
+        
+        // Update button text
+        universitiesBtn.textContent = universityNames[university];
+        
+        // Filter courses
+        filterCoursesByUniversity(university);
         
         // Close dropdown
         universitiesDropdown.classList.remove('show');
@@ -2684,35 +2909,42 @@ universityItems.forEach(item => {
     });
 });
 
+// Clear filter
+clearFilter.addEventListener('click', function() {
+    currentFilter = 'all';
+    filterIndicator.style.display = 'none';
+    universitiesBtn.textContent = 'جميع الجامعات';
+    showAllCourses();
+    showNotification('تم عرض جميع الكورسات', 'info');
+});
+
 // Function to filter courses by university
 function filterCoursesByUniversity(universityName) {
     let coursesShown = 0;
     
     document.querySelectorAll('.card').forEach(card => {
-        const cardDesc = card.querySelector('.card-desc').textContent.toLowerCase();
+        const cardUniversity = card.getAttribute('data-university');
         const universityMap = {
-            'king-khalid': ['الملك خالد', 'خالد'],
-            'king-faisal': ['الملك فيصل', 'فيصل'],
-            'taibah': ['طيبة'],
-            'taif': ['الطائف'],
-            'jeddah': ['جدة'],
-            'umm-alqura': ['أم القرى'],
-            'al-baha': ['الباحة'],
-            'qassim': ['القصيم'],
-            'king-saud': ['الملك سعود'],
-            'imam': ['الإمام'],
-            'prince-sultan': ['الأمير سلطان'],
-            'nourah': ['نورة']
+            'king-khalid': ['جامعة الملك خالد'],
+            'king-faisal': ['جامعة الملك فيصل'],
+            'taibah': ['جامعة طيبة'],
+            'taif': ['جامعة الطائف'],
+            'jeddah': ['جامعة جدة'],
+            'umm-alqura': ['جامعة أم القرى'],
+            'al-baha': ['جامعة الباحة'],
+            'qassim': ['جامعة القصيم']
         };
         
-        const searchTerms = universityMap[universityName] || [];
         let shouldShow = false;
         
-        searchTerms.forEach(term => {
-            if (cardDesc.includes(term.toLowerCase())) {
+        if (universityName === 'all') {
+            shouldShow = true;
+        } else {
+            const targetUniversity = universityMap[universityName];
+            if (targetUniversity && targetUniversity.includes(cardUniversity)) {
                 shouldShow = true;
             }
-        });
+        }
         
         if (shouldShow) {
             card.style.display = 'block';
@@ -2723,27 +2955,78 @@ function filterCoursesByUniversity(universityName) {
     });
     
     // Show notification
-    const universityNames = {
-        'king-khalid': 'جامعة الملك خالد',
-        'king-faisal': 'جامعة الملك فيصل',
-        'taibah': 'جامعة طيبة',
-        'taif': 'جامعة الطائف',
-        'jeddah': 'جامعة جدة',
-        'umm-alqura': 'جامعة أم القرى',
-        'al-baha': 'جامعة الباحة',
-        'qassim': 'جامعة القصيم',
-        'king-saud': 'جامعة الملك سعود',
-        'imam': 'جامعة الإمام محمد بن سعود الإسلامية',
-        'prince-sultan': 'جامعة الأمير سلطان',
-        'nourah': 'جامعة الأميرة نورة'
-    };
-    
     if (coursesShown > 0) {
         showNotification(`تم عرض ${coursesShown} كورس من ${universityNames[universityName]}`, 'success');
     } else {
         showNotification(`لا توجد كورسات متاحة لـ ${universityNames[universityName]}`, 'info');
     }
+    
+    // Ensure at least one group is active
+    let hasVisibleCards = false;
+    groups.forEach(group => {
+        const visibleCards = group.querySelectorAll('.card[style*="block"]');
+        if (visibleCards.length > 0) {
+            group.classList.add('active');
+            hasVisibleCards = true;
+        } else {
+            group.classList.remove('active');
+        }
+    });
+    
+    // If no cards visible, show all groups
+    if (!hasVisibleCards) {
+        groups[0].classList.add('active');
+        groups[1].classList.remove('active');
+        currentGroup = 0;
+    }
 }
+
+// Show all courses
+function showAllCourses() {
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    // Show first group by default
+    groups[0].classList.add('active');
+    groups[1].classList.remove('active');
+    currentGroup = 0;
+}
+
+// ========== INITIALIZE ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize cart
+    updateCartCount();
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Close sidebar on resize for large screens
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Initialize university filter
+    filterCoursesByUniversity('all');
+});
 
 // ========== MOBILE UNIVERSITIES MENU ==========
 // Add mobile universities menu to mobile sidebar
@@ -2768,10 +3051,6 @@ const mobileUniversitiesHTML = `
                 <a href="#" class="university-item" data-university="umm-alqura">جامعة أم القرى</a>
                 <a href="#" class="university-item" data-university="al-baha">جامعة الباحة</a>
                 <a href="#" class="university-item" data-university="qassim">جامعة القصيم</a>
-                <a href="#" class="university-item" data-university="king-saud">جامعة الملك سعود</a>
-                <a href="#" class="university-item" data-university="imam">جامعة الإمام محمد بن سعود</a>
-                <a href="#" class="university-item" data-university="prince-sultan">جامعة الأمير سلطان</a>
-                <a href="#" class="university-item" data-university="nourah">جامعة الأميرة نورة</a>
             </div>
         </div>
     </div>
@@ -2816,15 +3095,18 @@ if (mobileNavLinks) {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
                 const university = this.getAttribute('data-university');
+                currentFilter = university;
                 
-                if (university === 'all') {
-                    document.querySelectorAll('.card').forEach(card => {
-                        card.style.display = 'block';
-                    });
-                    showNotification('تم عرض جميع الكورسات', 'info');
-                } else {
-                    filterCoursesByUniversity(university);
-                }
+                // Update filter indicator
+                activeFilterText.textContent = universityNames[university];
+                filterIndicator.style.display = 'inline-block';
+                
+                // Update button text
+                universitiesBtn.textContent = universityNames[university];
+                mobileUniversitiesBtn.textContent = universityNames[university];
+                
+                // Filter courses
+                filterCoursesByUniversity(university);
                 
                 // Close mobile sidebar and universities dropdown
                 mobileSidebar.classList.remove('active');
@@ -2897,6 +3179,49 @@ window.addEventListener('resize', adjustNavbarForScreenSize);
 
 
 
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // جلب قيمة الجامعة من الرابط
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedUni = urlParams.get("uni"); // مثال: "kku", "bu"
+
+    if (selectedUni) {
+        const uniMap = {
+            "kku": "جامعة الملك خالد",
+            "kfu": "جامعة الملك فيصل",
+            "tu": "جامعة طيبة",
+            "bu": "جامعة الباحة",
+            "uq": "جامعة أم القرى",
+            "uj": " جامعه الطائف",
+            "ksu": "جامعة الملك سعود",
+            "kau": "جامعة الملك عبدالعزيز"
+        };
+
+        const uniName = uniMap[selectedUni];
+        if (uniName) {
+            // إظهار اسم الجامعة في الفلتر (اختياري)
+            const filterIndicator = document.getElementById("filterIndicator");
+            const activeFilterText = document.getElementById("activeFilterText");
+            filterIndicator.style.display = "block";
+            activeFilterText.textContent = uniName;
+
+            // فلترة الكورسات حسب الجامعة
+            const allCards = document.querySelectorAll(".card");
+            allCards.forEach(card => {
+                if (card.dataset.university === uniName) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    }
+});
 
 </script>
 </body>

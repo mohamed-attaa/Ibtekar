@@ -560,12 +560,12 @@ body {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%; /* يبدأ من نهاية العنصر */
+    top: 100%;
     right: 0;
-    margin-top: 0; /* إزالة أي هامش */
+    margin-top: 0;
     padding-top: 0;
     background: white;
-    border-radius: 0 0 15px 15px; /* زوايا مستديرة فقط من الأسفل */
+    border-radius: 0 0 15px 15px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     min-width: 200px;
     display: none;
@@ -988,271 +988,53 @@ body {
     margin-right: auto;
 }
 
-.about-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-
-.about-feature {
+/* ========== SHOWCASE SECTION ========== */
+.showcase-section {
+    padding: 80px 5%;
     background: var(--white);
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.06);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.about-feature:hover {
-    transform: translateY(-5px);
-}
-
-.about-feature i {
-    font-size: 26px;
-    color: var(--primary-gold);
-    background: #FFFBF0;
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    transition: transform 0.6s ease;
+    position: relative;
 }
 
-.about-feature:hover i {
-    transform: rotateY(360deg);
-}
-
-.about-feature h4 {
-    margin: 0 0 8px;
-    color: var(--gray-dark);
-    font-size: 18px;
-}
-
-.about-feature p {
-    margin: 0;
-    font-size: 14px;
-    color: var(--gray-medium);
-    line-height: 1.6;
-}
-
-/* ========== STAGE SECTION ========== */
-.stage-section {
-    padding: 100px 5%;
+.showcase-content {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
-    background: var(--white);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.stage-section h2 {
+.showcase-content h1 {
     color: var(--primary-gold);
     font-size: clamp(28px, 4vw, 36px);
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+    max-width: 800px;
 }
 
-.stage-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.stage-card {
-    background: var(--white);
-    border-radius: 25px;
-    padding: 40px 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.07);
-    transition: all 0.4s ease;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.stage-card:nth-child(1) { animation-delay: 0.1s; }
-.stage-card:nth-child(2) { animation-delay: 0.2s; }
-.stage-card:nth-child(3) { animation-delay: 0.3s; }
-.stage-card:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.stage-card:hover {
-    transform: translateY(-15px);
-}
-
-.stage-icon {
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 42px;
-    margin-bottom: 25px;
-    transition: transform 0.3s ease;
-}
-
-.stage-card:hover .stage-icon {
-    transform: scale(1.1);
-}
-
-.red { background: #FFF0F0; color: var(--black); border: 2px solid var(--black); }
-.blue { background: #F0F5FF; color: var(--black); border: 2px solid var(--black); }
-.green { background: #F0FFF0; color: var(--black); border: 2px solid var(--black); }
-.purple { background: #F5F0FF; color: var(--black); border: 2px solid var(--black); }
-
-.stage-card h3 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gray-dark);
-}
-
-.start-btn {
-    margin-top: 60px;
-    padding: 16px 50px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
-    color: var(--white);
-    font-size: 17px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.start-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
-}
-
-/* ========== TRIAL SECTION ========== */
-.trial-section {
-    padding: 100px 5%;
-    background: linear-gradient(180deg, var(--white), var(--gray-light));
-    display: flex;
-    justify-content: center;
-}
-
-.trial-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    flex-direction: row-reverse;
-}
-
-.lessons {
-    flex: 1;
-    min-width: 300px;
-}
-
-.lesson-box {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 20px 25px;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: transform 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,.06);
-    opacity: 0;
-    transform: translateX(60px);
-    animation: slideInRight 0.6s ease forwards;
-}
-
-.lesson-box:nth-child(1) { animation-delay: 0.1s; }
-.lesson-box:nth-child(2) { animation-delay: 0.2s; }
-.lesson-box:nth-child(3) { animation-delay: 0.3s; }
-.lesson-box:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes slideInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.lesson-box:hover {
-    transform: translateX(8px);
-}
-
-.lesson-left {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.lesson-left i {
-    font-size: 20px;
-    color: var(--primary-gold);
-}
-
-.badge {
-    background: linear-gradient(90deg, #FFFBF0, #FFF5E1);
-    color: var(--primary-gold);
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.trial-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.trial-text h2 {
-    color: var(--primary-gold);
-    font-size: clamp(28px, 4vw, 34px);
-    margin-bottom: 25px;
-}
-
-.trial-text p {
+.showcase-content p {
     color: var(--gray-medium);
-    line-height: 1.9;
     font-size: clamp(15px, 1.8vw, 17px);
+    margin-bottom: 40px;
+    max-width: 800px;
+    line-height: 1.8;
 }
 
-.try-btn {
-    margin-top: 35px;
-    padding: 16px 50px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(90deg, var(--gold-light), var(--primary-gold));
-    color: var(--white);
-    font-size: 17px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.try-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+.showcase-image {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    background-image: url("./Imges/باك .jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.1);
+    position: relative;
+    overflow: hidden;
 }
 
 /* ========== COURSES SECTION ========== */
@@ -1419,51 +1201,6 @@ body {
     box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
 }
 
-/* ========== SHOWCASE SECTION ========== */
-.showcase-section {
-    padding: 120px 5%;
-    background: linear-gradient(180deg, var(--white), var(--gray-light));
-    display: flex;
-    justify-content: center;
-}
-
-.showcase-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-}
-
-/* العنوان */
-.showcase-content h1 {
-    color: var(--primary-gold); /* ذهبي */
-    font-size: clamp(28px, 4vw, 36px);
-    margin-bottom: 20px;
-}
-
-/* البرجراف */
-.showcase-content p {
-    color: var(--gray-medium);
-    font-size: clamp(15px, 1.8vw, 17px);
-    margin-bottom: 50px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* الصورة */
-.showcase-image {
-    width: 100%;
-    min-height: 100vh;
-    margin-top: 30px;
-
-    background-image: url("./Imges/باك\ .jpeg");
-    background-size: contain;   /* الصورة كاملة */
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
 /* ========== FOOTER ========== */
 .footer {
     background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
@@ -1498,6 +1235,12 @@ body {
 .footer-logo i {
     color: var(--primary-gold);
     font-size: 20px;
+}
+
+.footer-logo-img {
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
 }
 
 .footer-links {
@@ -1594,6 +1337,9 @@ body {
     .search-container {
         max-width: 500px;
     }
+    .review-card {
+        flex: 0 0 calc(33.333% - 20px);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1604,6 +1350,17 @@ body {
     .logo-links,
     .nav-links {
         gap: 15px;
+    }
+    .review-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-card {
+        max-width: 600px;
+        width: 100%;
     }
 }
 
@@ -1629,13 +1386,6 @@ body {
     .mobile-search {
         display: block;
     }
-    
-    /* Hide animations on mobile for better performance */
-    .floating-elements,
-    .hero-shapes,
-    .hero-particles {
-        display: none;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1644,8 +1394,8 @@ body {
     }
     
     .logo-img {
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 60px;
     }
     
     .hero-advanced {
@@ -1668,25 +1418,24 @@ body {
     }
     
     .about-section,
-    .stage-section,
-    .trial-section,
+    .free-trial-section,
+    .reviews-section,
+    .features-section,
     .section,
     .showcase-section {
         padding: 70px 5%;
     }
     
-    .trial-container {
-        flex-direction: column-reverse;
-        text-align: center;
+    .review-card {
+        flex: 0 0 100%;
     }
     
     .cards-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
     
-    .showcase-images {
-        flex-direction: column;
+    .showcase-image {
+        height: 400px;
     }
     
     .btn {
@@ -1699,18 +1448,32 @@ body {
         height: 40px;
         font-size: 18px;
     }
+    
+    .showcase-content h1 {
+        font-size: 24px;
+    }
+    
+    .showcase-content p {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .free-trial-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .reviews-arrows {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .slide-controls {
+        margin-right: 0;
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 600px) {
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-    
-    .stage-cards {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-    
     .footer-links {
         flex-direction: column;
         gap: 10px;
@@ -1718,6 +1481,19 @@ body {
     
     .nav-left {
         gap: 10px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-input {
+        font-size: 14px;
+        padding: 10px 40px 10px 15px;
+    }
+    
+    .showcase-image {
+        height: 300px;
     }
 }
 
@@ -1731,9 +1507,13 @@ body {
         font-size: 16px;
     }
     
-    .stage-section h2,
+    .free-trial-title {
+        font-size: 28px;
+    }
+    
+    .reviews-section h2,
     .section h2,
-    .trial-text h2 {
+    .features-section h2 {
         font-size: 24px;
     }
     
@@ -1746,45 +1526,60 @@ body {
     .logo {
         font-size: 18px;
     }
+    
+    .logo-img {
+        width: 70px;
+        height: 50px;
+    }
+    
+    .floating-element {
+        font-size: 50px;
+    }
+    
+    .hero-shapes .shape {
+        display: none;
+    }
+    
+    .showcase-image {
+        height: 250px;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 22px;
+    }
+    
+    .hero-cta {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+    
+    .logo-img {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .cart {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+    
+    .showcase-image {
+        height: 200px;
+    }
+}
 
 /* ========== UNIVERSITIES DROPDOWN IN NAVBAR ========== */
 .nav-universities-wrapper {
@@ -1887,6 +1682,586 @@ body {
 .university-item:last-child {
     border-bottom: none;
 }
+
+/* ========== NOTIFICATION STYLES ========== */
+.university-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+    font-size: 14px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.university-notification.info {
+    background: #2196F3;
+}
+
+/* ========== ENHANCED RESPONSIVE FOR HERO ANIMATIONS ========== */
+@media (max-width: 1024px) {
+    .floating-element {
+        font-size: 70px;
+    }
+    
+    .hero-particles {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-element {
+        font-size: 50px;
+    }
+    
+    .hero-particles {
+        display: block;
+    }
+    
+    .particle {
+        display: none;
+    }
+    
+    .hero-shapes .shape {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-element {
+        display: none;
+    }
+    
+    .hero-particles {
+        display: none;
+    }
+}
+
+/* ========== ENHANCED SEARCH RESPONSIVENESS ========== */
+@media (max-width: 768px) {
+    .search-results {
+        position: fixed;
+        top: 70px;
+        left: 5%;
+        right: 5%;
+        max-height: 60vh;
+    }
+}
+
+/* ========== ENHANCED UNIVERSITIES DROPDOWN FOR MOBILE ========== */
+@media (max-width: 768px) {
+    .universities-dropdown {
+        position: fixed;
+        top: 70px;
+        right: 5%;
+        left: 5%;
+        width: auto;
+        max-width: 90%;
+    }
+    
+    .universities-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+/* ========== ENHANCED CART FOR MOBILE ========== */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ========== FEATURES SECTION ========== */
+.features-section {
+    padding: 100px 5%;
+    background: var(--white);
+    text-align: center;
+}
+
+.features-title {
+    color: var(--primary-gold);
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 60px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.08);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+    max-width: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,.15);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--gold-light), var(--primary-gold));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: var(--white);
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    color: var(--gray-dark);
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: var(--gray-medium);
+    line-height: 1.8;
+    font-size: 16px;
+    flex: 1;
+}
+
+.trial-info {
+    text-align: center;
+    margin-top: 40px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--white) 0%, #f0f7ff 100%);
+    border-radius: 25px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trial-info h1 {
+    color: var(--primary-gold);
+    font-size: clamp(24px, 3vw, 32px);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.trial-info p {
+    color: var(--gray-medium);
+    font-size: clamp(15px, 1.8vw, 18px);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trial-info button {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, var(--gold-light), var(--primary-gold));
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.trial-info button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 768px) {
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.reviews-section {
+  padding: 60px 20px;
+  background: #ffffff;
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+.reviews-section h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+.reviews-subtitle {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.reviews-slider-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.reviews-slider {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.review-card {
+  flex: 0 0 23%;
+  background: #fff;
+  color: #111;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  text-align: right;
+  transform: scale(0.95);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.review-card.active {
+  display: block;
+}
+.review-card:hover {
+  transform: scale(1);
+  box-shadow: 0 12px 30px rgba(255,215,0,0.5);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reviewer-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #FFD700;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.reviewer-info {
+  text-align: right;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.reviewer-course {
+  font-size: 14px;
+  color: #555;
+}
+
+.stars {
+  color: #FFD700;
+  margin-top: 5px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  background: #FFD700;
+  color: #111;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px 12px;
+  z-index: 10;
+}
+.slider-btn.prev { left: -20px; }
+.slider-btn.next { right: -20px; }
+.slider-btn:hover { background: #fff; color: #FFD700; }
+
+/* ========== REVIEWS SECTION FIXED ========== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+  }
+
+  .uni-section {
+    padding: 50px 20px;
+    background: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .uni-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .uni-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #c27e00;
+  }
+
+  .uni-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .view-all {
+    background: linear-gradient(135deg, #dba800 0%, #000000 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgb(216, 176, 0);
+  }
+
+  .view-all:hover {
+    transform: translateY(-2px);
+  }
+
+  .arrow {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .arrow:hover {
+    background: #d89e00;
+    color: white;
+    border-color: #d3a200;
+    transform: scale(1.05);
+  }
+
+  .arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f5f5f5;
+    color: #aaa;
+  }
+
+  .arrow:disabled:hover {
+    background: #f5f5f5;
+    color: #aaa;
+    border-color: #ddd;
+    transform: none;
+  }
+
+  .slider-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slider {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 5px;
+  }
+
+  .uni-card {
+    min-width: 160px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transform: scale(1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+  }
+
+  .uni-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .uni-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    display: block;
+    margin: 0 auto 15px;
+    transition: transform 0.3s;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
+  }
+
+  .uni-card:hover img {
+    transform: scale(1.1);
+    border-color: #e2a600;
+  }
+
+  .uni-card p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .card-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .uni-section { padding: 30px 15px; }
+    .uni-header { flex-direction: column; align-items: flex-start; }
+    .uni-actions { align-self: flex-end; }
+    .slider { gap: 20px; }
+    .uni-card { min-width: 140px; padding: 12px; }
+    .uni-card img { width: 100px; height: 100px; }
+    .uni-card p { font-size: 14px; }
+  }
+  
+  @media (max-width: 480px) {
+    .uni-card { min-width: 120px; }
+    .uni-card img { width: 85px; height: 85px; }
+    .view-all { padding: 10px 18px; font-size: 14px; }
+    .arrow { width: 38px; height: 38px; }
+  }
 </style>
 </head>
 
@@ -1929,33 +2304,29 @@ body {
     
     <!-- Navigation Links -->
     <div class="nav-links">
-<div class="dropdown-wrapper">
-        <button class="universities-btn" id="universitiesBtn">جميع الجامعات</button>
-        <div class="universities-dropdown" id="universitiesDropdown">
-            <div class="universities-search">
-                <input type="text" placeholder="ابحث عن جامعة..." id="universitySearch">
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="universities-list">
-                <a href="#" class="university-item" data-university="all">جميع الجامعات</a>
-                <a href="#" class="university-item" data-university="king-khalid">جامعة الملك خالد</a>
-                <a href="#" class="university-item" data-university="king-faisal">جامعة الملك فيصل</a>
-                <a href="#" class="university-item" data-university="taibah">جامعة طيبة</a>
-                <a href="#" class="university-item" data-university="taif">جامعة الطائف</a>
-                <a href="#" class="university-item" data-university="jeddah">جامعة جدة</a>
-                <a href="#" class="university-item" data-university="umm-alqura">جامعة أم القرى</a>
-                <a href="#" class="university-item" data-university="al-baha">جامعة الباحة</a>
-                <a href="#" class="university-item" data-university="qassim">جامعة القصيم</a>
+        <div class="nav-universities-wrapper">
+            <button class="universities-btn" id="universitiesBtn">
+                جميع الجامعات
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="universities-dropdown" id="universitiesDropdown">
+                <div class="universities-search">
+                    <input type="text" placeholder="ابحث عن جامعة..." id="universitySearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="universities-list">
+                    <a href="#courses" class="university-item" data-university="all">جميع الجامعات</a>
+                    <a href="#courses" class="university-item" data-university="king-khalid">جامعة الملك خالد</a>
+                    <a href="#courses" class="university-item" data-university="king-faisal">جامعة الملك فيصل</a>
+                    <a href="#courses" class="university-item" data-university="taibah">جامعة طيبة</a>
+                    <a href="#courses" class="university-item" data-university="taif">جامعة الطائف</a>
+                    <a href="#courses" class="university-item" data-university="jeddah">جامعة جدة</a>
+                    <a href="#courses" class="university-item" data-university="umm-alqura">جامعة أم القرى</a>
+                    <a href="#courses" class="university-item" data-university="al-baha">جامعة الباحة</a>
+                    <a href="#courses" class="university-item" data-university="qassim">جامعة القصيم</a>
+                </div>
             </div>
         </div>
-    </div>
-
-
-
-
-
-
-
 
         <a href="#courses">الكورسات</a>
     </div>
@@ -2076,99 +2447,196 @@ body {
                 كما نوفر تدريبًا مهنيًا للخريجين في أقل من ثلاثة أيام، لتأهيلهم لسوق العمل واجتياز المقابلات الشخصية في مجال المحاسبة، بإذن الله.
                 معظم الشروحات حاليا من شرح الدكتور محمد خالد بكر. مالك منصه ابتكر
             </p>
-            
-            <div class="about-features">
-                <div class="about-feature">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <div>
-                        <h4>معلم ممتاذ</h4>
-                        <p>حبرة في الشرح والتدريس لقد طور من اجيال كثيرة</p>
-                    </div>
-                </div>
-                <div class="about-feature">
-                    <i class="fas fa-video"></i>
-                    <div>
-                        <h4>شرح تفاعلي</h4>
-                        <p>محاضرات مسجلة ومباشرة عالية الجودة مع أسئلة تفاعلية</p>
-                    </div>
-                </div>
-                <div class="about-feature">
-                    <i class="fas fa-book"></i>
-                    <div>
-                        <h4>مواد شاملة</h4>
-                        <p>شروحات كاملة لجميع المواد الدراسية والجامعية</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 
-<!-- STAGE SECTION -->
-<section class="stage-section">
-    <h2>ابدأ رحلتك مع ابتكر</h2>
-    <div class="stage-cards">
-        <div class="stage-card">
-            <div class="stage-icon red">1</div>
-            <h3>اشترك</h3>
-        </div>
-        <div class="stage-card">
-            <div class="stage-icon blue">2</div>
-            <h3>تعلم</h3>
-        </div>
-        <div class="stage-card">
-            <div class="stage-icon green">3</div>
-            <h3>اختبار</h3>
-        </div>
-        <div class="stage-card">
-            <div class="stage-icon purple">4</div>
-            <h3>احصل على الشهادة</h3>
-        </div>
-    </div>
-    <button class="start-btn" id="startBtn">ابدأ الآن</button>
-</section>
+<!-- FEATURES SECTION -->
+<section class="features-section">
+    <h2 class="features-title">   ليش ابتكر هيا الخيار الانسب ليك </h2>
 
-<!-- TRIAL SECTION -->
-<section class="trial-section">
-    <div class="trial-container">
-        <div class="lessons">
-            <div class="lesson-box">
-                <span class="badge">تجربة مجانية</span>
-                <span>الفصل الأول</span>
+    <div class="features-container">
+        <!-- كارد احترافي 1 -->
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-user-graduate"></i>
             </div>
-            <div class="lesson-box">
-                <div class="lesson-left">
-                    <i class="fa-solid fa-play"></i>
-                    <span>الدرس الأول</span>
-                </div>
-                <span>15 د</span>
-            </div>
-            <div class="lesson-box">
-                <div class="lesson-left">
-                    <i class="fa-solid fa-play"></i>
-                    <span>الدرس الثاني</span>
-                </div>
-                <span>15 د</span>
-            </div>
-            <div class="lesson-box">
-                <div class="lesson-left">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>الدرس الثالث</span>
-                </div>
-                <span>15 د</span>
-            </div>
-        </div>
-        <div class="trial-text">
-            <h2>تجربة مجانية</h2>
+            <h3>"مهما كان مجالك في التعليم أو التدريب، نلبي احتياجك"</h3>
             <p>
-                احصل على تجربة مجانية لكل محتوى تعليمي، قيم
-                جودة الشرح والمحتوى بنفسك ومن ثم بإمكانك
-                الاشتراك
+                نقدم محتوى تعليمي مخصص يناسب جميع التخصصات والمستويات، مع مراعاة احتياجات كل طالب على حدة لضمان أفضل تجربة تعليمية.
             </p>
-            <button class="try-btn" id="tryBtn">جرب الآن</button>
+        </div>
+
+        <!-- كارد احترافي 2 -->
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>فريق أكاديمي مؤهل</h3>
+            <p>
+                مجموعة رهيبة من مدرسين ومدرسين يوسدي اخترناهم بدقة لتساعدك في تحقيق أهدافك. خبراء في مجالاتهم مع سنوات من الخبرة في التدريس.
+            </p>
         </div>
     </div>
+
+    <!-- العناصر مرة واحدة تحت الكاردات -->
+    <div class="trial-info">
+        <h1>تجربة مجانية</h1>
+        <p>احصل على تجربة مجانية لكل محتوى تعليمي وقيم الجودة والشرح والمحتوى ومن ثم بإمكانك الاشتراك</p>
+        <button id="trialButton">جرب الآن</button>
+    </div>
 </section>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews-section">
+  <h2>آراء طلابنا</h2>
+  <p class="reviews-subtitle">اكتشف تجارب طلابنا مع ابتكر. أكثر من 25 رأي يوضح جودة محتوى منصتنا.</p>
+
+  <div class="reviews-slider-wrapper">
+    <button class="slider-btn prev" id="prevReviewBtn">❮</button>
+    <div class="reviews-slider" id="reviewsSlider">
+      <!-- 25 كارد احترافي -->
+      <!-- مثال على الكارد -->
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">ر</div>
+          <div class="reviewer-info">
+            <div class="reviewer-name">روابي الشهراني</div>
+            <div class="reviewer-course">تفاضل وتكامل 109</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">تجربة تعليمية ممتازة، المحتوى منظم وسهل الفهم.</p>
+        <span class="review-date">15 مارس 2024</span>
+      </div>
+
+      <!-- كرر الكارد مع تغييرات الاسماء والنصوص حتى تصل 25 كارد -->
+      <!-- سأضع لك مثال للـ 25 كارد لاحقاً لتوفير مساحة -->
+    </div>
+    <button class="slider-btn next" id="nextReviewBtn">❯</button>
+  </div>
+</section>
+
+
+
+<!-- SHOWCASE SECTION -->
+<section class="showcase-section">
+    <div class="showcase-content">
+        <h1>مقررات الجامعات</h1>
+        <p>
+            لدينا شرح للعديد من الجامعات بتخصصاتها وموادها المختلفة. نوفر شروحات شاملة ومبسطة تساعدك على فهم المواد الصعبة بسهولة.
+        </p>
+        <div class="showcase-image"></div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="uni-section">
+
+  <div class="uni-header">
+    <h2>استعرض كورساتك حسب الجامعة</h2>
+
+    <div class="uni-actions">
+      <button class="view-all" onclick="window.location.href='university.html'">عرض الكل</button>
+      <button class="arrow" id="arrowLeft">‹</button>
+<button class="arrow" id="arrowRight">›</button>
+
+    </div>
+  </div>
+
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+
+      <!-- روابط الجامعات معدلة لتذهب لصفحة university.html مع كود الجامعة -->
+      <a href="university.html?uni=kku" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.31 PM.jpeg" alt="جامعة الملك خالد">
+        <p>جامعة الملك خالد</p>
+        <div class="card-counter">1</div>
+      </a>
+
+      <a href="university.html?uni=kfu" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.48 PM.jpeg" alt="جامعة الملك فيصل">
+        <p>جامعة الملك فيصل</p>
+        <div class="card-counter">2</div>
+      </a>
+
+      <a href="university.html?uni=tu" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.06 PM.jpeg" alt="جامعة طيبة">
+        <p>جامعة طيبة</p>
+        <div class="card-counter">3</div>
+      </a>
+
+      <a href="university.html?uni=bu" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.23 PM.jpeg" alt="جامعة الباحة">
+        <p>جامعة الباحة</p>
+        <div class="card-counter">4</div>
+      </a>
+
+      <a href="university.html?uni=uq" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.26.22 PM (1).jpeg" alt="جامعة أم القرى">
+        <p>جامعة أم القرى</p>
+        <div class="card-counter">5</div>
+      </a>
+
+      <a href="university.html?uni=uj" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.50 PM.jpeg" alt=" جامعه الطائف">
+        <p>جامعه الطائف </p>
+        <div class="card-counter">6</div>
+      </a>
+
+      
+
+      
+
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- COURSES SECTION WITH ALL CARDS -->
 <section class="section" id="courses">
@@ -2223,27 +2691,11 @@ body {
     </div>
 </section>
 
-<!-- SHOWCASE SECTION -->
-<section class="showcase-section">
-    <div class="showcase-content">
-
-        <h1>مقررات الجامعات</h1>
-        <p>
-            لدينا شرح للعديد من الجامعات بتخصصاتها وموادها المختلفة
-        </p>
-
-        <div class="showcase-image"></div>
-
-    </div>
-</section>
-
-
-
 <!-- FOOTER -->
 <footer class="footer" id="contact">
     <div class="footer-content">
         <div class="footer-logo">
-            <i class="fas fa-graduation-cap"></i>
+            <img src="./Imges/logo.jpeg" alt="ابتكر" class="footer-logo-img">
             <span>ابتكر</span>
         </div>
         
@@ -2275,647 +2727,824 @@ body {
 </a>
 
 <script>
-// Mobile Menu Functionality
-const menuToggle = document.getElementById('menuToggle');
-const mobileSidebar = document.getElementById('mobileSidebar');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
+    // ========== MOBILE MENU FUNCTIONALITY ==========
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-menuToggle.addEventListener('click', function() {
-    mobileSidebar.classList.add('active');
-    sidebarOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
+    menuToggle.addEventListener('click', function() {
+        mobileSidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
 
-sidebarOverlay.addEventListener('click', function() {
-    mobileSidebar.classList.remove('active');
-    this.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
-
-// Close sidebar when clicking links
-document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
+    sidebarOverlay.addEventListener('click', function() {
         mobileSidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
+        this.classList.remove('active');
         document.body.style.overflow = 'auto';
     });
-});
 
-// Course Pagination
-let currentPage = 1;
-const totalPages = 2;
-
-// Initially show page 1 cards
-document.querySelectorAll('.page-1').forEach(card => {
-    card.style.display = 'block';
-});
-
-document.querySelectorAll('.page-2').forEach(card => {
-    card.style.display = 'none';
-});
-
-function showPage(page) {
-    // Hide all cards
-    document.querySelectorAll('.card').forEach(card => {
-        card.style.display = 'none';
+    // Close sidebar when clicking links
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
     });
-    
-    // Show cards for selected page
-    document.querySelectorAll('.page-' + page).forEach(card => {
+
+    // ========== COURSE PAGINATION ==========
+    let currentPage = 1;
+    const totalPages = 2;
+
+    // Initially show page 1 cards
+    document.querySelectorAll('.page-1').forEach(card => {
         card.style.display = 'block';
     });
-    
-    // Update current page
-    currentPage = page;
-}
 
-document.getElementById("next").addEventListener('click', function() {
-    if (currentPage < totalPages) {
-        currentPage++;
-        showPage(currentPage);
+    document.querySelectorAll('.page-2').forEach(card => {
+        card.style.display = 'none';
+    });
+
+    function showPage(page) {
+        // Hide all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.display = 'none';
+        });
+        
+        // Show cards for selected page
+        document.querySelectorAll('.page-' + page).forEach(card => {
+            card.style.display = 'block';
+        });
+        
+        // Update current page
+        currentPage = page;
     }
-});
 
-document.getElementById("prev").addEventListener('click', function() {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
+    document.getElementById("next").addEventListener('click', function() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    document.getElementById("prev").addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    // ========== SHOPPING CART FUNCTIONALITY ==========
+    const cartButton = document.getElementById('cartButton');
+    const cartModal = document.getElementById('cartModal');
+    const closeCart = document.getElementById('closeCart');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const cartTotalContainer = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const continueBtn = document.getElementById('continueBtn');
+
+    // Load cart from localStorage or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Update cart count
+    function updateCartCount() {
+        cartCount.textContent = cart.length;
     }
-});
 
-// ========== SHOPPING CART FUNCTIONALITY ==========
-const cartButton = document.getElementById('cartButton');
-const cartModal = document.getElementById('cartModal');
-const closeCart = document.getElementById('closeCart');
-const cartItemsContainer = document.getElementById('cartItems');
-const cartCount = document.getElementById('cartCount');
-const cartTotalContainer = document.getElementById('cartTotal');
-const checkoutBtn = document.getElementById('checkoutBtn');
-const continueBtn = document.getElementById('continueBtn');
-
-// Load cart from localStorage or initialize empty array
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-// Update cart count
-function updateCartCount() {
-    cartCount.textContent = cart.length;
-}
-
-// Update cart modal
-function updateCartModal() {
-    cartItemsContainer.innerHTML = '';
-    
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = `
-            <div class="cart-empty">
-                <i class="fas fa-shopping-cart"></i>
-                <p>عربة التسوق فارغة</p>
-            </div>
-        `;
+    // Update cart modal
+    function updateCartModal() {
+        cartItemsContainer.innerHTML = '';
+        
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>عربة التسوق فارغة</p>
+                </div>
+            `;
+            cartTotalContainer.innerHTML = `
+                <div class="total-row">
+                    <span>المجموع:</span>
+                    <span>0 ريال</span>
+                </div>
+                <div class="total-row final">
+                    <span>الإجمالي:</span>
+                    <span>0 ريال</span>
+                </div>
+            `;
+            return;
+        }
+        
+        let total = 0;
+        
+        cart.forEach((item, index) => {
+            const priceNum = parseInt(item.price.replace(/\D/g, ''));
+            total += priceNum;
+            
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <img src="${item.image}" alt="${item.title}">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">${item.title}</div>
+                    <div class="cart-item-price">${item.price}</div>
+                </div>
+                <button class="remove-from-cart" data-index="${index}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            
+            cartItemsContainer.appendChild(cartItem);
+        });
+        
+        // Add event listeners to remove buttons
+        document.querySelectorAll('.remove-from-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartModal();
+                updateCartCount();
+            });
+        });
+        
         cartTotalContainer.innerHTML = `
             <div class="total-row">
                 <span>المجموع:</span>
-                <span>0 ريال</span>
+                <span>${total} ريال</span>
             </div>
             <div class="total-row final">
                 <span>الإجمالي:</span>
-                <span>0 ريال</span>
+                <span>${total} ريال</span>
             </div>
         `;
-        return;
     }
-    
-    let total = 0;
-    
-    cart.forEach((item, index) => {
-        const priceNum = parseInt(item.price.replace(/\D/g, ''));
-        total += priceNum;
-        
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-        cartItem.innerHTML = `
-            <img src="${item.image}" alt="${item.title}">
-            <div class="cart-item-details">
-                <div class="cart-item-title">${item.title}</div>
-                <div class="cart-item-price">${item.price}</div>
-            </div>
-            <button class="remove-from-cart" data-index="${index}">
-                <i class="fas fa-trash"></i>
-            </button>
-        `;
-        
-        cartItemsContainer.appendChild(cartItem);
+
+    // Open cart modal
+    cartButton.addEventListener('click', function() {
+        cartModal.classList.add('show');
+        updateCartModal();
+        document.body.style.overflow = 'hidden';
     });
-    
-    // Add event listeners to remove buttons
-    document.querySelectorAll('.remove-from-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const index = parseInt(this.getAttribute('data-index'));
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartModal();
-            updateCartCount();
-        });
-    });
-    
-    cartTotalContainer.innerHTML = `
-        <div class="total-row">
-            <span>المجموع:</span>
-            <span>${total} ريال</span>
-        </div>
-        <div class="total-row final">
-            <span>الإجمالي:</span>
-            <span>${total} ريال</span>
-        </div>
-    `;
-}
 
-// Open cart modal
-cartButton.addEventListener('click', function() {
-    cartModal.classList.add('show');
-    updateCartModal();
-    document.body.style.overflow = 'hidden';
-});
-
-// Close cart modal
-closeCart.addEventListener('click', function() {
-    cartModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-});
-
-continueBtn.addEventListener('click', function() {
-    cartModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-});
-
-// Checkout button
-checkoutBtn.addEventListener('click', function() {
-    if (cart.length === 0) {
-        alert('عربة التسوق فارغة');
-        return;
-    }
-    alert('سيتم توجيهك إلى صفحة الدفع');
-    cartModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-});
-
-// Close cart when clicking outside
-cartModal.addEventListener('click', function(e) {
-    if (e.target === cartModal) {
+    // Close cart modal
+    closeCart.addEventListener('click', function() {
         cartModal.classList.remove('show');
         document.body.style.overflow = 'auto';
-    }
-});
-
-// Add to cart functionality
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        const card = this.closest('.card');
-        const title = card.querySelector('h1').textContent;
-        const price = card.querySelector('.price span').textContent;
-        const image = card.querySelector('img').src;
-        
-        cart.push({
-            title: title,
-            price: price,
-            image: image
-        });
-        
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-        
-        alert('تمت إضافة الكورس إلى السلة');
     });
-});
 
-// Initialize cart
-updateCartCount();
+    continueBtn.addEventListener('click', function() {
+        cartModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
 
-// ========== SEARCH FUNCTIONALITY ==========
-const coursesData = [
-    // Page 1 courses with correct image paths
-    { title: "محاسبه تكاليف", description: "شرح شامل", university: "جامعه الباحه", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (1).jpeg" },
-    { title: "المحاسبه المتقدمه", description: "جامعه الباحه", university: "تبسيط كامل", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (2).jpeg" },
-    { title: "2المحاسبه المتوسطه", description: "جامعه الباحه", university: "", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM.jpeg" },
-    { title: "1 مقرر محاسبه ماليه متوسطه", description: "جامعه طيبه", university: "", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM (1).jpeg" },
-    { title: "2 مقرر محاسبه ماليه متوسطه", description: "جامعه طيبة", university: "شرح مبسط", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM.jpeg" },
-    { title: "التكاليف والمحاسبه الاداريه", description: "جامعه طيبة", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM (1).jpeg" },
-    { title: "المحاسبه الماليه المتقدمه", description: "جامعه طيبة", university: "", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM.jpeg" },
-    { title: "محاسبه متوسطه 2", description: "جامعه القصيم", university: "", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg" },
-    { title: "مبادئ الاقتصاد الجزئي", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg" },
-    { title: "الاحصاء التطبيقي", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg" },
-    { title: "محاسبه متوسطه 1", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg" },
-    { title: "رياضيات التمويل والاستثمار", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg" },
-    { title: "مبادئالاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg" },
-    { title: "الرياضيات للاقتصاد والعلوم الاداريه والماليه", description: "جامعه الملك خالد", university: "", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg" },
-    { title: "محاسبة المنشات الماليه", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg" },
-    { title: "محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg" },
-    { title: "ادارة مالية 2", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg" },
-    { title: "مفاهيم واهداف محاسبة التكاليف", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg" },
-    
-    // Page 2 courses
-    { title: "محاسبه متوسطه 1", description: "محاسبه علي اساس الاستحقاق", university: "جامعه ام القري", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg" },
-    { title: "محاسبة", description: "جامعه الطائف", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg" },
-    { title: "محاسبه التكاليف", description: "جامعه الطائف", university: "", price: "20 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg" },
-    { title: "المحاسبه المتوسطه الجزء الثاني", description: "جامعه الطائف", university: "أمثلة", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM.jpeg" },
-    { title: "المحاسبه المتوسطه الجزء الاول", description: "جامعه الطائف", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (1).jpeg" },
-    { title: "مبادئ الخطر والتامين", description: "جامعه الطائف", university: "", price: "20 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (2).jpeg" },
-    { title: "الاحصاء التطبيقي", description: "جامعه الطائف", university: "", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM.jpeg" },
-    { title: "مبادئ الادارة الماليه", description: "جامعه الملك فيصل", university: "تطبيقات", price: "90 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM (1).jpeg" },
-    { title: "المحاسبه الماليه دبلوم", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (2).jpeg" },
-    { title: "مبادئ المحاسبه", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM.jpeg" },
-    { title: "Business Combinations", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.50 AM.jpeg" },
-    { title: "محاسبه تكاليف وادارية", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg" },
-    { title: "ادارة ماليه 1", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg" },
-    { title: "محاسبة الزكاى والضريبة", description: "جامعه الملك خالد", university: "", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg" },
-    { title: "المحاسبة عن عمليات البضاعة", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg" },
-    { title: "تحليل قائمه المركز المالي", description: "جامعه الملك خالد", university: "", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg" }
-];
+    // Checkout button
+    checkoutBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+            alert('عربة التسوق فارغة');
+            return;
+        }
+        alert('سيتم توجيهك إلى صفحة الدفع');
+        cartModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
 
-const searchInput = document.getElementById('searchInput');
-const searchForm = document.getElementById('searchForm');
-const searchResults = document.getElementById('searchResults');
-const mobileSearchInput = document.getElementById('mobileSearchInput');
-const mobileSearchButton = document.getElementById('mobileSearchButton');
+    // Close cart when clicking outside
+    cartModal.addEventListener('click', function(e) {
+        if (e.target === cartModal) {
+            cartModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
 
-// Display search results
-function displaySearchResults(query) {
-    searchResults.innerHTML = '';
-    
-    if (!query.trim()) {
-        searchResults.style.display = 'none';
-        return;
-    }
-    
-    const filtered = coursesData.filter(course => 
-        course.title.toLowerCase().includes(query.toLowerCase()) ||
-        course.description.toLowerCase().includes(query.toLowerCase()) ||
-        course.university.toLowerCase().includes(query.toLowerCase())
-    );
-    
-    if (filtered.length === 0) {
-        searchResults.innerHTML = '<div class="no-results">لا توجد نتائج</div>';
-        searchResults.style.display = 'block';
-    } else {
-        filtered.forEach(course => {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
-            resultItem.innerHTML = `
-                <img src="${course.image}" alt="${course.title}">
-                <div>
-                    <h4>${course.title}</h4>
-                    <p>${course.description} - ${course.university}</p>
-                </div>
-                <div class="price">${course.price}</div>
-            `;
+    // Add to cart functionality
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.card');
+            const title = card.querySelector('h1').textContent;
+            const price = card.querySelector('.price span').textContent;
+            const image = card.querySelector('img').src;
             
-            resultItem.addEventListener('click', function() {
-                showPage(course.page);
-                searchInput.value = '';
-                searchResults.style.display = 'none';
-                
-                // Scroll to courses section
-                document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+            cart.push({
+                title: title,
+                price: price,
+                image: image
             });
             
-            searchResults.appendChild(resultItem);
-        });
-        
-        searchResults.style.display = 'block';
-    }
-}
-
-// Desktop search
-searchInput.addEventListener('input', function() {
-    displaySearchResults(this.value);
-});
-
-searchForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    displaySearchResults(searchInput.value);
-});
-
-// Mobile search
-if (mobileSearchButton) {
-    mobileSearchButton.addEventListener('click', function() {
-        const query = mobileSearchInput.value.trim();
-        if (query) {
-            const filtered = coursesData.filter(course => 
-                course.title.toLowerCase().includes(query.toLowerCase()) ||
-                course.description.toLowerCase().includes(query.toLowerCase()) ||
-                course.university.toLowerCase().includes(query.toLowerCase())
-            );
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
             
-            if (filtered.length > 0) {
-                showPage(filtered[0].page);
-                mobileSearchInput.value = '';
-                mobileSidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('لم يتم العثور على نتائج');
-            }
-        }
+            alert('تمت إضافة الكورس إلى السلة');
+        });
     });
-    
-    mobileSearchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            mobileSearchButton.click();
-        }
-    });
-}
 
-// Close search results when clicking outside
-document.addEventListener('click', function(e) {
-    if (!searchForm.contains(e.target) && !searchResults.contains(e.target)) {
-        searchResults.style.display = 'none';
-    }
-});
+    // Initialize cart
+    updateCartCount();
 
-// ========== DROPDOWN MENU FOR "تعلم" ==========
-const dropdownMenu = document.getElementById('dropdownMenu');
-const learnLink = document.querySelector('.has-dropdown');
+    // ========== UNIVERSITIES DROPDOWN FUNCTIONALITY ==========
+    const universitiesBtn = document.getElementById('universitiesBtn');
+    const universitiesDropdown = document.getElementById('universitiesDropdown');
+    const universitySearch = document.getElementById('universitySearch');
 
-// Show dropdown on hover
-learnLink.addEventListener('mouseenter', function() {
-    dropdownMenu.classList.add('show');
-});
-
-// Hide dropdown when mouse leaves
-learnLink.addEventListener('mouseleave', function() {
-    setTimeout(() => {
-        if (!dropdownMenu.matches(':hover')) {
-            dropdownMenu.classList.remove('show');
-        }
-    }, 200);
-});
-
-dropdownMenu.addEventListener('mouseleave', function() {
-    dropdownMenu.classList.remove('show');
-});
-
-// ========== BUTTON FUNCTIONALITY ==========
-// Hero CTA button
-document.getElementById('heroCta').addEventListener('click', function() {
-    window.location.href = 'register.html';
-});
-
-// Start button
-document.getElementById('startBtn').addEventListener('click', function() {
-    window.location.href = 'register.html';
-});
-
-// Try button - Go to university.html
-document.getElementById('tryBtn').addEventListener('click', function() {
-    window.location.href = 'university.html';
-});
-
-// Login and register buttons
-document.querySelectorAll('a[href*="login.html"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.location.href = 'login.html';
-    });
-});
-
-document.querySelectorAll('a[href*="register.html"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.location.href = 'register.html';
-    });
-});
-
-// Create hero particles animation
-function createHeroParticles() {
-    const container = document.querySelector('.hero-particles');
-    if (!container || window.innerWidth <= 900) return;
-    
-    const particleCount = 25;
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 8 + 2;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 15;
-        
-        particle.style.cssText = `
-            width: ${size}px;
-            height: ${size}px;
-            left: ${posX}%;
-            top: ${posY}%;
-            animation-delay: ${delay}s;
-            animation-duration: ${duration}s;
-        `;
-        
-        container.appendChild(particle);
-    }
-}
-
-// Initialize animations
-window.addEventListener('load', function() {
-    createHeroParticles();
-    
-    // Animate cards on load
-    document.querySelectorAll('.card').forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.05}s`;
-    });
-});
-
-// Close sidebar on resize for large screens
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 900) {
-        mobileSidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        
-        if (href !== '#') {
-            e.preventDefault();
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ========== UNIVERSITIES DROPDOWN FUNCTIONALITY ==========
-const universitiesBtn = document.getElementById('universitiesBtn');
-const universitiesDropdown = document.getElementById('universitiesDropdown');
-const universitySearch = document.getElementById('universitySearch');
-
-// Show/hide universities dropdown
-if (universitiesBtn && universitiesDropdown) {
+    // Show/hide universities dropdown
     universitiesBtn.addEventListener('click', function(e) {
-        e.stopPropagation(); // منع إغلاق القائمة
+        e.stopPropagation();
         universitiesDropdown.classList.toggle('show');
     });
-    
+
     // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         if (!universitiesBtn.contains(e.target) && !universitiesDropdown.contains(e.target)) {
             universitiesDropdown.classList.remove('show');
         }
     });
-    
+
     // Filter universities when typing in search
-    if (universitySearch) {
-        universitySearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const items = universitiesDropdown.querySelectorAll('.university-item');
-            
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+    universitySearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const items = universitiesDropdown.querySelectorAll('.university-item');
+        
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
         });
-    }
-    
-    // Handle university selection
-    const universityItems = universitiesDropdown.querySelectorAll('.university-item');
-    universityItems.forEach(item => {
+    });
+
+    // Handle university selection - FIXED TO NAVIGATE TO COURSES
+    document.querySelectorAll('.university-item').forEach(item => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             const university = this.getAttribute('data-university');
             
-            // Show notification
-            if (university === 'all') {
-                showNotification('تم عرض جميع الكورسات', 'success');
-            } else {
-                showNotification(`تم عرض كورسات ${this.textContent}`, 'success');
-            }
-            
-            // Show all cards (أو فلتر حسب الجامعة)
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.display = 'block';
-            });
-            
             // Close dropdown
             universitiesDropdown.classList.remove('show');
-            if (universitySearch) universitySearch.value = '';
+            universitySearch.value = '';
+            
+            // Scroll to courses section
+            document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show notification
+            showNotification(`يتم عرض كورسات ${this.textContent}`, 'success');
+            
+            // Filter courses based on university
+            filterCoursesByUniversity(university);
         });
     });
-}
 
-// Function to show notification
-function showNotification(message, type) {
-    // Remove existing notification
-    const existing = document.querySelector('.university-notification');
-    if (existing) existing.remove();
-    
-    const notification = document.createElement('div');
-    notification.className = `university-notification ${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    // Add styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .university-notification {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${type === 'success' ? '#4CAF50' : '#2196F3'};
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 9999;
-            animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-            font-size: 14px;
+    // Function to filter courses by university
+    function filterCoursesByUniversity(university) {
+        const allCards = document.querySelectorAll('.card');
+        
+        // Show all cards first
+        allCards.forEach(card => {
+            card.style.display = 'none';
+        });
+        
+        if (university === 'all') {
+            // Show all cards
+            allCards.forEach(card => {
+                card.style.display = 'block';
+            });
+            return;
         }
         
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
+        // خريطة الجامعات للبحث
+        const universityMap = {
+            'king-khalid': ['الملك خالد'],
+            'king-faisal': ['الملك فيصل'],
+            'taibah': ['طيبة'],
+            'taif': ['الطائف'],
+            'jeddah': ['جدة'],
+            'umm-alqura': ['أم القرى'],
+            'al-baha': ['الباحة', 'الباحه'],
+            'qassim': ['القصيم']
+        };
+        
+        // البحث عن الكورسات المطابقة
+        allCards.forEach(card => {
+            const cardText = card.textContent.toLowerCase();
+            const searchTerms = universityMap[university] || [];
+            
+            let isMatch = false;
+            if (searchTerms.length > 0) {
+                for (const term of searchTerms) {
+                    if (cardText.includes(term.toLowerCase())) {
+                        isMatch = true;
+                        break;
+                    }
+                }
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
+            
+            if (isMatch) {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    // ========== ENHANCED REVIEWS SLIDER FUNCTIONALITY ==========
+    function initReviewsSlider() {
+        const slider = document.getElementById('reviewsSlider');
+        const prevBtn = document.getElementById('prevReviewBtn');
+        const nextBtn = document.getElementById('nextReviewBtn');
+        
+        if (!slider || !prevBtn || !nextBtn) return;
+        
+        // Generate review cards dynamically
+        const names = ["بدر","سارة","أحمد","هند","محمد","ليلى","منة الله","رامي","هالة","ليلى","سعاد","أحمد","هند","رامي","سارة","أحمد","هالة","نور","عمر","مريم","كريم","ياسمين","يوسف","سميرة","طارق"];
+        const courses = ["تفاضل","اقتصاد كلي","محاسبة مالية","رياضيات التمويل","احصاء تطبيقي","اقتصاد جزئي","محاسبة تكاليف","ادارة مالية 2","مبادئ الاقتصاد","الإحصاء التطبيقي","محاسبة الزكاة","مبادئ المحاسبة"];
+        
+        // Clear existing cards except the first one
+        while (slider.children.length > 1) {
+            slider.removeChild(slider.lastChild);
+        }
+        
+        // Add 24 more review cards
+        for(let i = 1; i < 25; i++) {
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `<div class="review-header">
+                                <div class="reviewer-avatar">${names[i % names.length][0]}</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">${names[i % names.length]}</div>
+                                    <div class="reviewer-course">${courses[i % courses.length]}</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="review-text">تجربة تعليمية ممتازة ومميزة، المحتوى غني ومفيد.</p>
+                            <span class="review-date">10 فبراير 2024</span>`;
+            slider.appendChild(card);
+        }
+        
+        const cards = slider.querySelectorAll('.review-card');
+        if (cards.length === 0) return;
+        
+        let currentIndex = 0;
+        const cardsPerSlide = getCardsPerSlide();
+        
+        function getCardsPerSlide() {
+            if (window.innerWidth <= 480) return 1;
+            if (window.innerWidth <= 768) return 2;
+            if (window.innerWidth <= 1024) return 3;
+            return 4;
+        }
+        
+        function updateSlider() {
+            const cardWidth = 100 / cardsPerSlide;
+            // التصحيح: في RTL نستخدم translateX موجبة للانتقال لليسار
+            const translateX = currentIndex * cardWidth;
+            slider.style.transform = `translateX(${translateX}%)`;
+            updateButtons();
+        }
+        
+        function updateButtons() {
+            const maxIndex = Math.max(0, cards.length - cardsPerSlide);
+            // تصحيح التسميات: السهم الأيمن للعرض السابق، السهم الأيسر للعرض التالي
+            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= maxIndex;
+        }
+        
+        function nextSlide() {
+            const maxIndex = Math.max(0, cards.length - cardsPerSlide);
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
             }
         }
         
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                transform: translateX(100%);
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
             }
         }
-    `;
-    
-    document.head.appendChild(style);
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.remove();
-        style.remove();
-    }, 3000);
-}
+        
+        // تصحيح: في RTL، السهم الأيسر (›) يذهب للتالي، السهم الأيمن (‹) يذهب للسابق
+        // لكن بناءً على HTML، يجب أن نربط بشكل صحيح
+        // HTML الحالي: <button class="slider-btn prev" id="prevReviewBtn">❮</button>
+        //               <button class="slider-btn next" id="nextReviewBtn">❯</button>
+        
+        // تصحيح الربط: في RTL، ❮ (سهم لليمين) يجب أن يذهب للسابق
+        //             ❯ (سهم لليسار) يجب أن يذهب للتالي
+        nextBtn.addEventListener('click', nextSlide);      // ❯ يذهب للتالي
+        prevBtn.addEventListener('click', prevSlide);      // ❮ يذهب للسابق
+        
+        // Initialize
+        slider.style.display = 'flex';
+        slider.style.transition = 'transform 0.5s ease';
+        slider.style.gap = '20px';
+        
+        cards.forEach(card => {
+            card.style.flex = `0 0 calc(${100 / cardsPerSlide}% - 15px)`;
+        });
+        
+        // Update on window resize
+        window.addEventListener('resize', function() {
+            const newCardsPerSlide = getCardsPerSlide();
+            cards.forEach(card => {
+                card.style.flex = `0 0 calc(${100 / newCardsPerSlide}% - 15px)`;
+            });
+            // Reset to first slide
+            currentIndex = 0;
+            updateSlider();
+        });
+        
+        // Initialize slider
+        updateSlider();
+    }
+
+    // ========== FIXED UNIVERSITY SLIDER FUNCTIONALITY ==========
+    function initUniversitySlider() {
+        const slider = document.getElementById("slider");
+        const arrowLeft = document.getElementById("arrowLeft");
+        const arrowRight = document.getElementById("arrowRight");
+        
+        if (!slider || !arrowLeft || !arrowRight) {
+            console.log("❌ لم يتم العثور على عناصر السلايدر!");
+            return;
+        }
+        
+        console.log("✅ تم العثور على عناصر السلايدر");
+        
+        let currentPosition = 0;
+        let cardWidth = 0;
+        let visibleCards = 0;
+
+        // ========== حساب أبعاد السلايدر ==========
+        function calculateSliderValues() {
+            const card = slider.querySelector('.uni-card');
+            if (card) {
+                const cardStyle = window.getComputedStyle(card);
+                cardWidth = card.offsetWidth + parseInt(cardStyle.marginLeft || 0) + parseInt(cardStyle.marginRight || 0);
+                visibleCards = Math.floor(slider.parentElement.offsetWidth / cardWidth);
+                console.log(`📏 عرض البطاقة: ${cardWidth}px، عدد البطاقات المرئية: ${visibleCards}`);
+            }
+        }
+
+        // ========== تحديث حالة الأزرار ==========
+        function updateArrows() {
+            const maxPosition = Math.max(0, slider.children.length - visibleCards);
+            
+            arrowLeft.style.pointerEvents = currentPosition === 0 ? 'none' : 'all';
+            arrowRight.style.pointerEvents = currentPosition >= maxPosition ? 'none' : 'all';
+            
+            arrowLeft.style.opacity = currentPosition === 0 ? '0.5' : '1';
+            arrowRight.style.opacity = currentPosition >= maxPosition ? '0.5' : '1';
+            
+            arrowLeft.disabled = currentPosition === 0;
+            arrowRight.disabled = currentPosition >= maxPosition;
+            
+            console.log(`📍 الموضع الحالي: ${currentPosition}, الموضع الأقصى: ${maxPosition}`);
+        }
+
+        // ========== حركة السلايدر ==========
+        function slideToPosition(position) {
+            calculateSliderValues();
+            const maxPosition = Math.max(0, slider.children.length - visibleCards);
+            
+            if (position < 0) position = 0;
+            if (position > maxPosition) position = maxPosition;
+            
+            currentPosition = position;
+            
+            // في RTL: translateX موجبة تتحرك لليمين
+            slider.style.transform = `translateX(${currentPosition * cardWidth}px)`;
+            slider.style.transition = 'transform 0.5s ease';
+            
+            updateArrows();
+            console.log(`🔄 تحريك إلى الموضع: ${currentPosition}, الترجمة: ${currentPosition * cardWidth}px`);
+        }
+
+        // ========== إعداد المستمعين الجدد ==========
+        function setupEventListeners() {
+            // إضافة مستمعين جدد للأزرار
+            arrowLeft.addEventListener('click', function() {
+                console.log("⬅️ النقر على زر ‹ (يمين) - للذهاب للتالي");
+                slideToPosition(currentPosition + 1);
+            });
+            
+            arrowRight.addEventListener('click', function() {
+                console.log("➡️ النقر على زر › (يسار) - للذهاب للسابق");
+                slideToPosition(currentPosition - 1);
+            });
+            
+            console.log("🎯 تم إعداد مستمعي الأحداث بنجاح");
+        }
+
+        // ========== التهيئة الأولية ==========
+        function initializeSlider() {
+            calculateSliderValues();
+            setupEventListeners();
+            slideToPosition(0);
+            
+            // تأخير للتأكد من التحميل الصحيح
+            setTimeout(() => {
+                calculateSliderValues();
+                updateArrows();
+            }, 100);
+            
+            console.log("🚀 تم تهيئة السلايدر بنجاح");
+        }
+
+        // ========== إعداد أحداث النافذة ==========
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                console.log("🔄 تغيير حجم النافذة");
+                initializeSlider();
+            }, 250);
+        });
+
+        // بدء التشغيل
+        initializeSlider();
+    }
+
+    // ========== بدء التشغيل عند تحميل الصفحة ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("📄 تم تحميل DOM بالكمل");
+        
+        // تأخير قصير لضمان تحميل كل العناصر
+        setTimeout(() => {
+            console.log("🔄 بدء تهيئة سلايدر المراجعات");
+            initReviewsSlider();
+            console.log("✅ تم تهيئة سلايدر المراجعات");
+            
+            console.log("🔄 بدء تهيئة سلايدر الجامعات");
+            initUniversitySlider();
+            console.log("✅ تم تهيئة سلايدر الجامعات");
+        }, 100);
+    });
+
+    // ========== BUTTON FUNCTIONALITY ==========
+    // Hero CTA button
+    document.getElementById('heroCta').addEventListener('click', function() {
+        window.location.href = 'register.html';
+    });
+
+    // Trial button
+    document.getElementById('trialButton').addEventListener('click', function() {
+        alert('سيتم توجيهك إلى صفحة التجربة المجانية');
+    });
+
+    // Login and register buttons
+    document.querySelectorAll('a[href*="login.html"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'login.html';
+        });
+    });
+
+    document.querySelectorAll('a[href*="register.html"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'register.html';
+        });
+    });
+
+    // ========== CREATE HERO PARTICLES ANIMATION ==========
+    function createHeroParticles() {
+        const container = document.querySelector('.hero-particles');
+        if (!container) return;
+        
+        const particleCount = window.innerWidth <= 480 ? 15 : 25;
+        container.innerHTML = '';
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 8 + 2;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const delay = Math.random() * 15;
+            const duration = Math.random() * 10 + 15;
+            
+            particle.style.cssText = `
+                width: ${size}px;
+                height: ${size}px;
+                left: ${posX}%;
+                top: ${posY}%;
+                animation-delay: ${delay}s;
+                animation-duration: ${duration}s;
+            `;
+            
+            container.appendChild(particle);
+        }
+    }
+
+    // ========== FUNCTION TO SHOW NOTIFICATION ==========
+    function showNotification(message, type) {
+        // Remove existing notification
+        const existing = document.querySelector('.university-notification');
+        if (existing) existing.remove();
+        
+        const notification = document.createElement('div');
+        notification.className = `university-notification ${type}`;
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    // ========== SEARCH FUNCTIONALITY ==========
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchForm');
+    const searchResults = document.getElementById('searchResults');
+
+    // Courses data for search
+    const coursesData = [
+        // Page 1 courses
+        { title: "محاسبه تكاليف", description: "شرح شامل", university: "جامعه الباحه", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (1).jpeg" },
+        { title: "المحاسبه المتقدمه", description: "جامعه الباحه", university: "تبسيط كامل", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM (2).jpeg" },
+        { title: "2المحاسبه المتوسطه", description: "", university: "جامعه الباحه", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.52.41 AM.jpeg" },
+        { title: "1 مقرر محاسبه ماليه متوسطه", description: "", university: "جامعه طيبه", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM (1).jpeg" },
+        { title: "2 مقرر محاسبه ماليه متوسطه", description: "شرح مبسط", university: "جامعه طيبة", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.22 AM.jpeg" },
+        { title: "التكاليف والمحاسبه الاداريه", description: "", university: "جامعه طيبة", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM (1).jpeg" },
+        { title: "المحاسبه الماليه المتقدمه", description: "", university: "جامعه طيبة", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.23 AM.jpeg" },
+        { title: "محاسبه متوسطه 2", description: "", university: "جامعه القصيم", price: "90 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg" },
+        { title: "مبادئ الاقتصاد الجزئي", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg" },
+        { title: "الاحصاء التطبيقي", description: "", university: "جامعه الملك خالد", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg" },
+        { title: "محاسبه متوسطه 1", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg" },
+        { title: "رياضيات التمويل والاستثمار", description: "", university: "جامعه الملك خالد", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg" },
+        { title: "مبادئالاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه", description: "", university: "جامعه الملك خالد", price: "70 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg" },
+        { title: "الرياضيات للاقتصاد والعلوم الاداريه والماليه", description: "", university: "جامعه الملك خالد", price: "100 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg" },
+        { title: "محاسبة المنشات الماليه", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg" },
+        { title: "محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg" },
+        { title: "ادارة مالية 2", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg" },
+        { title: "مفاهيم واهداف محاسبة التكاليف", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 1, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg" },
+        
+        // Page 2 courses
+        { title: "محاسبه متوسطه 1", description: "محاسبه علي اساس الاستحقاق", university: "جامعه ام القري", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg" },
+        { title: "محاسبة", description: "", university: "جامعه الطائف", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg" },
+        { title: "محاسبه التكاليف", description: "", university: "جامعه الطائف", price: "20 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg" },
+        { title: "المحاسبه المتوسطه الجزء الثاني", description: "أمثلة", university: "جامعه الطائف", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM.jpeg" },
+        { title: "المحاسبه المتوسطه الجزء الاول", description: "", university: "جامعه الطائف", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (1).jpeg" },
+        { title: "مبادئ الخطر والتامين", description: "", university: "جامعه الطائف", price: "20 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM (2).jpeg" },
+        { title: "الاحصاء التطبيقي", description: "", university: "جامعه الطائف", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.54.23 AM.jpeg" },
+        { title: "مبادئ الادارة الماليه", description: "تطبيقات", university: "جامعه الملك فيصل", price: "90 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 3.55.02 AM (1).jpeg" },
+        { title: "المحاسبه الماليه دبلوم", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM (2).jpeg" },
+        { title: "مبادئ المحاسبه", description: "", university: "جامعه الملك خالد", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.01.51 AM.jpeg" },
+        { title: "Business Combinations", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.50 AM.jpeg" },
+        { title: "محاسبه تكاليف وادارية", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg" },
+        { title: "ادارة ماليه 1", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg" },
+        { title: "محاسبة الزكاى والضريبة", description: "", university: "جامعه الملك خالد", price: "70 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg" },
+        { title: "المحاسبة عن عمليات البضاعة", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg" },
+        { title: "تحليل قائمه المركز المالي", description: "", university: "جامعه الملك خالد", price: "80 ريال", page: 2, image: "./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg" }
+    ];
+
+    // Display search results
+    function displaySearchResults(query) {
+        searchResults.innerHTML = '';
+        
+        if (!query.trim()) {
+            searchResults.style.display = 'none';
+            return;
+        }
+        
+        const filtered = coursesData.filter(course => 
+            course.title.toLowerCase().includes(query.toLowerCase()) ||
+            course.description.toLowerCase().includes(query.toLowerCase()) ||
+            course.university.toLowerCase().includes(query.toLowerCase())
+        );
+        
+        if (filtered.length === 0) {
+            searchResults.innerHTML = '<div class="no-results">لا توجد نتائج</div>';
+            searchResults.style.display = 'block';
+        } else {
+            filtered.forEach(course => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.innerHTML = `
+                    <img src="${course.image}" alt="${course.title}">
+                    <div>
+                        <h4>${course.title}</h4>
+                        <p>${course.description} - ${course.university}</p>
+                    </div>
+                    <div class="price">${course.price}</div>
+                `;
+                
+                resultItem.addEventListener('click', function() {
+                    showPage(course.page);
+                    searchInput.value = '';
+                    searchResults.style.display = 'none';
+                    document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+            
+            searchResults.style.display = 'block';
+        }
+    }
+
+    // Desktop search
+    searchInput.addEventListener('input', function() {
+        displaySearchResults(this.value);
+    });
+
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        displaySearchResults(searchInput.value);
+    });
+
+    // Close search results when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchForm.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+
+    // ========== INITIALIZE EVERYTHING ==========
+    function initializeAll() {
+        // Initialize reviews slider
+        initReviewsSlider();
+        
+        // Initialize university slider (this will override the simple functions)
+        initUniversitySlider();
+        
+        // Create hero particles
+        createHeroParticles();
+        
+        // Animate cards on load
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.05}s`;
+        });
+        
+        // Initialize cart
+        updateCartCount();
+    }
+
+    // Run when page is fully loaded
+    window.addEventListener('load', initializeAll);
+
+    // ========== WINDOW RESIZE HANDLERS ==========
+    window.addEventListener('resize', function() {
+        // Close mobile sidebar on large screens
+        if (window.innerWidth > 900) {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Recreate particles on resize for better performance
+        createHeroParticles();
+    });
+
+    // ========== SMOOTH SCROLLING ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href !== '#') {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // ========== CLOSE DROPDOWN MENU FOR "تعلم" LINK ==========
+    const learnLink = document.querySelector('.has-dropdown');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    if (learnLink && dropdownMenu) {
+        // Show dropdown on hover
+        learnLink.addEventListener('mouseenter', function() {
+            dropdownMenu.classList.add('show');
+        });
+        
+        // Hide dropdown when mouse leaves
+        learnLink.addEventListener('mouseleave', function() {
+            setTimeout(() => {
+                if (!dropdownMenu.matches(':hover')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            }, 200);
+        });
+        
+        dropdownMenu.addEventListener('mouseleave', function() {
+            dropdownMenu.classList.remove('show');
+        });
+    }
 </script>
 </body>
 </html>

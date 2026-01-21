@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الجامعات</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+  }
+
+  .uni-section {
+    padding: 50px 20px;
+    background: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .uni-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .uni-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .uni-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .view-all {
+    background: linear-gradient(135deg, #1e88ff 0%, #0d47a1 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(30, 136, 255, 0.3);
+  }
+
+  .view-all:hover {
+    background: linear-gradient(135deg, #1565c0 0%, #0a3d91 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(30, 136, 255, 0.4);
+  }
+
+  .arrow {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .arrow:hover {
+    background: #1e88ff;
+    color: white;
+    border-color: #1e88ff;
+    transform: scale(1.05);
+  }
+
+  .arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f5f5f5;
+    color: #aaa;
+  }
+
+  .arrow:disabled:hover {
+    background: #f5f5f5;
+    color: #aaa;
+    border-color: #ddd;
+    transform: none;
+  }
+
+  .slider-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slider {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 5px;
+  }
+
+  .uni-card {
+    min-width: 160px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transform: scale(1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+  }
+
+  .uni-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .uni-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    display: block;
+    margin: 0 auto 15px;
+    transition: transform 0.3s;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
+  }
+
+  .uni-card:hover img {
+    transform: scale(1.1);
+    border-color: #1e88ff;
+  }
+
+  .uni-card p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .card-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .uni-section { padding: 30px 15px; }
+    .uni-header { flex-direction: column; align-items: flex-start; }
+    .uni-actions { align-self: flex-end; }
+    .slider { gap: 20px; }
+    .uni-card { min-width: 140px; padding: 12px; }
+    .uni-card img { width: 100px; height: 100px; }
+    .uni-card p { font-size: 14px; }
+  }
+  
+  @media (max-width: 480px) {
+    .uni-card { min-width: 120px; }
+    .uni-card img { width: 85px; height: 85px; }
+    .view-all { padding: 10px 18px; font-size: 14px; }
+    .arrow { width: 38px; height: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="uni-section">
+
+  <div class="uni-header">
+    <h2>استعرض كورساتك حسب الجامعة</h2>
+
+    <div class="uni-actions">
+      <button class="view-all" onclick="window.location.href='university.html'">عرض الكل</button>
+      <button class="arrow" id="arrowLeft" onclick="slideLeft()">‹</button>
+      <button class="arrow" id="arrowRight" onclick="slideRight()">›</button>
+    </div>
+  </div>
+
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+
+      <!-- روابط الجامعات معدلة لتذهب لصفحة university.html مع كود الجامعة -->
+      <a href="university.html?uni=kku" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.50 PM.jpeg" alt="جامعة الملك خالد">
+        <p>جامعة الملك خالد</p>
+        <div class="card-counter">1</div>
+      </a>
+
+      <a href="university.html?uni=kfu" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.23 PM.jpeg" alt="جامعة الملك فيصل">
+        <p>جامعة الملك فيصل</p>
+        <div class="card-counter">2</div>
+      </a>
+
+      <a href="university.html?uni=tu" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.06 PM.jpeg" alt="جامعة طيبة">
+        <p>جامعة طيبة</p>
+        <div class="card-counter">3</div>
+      </a>
+
+      <a href="university.html?uni=bu" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.48 PM.jpeg" alt="جامعة الباحة">
+        <p>جامعة الباحة</p>
+        <div class="card-counter">4</div>
+      </a>
+
+      <a href="university.html?uni=uq" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.31 PM.jpeg" alt="جامعة أم القرى">
+        <p>جامعة أم القرى</p>
+        <div class="card-counter">5</div>
+      </a>
+
+      <a href="university.html?uni=uj" class="uni-card">
+        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.26.22 PM (1).jpeg" alt="جامعة جدة">
+        <p>جامعة جدة</p>
+        <div class="card-counter">6</div>
+      </a>
+
+      <a href="university.html?uni=ksu" class="uni-card">
+        <img src="./Imges/placeholder.jpg" alt="جامعة الملك سعود">
+        <p>جامعة الملك سعود</p>
+        <div class="card-counter">7</div>
+      </a>
+
+      <a href="university.html?uni=kau" class="uni-card">
+        <img src="./Imges/placeholder.jpg" alt="جامعة الملك عبدالعزيز">
+        <p>جامعة الملك عبدالعزيز</p>
+        <div class="card-counter">8</div>
+      </a>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+  let index = 0;
+  const slider = document.getElementById("slider");
+  const arrowLeft = document.getElementById("arrowLeft");
+  const arrowRight = document.getElementById("arrowRight");
+
+  function calculateCardWidth() {
+    const card = document.querySelector('.uni-card');
+    if (card) {
+      const cardWidth = card.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(slider).gap) || 30;
+      return cardWidth + gap;
+    }
+    return 200;
+  }
+
+  function getVisibleCardsCount() {
+    const containerWidth = slider.parentElement.offsetWidth;
+    const cardWidth = calculateCardWidth();
+    return Math.floor(containerWidth / cardWidth);
+  }
+
+  function updateArrows() {
+    const visibleCards = getVisibleCardsCount();
+    const maxIndex = Math.max(0, slider.children.length - visibleCards);
+    arrowLeft.disabled = index === 0;
+    arrowRight.disabled = index >= maxIndex;
+  }
+
+  function slideLeft() {
+    const visibleCards = getVisibleCardsCount();
+    const maxIndex = Math.max(0, slider.children.length - visibleCards);
+    if (index > 0) {
+      index = Math.max(index - 1, 0);
+      const cardWidth = calculateCardWidth();
+      slider.style.transform = `translateX(${index * cardWidth}px)`;
+      updateArrows();
+    }
+  }
+
+  function slideRight() {
+    const visibleCards = getVisibleCardsCount();
+    const maxIndex = Math.max(0, slider.children.length - visibleCards);
+    if (index < maxIndex) {
+      index = Math.min(index + 1, maxIndex);
+      const cardWidth = calculateCardWidth();
+      slider.style.transform = `translateX(${index * cardWidth}px)`;
+      updateArrows();
+    }
+  }
+
+  window.addEventListener('resize', function() {
+    index = 0;
+    slider.style.transform = `translateX(0px)`;
+    updateArrows();
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    updateArrows();
+  });
+</script>
+
+</body>
+</html>
