@@ -1206,15 +1206,27 @@ body {
 }
 
 /* ========== FOOTER ========== */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* علشان متظهرش بار سكرول أفقي */
+}
+
+.container, header, footer, section {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 .footer {
-    background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
-    color: var(--white);
-    padding: 40px 5% 20px;
+    background: linear-gradient(135deg, var(--white) 0%, var(--white) 100%);
+    color: var(--black);
+    padding: 40px 0 20px; /* بدون هوامش جانبية */
     text-align: center;
-    display: flex;
-    justify-content: center;
     position: relative;
     margin-top: 50px;
+    width: 100%;
 }
 
 .footer-content {
@@ -1225,12 +1237,13 @@ body {
     align-items: center;
     gap: 25px;
     width: 100%;
+    /* شيل الـ padding ده علشان الفوتر يبدأ من أول الجنب */
+    padding: 0;
 }
-
 .footer-logo {
     font-size: 24px;
     font-weight: 800;
-    color: var(--white);
+    color: var(--black);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1242,12 +1255,13 @@ body {
 }
 
 .footer-logo-img {
-    width: 80px;
-    height: 60px;
+    width: 90px;
+    height: 80px;
     object-fit: contain;
 }
 
 .footer-links {
+     padding: 0 20px; /* هنا تقدر تتحكم في المسافة */
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
@@ -1255,7 +1269,7 @@ body {
 }
 
 .footer-links a {
-    color: #ddd;
+    color: #000000;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
@@ -1275,7 +1289,7 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
+    background: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1290,10 +1304,11 @@ body {
 }
 
 .footer-copyright {
+    padding: 0 20px;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #aaa;
+    border-top: 1px solid rgb(0, 0, 0);
+    color: #d37800;
     font-size: 13px;
     width: 100%;
 }
@@ -2930,7 +2945,7 @@ body {
         </div>
         
         <div class="footer-copyright">
-            © 2023 منصة ابتكر التعليمية. جميع الحقوق محفوظة.
+            © 2026 منصة ابتكر التعليمية. جميع الحقوق محفوظة.
         </div>
     </div>
 </footer>
