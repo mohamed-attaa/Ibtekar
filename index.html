@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ابتكر - تعلم بذكاء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
@@ -603,14 +604,14 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 85%;
-    max-width: 400px;
+    width: 75%; /* تم التصغير من 85% إلى 75% */
+    max-width: 350px; /* تم التصغير من 400px إلى 350px */
     height: 100vh;
     background: var(--white);
     z-index: 9999;
     box-shadow: -5px 0 25px rgba(0,0,0,0.15);
     transition: right 0.4s;
-    padding: 80px 20px 20px;
+    padding: 70px 15px 15px; /* تم تصغير الـ padding */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -639,16 +640,16 @@ body {
 }
 
 .mobile-search {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* تم التصغير */
     position: relative;
 }
 
 .mobile-search-input {
     width: 100%;
-    padding: 12px 45px 12px 20px;
+    padding: 10px 40px 10px 15px; /* تم تصغير الـ padding */
     border: 2px solid var(--gold-light);
-    border-radius: 25px;
-    font-size: 16px;
+    border-radius: 20px; /* تم التصغير */
+    font-size: 14px; /* تم التصغير */
 }
 
 .mobile-search-button {
@@ -659,30 +660,30 @@ body {
     background: none;
     border: none;
     color: var(--primary-gold);
-    font-size: 18px;
+    font-size: 16px; /* تم التصغير */
 }
 
 .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 10px; /* تم التصغير */
+    margin-bottom: 20px; /* تم التصغير */
 }
 
 .mobile-nav-links a {
-    padding: 15px 20px;
+    padding: 12px 15px; /* تم تصغير الـ padding */
     color: var(--gray-dark);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px; /* تم التصغير */
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 8px; /* تم التصغير */
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .mobile-nav-links a i {
-    width: 25px;
+    width: 20px; /* تم التصغير */
     text-align: center;
     color: var(--primary-gold);
 }
@@ -690,22 +691,25 @@ body {
 .mobile-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px; /* تم التصغير */
     margin-top: auto;
 }
 
-/* ========== HERO SECTION WITH ANIMATION ========== */
 .hero-advanced {
     position: relative;
     min-height: calc(100vh - 80px);
-    background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 50%, var(--white) 100%);
+    background-image: url(./imgs/logoss.png);
+    background-position: center 2%;   /* ⚡ قريب جدًا جدًا من الأعلى */
+    background-size: 280px auto;      /* حجم الصورة */
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 90px;
     padding: 40px 5%;
 }
+
 
 /* Animated Background Particles */
 .hero-particles {
@@ -1107,15 +1111,15 @@ body {
     color: var(--white);
     transform: translateY(-3px);
 }
-
 .cards-grid {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* تم التعديل من 4 إلى 3 */
     gap: 30px;
     width: 100%;
 }
+
 
 .card {
     background: var(--white);
@@ -1830,7 +1834,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 350px;
+    width:290px;
     max-width: 100%;
 }
 
@@ -1840,8 +1844,8 @@ body {
 }
 
 .feature-icon {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 60px;
     background: linear-gradient(135deg, var(--gold-light), var(--primary-gold));
     border-radius: 20px;
     display: flex;
@@ -1945,134 +1949,142 @@ body {
 
 
 
-.reviews-section {
-  padding: 60px 20px;
-  background: #ffffff;
-  color: #fff;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .reviews-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.reviews-title {
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-}
-.reviews-section h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #FFD700;
-}
-.reviews-subtitle {
-  font-size: 16px;
-  color: #ccc;
+  font-size: 32px;
   margin-bottom: 40px;
 }
 
-.reviews-slider-wrapper {
+.reviews-wrapper {
   position: relative;
-  max-width: 1200px;
-  margin: auto;
-  overflow: hidden;
-}
-
-.reviews-slider {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease;
-}
-
-.review-card {
-  flex: 0 0 23%;
-  background: #fff;
-  color: #111;
-  border-radius: 15px;
-  padding: 25px 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  text-align: right;
-  transform: scale(0.95);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.review-card.active {
-  display: block;
-}
-.review-card:hover {
-  transform: scale(1);
-  box-shadow: 0 12px 30px rgba(255,215,0,0.5);
-}
-
-.review-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.reviewer-avatar {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: #FFD700;
-  color: #111;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 20px;
-  margin-left: 15px;
 }
 
-.reviewer-info {
-  text-align: right;
+.reviews-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 20px;
+  max-width: 80%;
+  -webkit-overflow-scrolling: touch;
 }
 
-.reviewer-name {
-  font-weight: bold;
-  font-size: 16px;
+.reviews-container::-webkit-scrollbar {
+  display: none;
 }
 
-.reviewer-course {
-  font-size: 14px;
-  color: #555;
+.review-card {
+  min-width: 350px;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #eee;
+  position: relative;
 }
 
-.stars {
-  color: #FFD700;
-  margin-top: 5px;
+
+
+.review-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #24972ebb;
+  pointer-events: none; /* إضافة لمنع السحب */
 }
 
-.review-text {
-  font-size: 14px;
-  color: #333;
-  margin: 10px 0;
-}
 
-.review-date {
-  font-size: 12px;
-  color: #999;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 32px;
-  background: #FFD700;
-  color: #111;
+/* الأسهم */
+.review-btn {
+  background: #000;
+  color: #fff;
   border: none;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   cursor: pointer;
-  padding: 5px 12px;
-  z-index: 10;
+  transition: all 0.3s ease;
 }
-.slider-btn.prev { left: -20px; }
-.slider-btn.next { right: -20px; }
-.slider-btn:hover { background: #fff; color: #FFD700; }
 
-/* ========== REVIEWS SECTION FIXED ========== */
+.review-btn:hover {
+  background: #333;
+  transform: scale(1.1);
+}
 
+.review-btn.prev {
+  margin-right: 10px;
+}
 
-
-
-
-
-
-
-
-
+.review-btn.next {
+  margin-left: 10px;
+}
 
 
 
@@ -2083,185 +2095,313 @@ body {
 
 
 
-
-
-
-
-
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9f9f9;
-  }
-
-  .uni-section {
-    padding: 50px 20px;
-    background: #fff;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .uni-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .uni-header h2 {
-    font-size: 26px;
-    font-weight: 700;
-    color: #c27e00;
-  }
-
-  .uni-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .view-all {
-    background: linear-gradient(135deg, #dba800 0%, #000000 100%);
-    color: #fff;
-    border: none;
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 15px;
-    box-shadow: 0 4px 8px rgb(216, 176, 0);
-  }
-
-  .view-all:hover {
-    transform: translateY(-2px);
-  }
-
-  .arrow {
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background: #fff;
-    cursor: pointer;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  }
-
-  .arrow:hover {
-    background: #d89e00;
-    color: white;
-    border-color: #d3a200;
-    transform: scale(1.05);
-  }
-
-  .arrow:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: #f5f5f5;
-    color: #aaa;
-  }
-
-  .arrow:disabled:hover {
-    background: #f5f5f5;
-    color: #aaa;
-    border-color: #ddd;
-    transform: none;
-  }
-
-  .slider-wrapper {
-    overflow: hidden;
+/* ========== JOIN BUTTON DROPDOWN ========== */
+.nav-join-wrapper {
     position: relative;
-  }
+    display: inline-block;
+}
 
-  .slider {
-    display: flex;
-    gap: 30px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    padding: 5px;
-  }
-
-  .uni-card {
-    min-width: 160px;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-    transform: scale(1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: #fff;
-    border-radius: 12px;
-    padding: 15px;
-  }
-
-  .uni-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-  }
-
-  .uni-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #f2f2f2;
-    display: block;
-    margin: 0 auto 15px;
-    transition: transform 0.3s;
-    object-fit: cover;
-    border: 3px solid #f0f0f0;
-  }
-
-  .uni-card:hover img {
-    transform: scale(1.1);
-    border-color: #e2a600;
-  }
-
-  .uni-card p {
-    font-size: 15px;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
-    padding: 5px;
-  }
-
-  .card-counter {
+.join-dropdown {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    width: 180px;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1000;
+    border: 2px solid transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.join-dropdown.show {
+    max-height: 200px;
+    border-color: var(--gold-light);
+    opacity: 1;
+    visibility: visible;
+}
+
+.join-dropdown-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-  }
+    gap: 10px;
+    padding: 15px 20px;
+    color: var(--gray-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+}
 
-  @media (max-width: 768px) {
-    .uni-section { padding: 30px 15px; }
-    .uni-header { flex-direction: column; align-items: flex-start; }
-    .uni-actions { align-self: flex-end; }
-    .slider { gap: 20px; }
-    .uni-card { min-width: 140px; padding: 12px; }
-    .uni-card img { width: 100px; height: 100px; }
-    .uni-card p { font-size: 14px; }
-  }
-  
-  @media (max-width: 480px) {
-    .uni-card { min-width: 120px; }
-    .uni-card img { width: 85px; height: 85px; }
-    .view-all { padding: 10px 18px; font-size: 14px; }
-    .arrow { width: 38px; height: 38px; }
-  }
+.join-dropdown-item:hover {
+    background: var(--gray-light);
+    color: var(--primary-gold);
+    padding-right: 25px;
+}
+
+.join-dropdown-item i {
+    color: var(--primary-gold);
+    width: 20px;
+    text-align: center;
+}
+
+.join-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body {
+            margin: 0;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+
+        .uni-section {
+            padding: 50px 20px;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .uni-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .uni-header h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #c27e00;
+        }
+
+        .uni-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .view-all {
+            background: linear-gradient(135deg, #dba800 0%, #000000 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            box-shadow: 0 4px 8px rgb(216, 176, 0);
+        }
+
+        .view-all:hover {
+            transform: translateY(-2px);
+        }
+
+        .arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .arrow:hover {
+            background: #d89e00;
+            color: white;
+            border-color: #d3a200;
+            transform: scale(1.05);
+        }
+
+        .arrow:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f5f5f5;
+            color: #aaa;
+        }
+
+        .arrow:disabled:hover {
+            background: #f5f5f5;
+            color: #aaa;
+            border-color: #ddd;
+            transform: none;
+        }
+
+        .slider-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 5px;
+        }
+
+        .uni-card {
+            min-width: 160px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            transform: scale(1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #eee;
+        }
+
+        .uni-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            border-color: #d89e00;
+        }
+
+        .uni-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #f2f2f2;
+            display: block;
+            margin: 0 auto 15px;
+            transition: transform 0.3s;
+            object-fit: cover;
+            border: 3px solid #f0f0f0;
+            pointer-events: none;
+        }
+
+        .uni-card:hover img {
+            transform: scale(1.1);
+            border-color: #e2a600;
+        }
+
+        .uni-card p {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            padding: 5px;
+        }
+
+        .card-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .uni-section { 
+                padding: 30px 15px; 
+            }
+            .uni-header { 
+                flex-direction: column; 
+                align-items: flex-start; 
+            }
+            .uni-actions { 
+                align-self: flex-end; 
+            }
+            .slider { 
+                gap: 20px; 
+            }
+            .uni-card { 
+                min-width: 140px; 
+                padding: 12px; 
+            }
+            .uni-card img { 
+                width: 100px; 
+                height: 100px; 
+            }
+            .uni-card p { 
+                font-size: 14px; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .uni-card { 
+                min-width: 120px; 
+            }
+            .uni-card img { 
+                width: 85px; 
+                height: 85px; 
+            }
+            .view-all { 
+                padding: 10px 18px; 
+                font-size: 14px; 
+            }
+            .arrow { 
+                width: 38px; 
+                height: 38px; 
+            }
+        }
 </style>
 </head>
 
@@ -2347,9 +2487,19 @@ body {
         <a href="login.html">
             <button class="btn btn-login">دخول</button>
         </a>
-        <a href="register.html">
-            <button class="btn btn-signup">انضم الآن</button>
+       <div class="nav-join-wrapper" style="position:relative; display:inline-block;">
+    <button class="btn btn-signup" id="joinBtn">
+        انضم الآن <i class="fas fa-chevron-down" style="font-size:12px; margin-right:5px;"></i>
+    </button>
+    <div class="join-dropdown" id="joinDropdown">
+        <a href="register.html?type=student" class="join-dropdown-item">
+            <i class="fas fa-user-graduate"></i> انضم كطالب
         </a>
+        <a href="register.html?type=teacher" class="join-dropdown-item">
+            <i class="fas fa-chalkboard-teacher"></i> انضم كمعلم
+        </a>
+    </div>
+</div>
     </div>
 </div>
 
@@ -2474,7 +2624,7 @@ body {
             </div>
             <h3>فريق أكاديمي مؤهل</h3>
             <p>
-                مجموعة رهيبة من مدرسين ومدرسين يوسدي اخترناهم بدقة لتساعدك في تحقيق أهدافك. خبراء في مجالاتهم مع سنوات من الخبرة في التدريس.
+                مجموعة رهيبة من مدرسين ومدرسين ابتكر اخترناهم بدقة لتساعدك في تحقيق أهدافك. خبراء في مجالاتهم مع سنوات من الخبرة في التدريس.
             </p>
         </div>
     </div>
@@ -2483,39 +2633,66 @@ body {
     <div class="trial-info">
         <h1>تجربة مجانية</h1>
         <p>احصل على تجربة مجانية لكل محتوى تعليمي وقيم الجودة والشرح والمحتوى ومن ثم بإمكانك الاشتراك</p>
-        <button id="trialButton">جرب الآن</button>
+        <a href="university.html">
+  <button id="trialButton">جرب الآن</button>
+</a>
+
     </div>
 </section>
 
 <!-- REVIEWS SECTION -->
-<section class="reviews-section">
-  <h2>آراء طلابنا</h2>
-  <p class="reviews-subtitle">اكتشف تجارب طلابنا مع ابتكر. أكثر من 25 رأي يوضح جودة محتوى منصتنا.</p>
 
-  <div class="reviews-slider-wrapper">
-    <button class="slider-btn prev" id="prevReviewBtn">❮</button>
-    <div class="reviews-slider" id="reviewsSlider">
-      <!-- 25 كارد احترافي -->
-      <!-- مثال على الكارد -->
-      <div class="review-card">
-        <div class="review-header">
-          <div class="reviewer-avatar">ر</div>
-          <div class="reviewer-info">
-            <div class="reviewer-name">روابي الشهراني</div>
-            <div class="reviewer-course">تفاضل وتكامل 109</div>
-            <div class="stars">★★★★★</div>
-          </div>
+<section class="uni-section">
+        <div class="uni-header">
+            <h2>استعرض كورساتك حسب الجامعة</h2>
+            <div class="uni-actions">
+                <button class="view-all" onclick="window.location.href='university.html'">عرض الكل</button>
+                <button class="arrow" id="arrowLeft">‹</button>
+                <button class="arrow" id="arrowRight">›</button>
+            </div>
         </div>
-        <p class="review-text">تجربة تعليمية ممتازة، المحتوى منظم وسهل الفهم.</p>
-        <span class="review-date">15 مارس 2024</span>
-      </div>
 
-      <!-- كرر الكارد مع تغييرات الاسماء والنصوص حتى تصل 25 كارد -->
-      <!-- سأضع لك مثال للـ 25 كارد لاحقاً لتوفير مساحة -->
-    </div>
-    <button class="slider-btn next" id="nextReviewBtn">❯</button>
-  </div>
-</section>
+        <div class="slider-wrapper">
+            <div class="slider" id="slider">
+                <!-- روابط الجامعات -->
+                <a href="university.html?uni=kku" class="uni-card">
+                    <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.31 PM.jpeg" alt="جامعة الملك خالد">
+                    <p>جامعة الملك خالد</p>
+                    <div class="card-counter">1</div>
+                </a>
+
+                <a href="university.html?uni=kfu" class="uni-card">
+                    <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.48 PM.jpeg" alt="جامعة الملك فيصل">
+                    <p>جامعة الملك فيصل</p>
+                    <div class="card-counter">2</div>
+                </a>
+
+                <a href="university.html?uni=tu" class="uni-card">
+                    <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.06 PM.jpeg" alt="جامعة طيبة">
+                    <p>جامعة طيبة</p>
+                    <div class="card-counter">3</div>
+                </a>
+
+                <a href="university.html?uni=bu" class="uni-card">
+                    <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.23 PM.jpeg" alt="جامعة الباحة">
+                    <p>جامعة الباحة</p>
+                    <div class="card-counter">4</div>
+                </a>
+
+                <a href="university.html?uni=uq" class="uni-card">
+                    <img src="./Imges/WhatsApp Image 2026-01-17 at 1.26.22 PM (1).jpeg" alt="جامعة أم القرى">
+                    <p>جامعة أم القرى</p>
+                    <div class="card-counter">5</div>
+                </a>
+
+                <a href="university.html?uni=taif" class="uni-card">
+                    <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.50 PM.jpeg" alt="جامعه الطائف">
+                    <p>جامعه الطائف</p>
+                    <div class="card-counter">6</div>
+                </a>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -2558,67 +2735,6 @@ body {
 
 
 
-<section class="uni-section">
-
-  <div class="uni-header">
-    <h2>استعرض كورساتك حسب الجامعة</h2>
-
-    <div class="uni-actions">
-      <button class="view-all" onclick="window.location.href='university.html'">عرض الكل</button>
-      <button class="arrow" id="arrowLeft">‹</button>
-<button class="arrow" id="arrowRight">›</button>
-
-    </div>
-  </div>
-
-  <div class="slider-wrapper">
-    <div class="slider" id="slider">
-
-      <!-- روابط الجامعات معدلة لتذهب لصفحة university.html مع كود الجامعة -->
-      <a href="university.html?uni=kku" class="uni-card">
-        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.31 PM.jpeg" alt="جامعة الملك خالد">
-        <p>جامعة الملك خالد</p>
-        <div class="card-counter">1</div>
-      </a>
-
-      <a href="university.html?uni=kfu" class="uni-card">
-        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.24.48 PM.jpeg" alt="جامعة الملك فيصل">
-        <p>جامعة الملك فيصل</p>
-        <div class="card-counter">2</div>
-      </a>
-
-      <a href="university.html?uni=tu" class="uni-card">
-        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.06 PM.jpeg" alt="جامعة طيبة">
-        <p>جامعة طيبة</p>
-        <div class="card-counter">3</div>
-      </a>
-
-      <a href="university.html?uni=bu" class="uni-card">
-        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.23 PM.jpeg" alt="جامعة الباحة">
-        <p>جامعة الباحة</p>
-        <div class="card-counter">4</div>
-      </a>
-
-      <a href="university.html?uni=uq" class="uni-card">
-        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.26.22 PM (1).jpeg" alt="جامعة أم القرى">
-        <p>جامعة أم القرى</p>
-        <div class="card-counter">5</div>
-      </a>
-
-      <a href="university.html?uni=uj" class="uni-card">
-        <img src="./Imges/WhatsApp Image 2026-01-17 at 1.25.50 PM.jpeg" alt=" جامعه الطائف">
-        <p>جامعه الطائف </p>
-        <div class="card-counter">6</div>
-      </a>
-
-      
-
-      
-
-    </div>
-  </div>
-
-</section>
 
 
 
@@ -2662,16 +2778,19 @@ body {
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.53.52 AM.jpeg"><div class="card-content"><h1>محاسبه متوسطه 2</h1><p>جامعه القصيم </p><p></p><div class="price"><span>90</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (2).jpeg"><div class="card-content"><h1>  مبادئ الاقتصاد الجزئي</h1><p> جامعه الملك خالد </p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM.jpeg"><div class="card-content"><h1>  الاحصاء التطبيقي</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
-        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg"><div class="card-content"><h1>محاسبه متوسطه 1</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg"><div class="card-content"><h1>    مفاهيم واهداف محاسبة التكاليف</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+  <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg"><div class="card-content"><h1>محاسبه متوسطه 1</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg"><div class="card-content"><h1>  رياضيات التمويل والاستثمار </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
-        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg"><div class="card-content"><h1>   مبادئالاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه   </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg"><div class="card-content"><h1>    المحاسبة عن عمليات البضاعة  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+       <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (3).jpeg"><div class="card-content"><h1>   مبادئالاحصاء للعلوم الانسانيه مع تطبيقات حاسوبيه   </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM.jpeg"><div class="card-content"><h1>   الرياضيات للاقتصاد والعلوم الاداريه والماليه </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>100 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (1).jpeg"><div class="card-content"><h1>    محاسبة المنشات الماليه  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM (2).jpeg"><div class="card-content"><h1>    محاسبه متوسطة 2 الفصل الحادي عشر الاتزامات المتداولة والمحتملة </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
-        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg"><div class="card-content"><h1>  ادارة مالية 2 </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
-        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM.jpeg"><div class="card-content"><h1>    مفاهيم واهداف محاسبة التكاليف</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
-
+       
         <!-- PAGE 2 -->
+         <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (1).jpeg"><div class="card-content"><h1>محاسبه متوسطه 1</h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.52 AM (2).jpeg"><div class="card-content"><h1>  رياضيات التمويل والاستثمار </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
+        
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.07 AM.jpeg"><div class="card-content"><h1>محاسبه متوسطه 1 </h1><p>محاسبه علي اساس الاستحقاق</p><p>جامعه ام القري</p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (1).jpeg"><div class="card-content"><h1>محاسبة</h1><p>جامعه الطائف</p><p> </p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 3.54.22 AM (2).jpeg"><div class="card-content"><h1>محاسبه التكاليف </h1><p>جامعه الطائف </p><p></p><div class="price"><span>20 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
@@ -2686,11 +2805,106 @@ body {
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.51 AM (1).jpeg"><div class="card-content"><h1>  محاسبه تكاليف وادارية </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.53 AM.jpeg"><div class="card-content"><h1>  ادارة ماليه 1 </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (1).jpeg"><div class="card-content"><h1>    محاسبة الزكاى والضريبة  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>70 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
-        <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM (2).jpeg"><div class="card-content"><h1>    المحاسبة عن عمليات البضاعة  </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
+        <div class="card page-1 show"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.55 AM (1).jpeg"><div class="card-content"><h1>  ادارة مالية 2 </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال</span><button class="add-to-cart">اشترك</button></div></div></div>
         <div class="card page-2"><img src="./IMG/WhatsApp Image 2026-01-17 at 4.12.54 AM.jpeg"><div class="card-content"><h1>    تحليل قائمه المركز المالي </h1><p>جامعه الملك خالد</p><p></p><div class="price"><span>80 ريال </span><button class="add-to-cart">اشترك</button></div></div></div>
     </div>
 </section>
+<section class="reviews-section">
 
+  <h1 class="reviews-title">آراء طلابنا</h1>
+
+  <div class="reviews-wrapper">
+
+    <button class="review-btn prev" id="prevBtn">❮</button>
+
+    <div class="reviews-container" id="reviewsContainer">
+
+      <!-- كاردات الصور -->
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.17 AM.jpeg" alt="رأي طالب">
+      </div>
+
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.06 AM (1).jpeg" alt="رأي طالب">
+      </div>
+
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.04 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.05 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.05 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.06 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.16 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.09 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.08 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.09 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.10 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.10 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.11 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.11 AM (2).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.11 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.12 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.12 AM (2).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.12 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.13 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.13 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.14 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.15 AM (1).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.15 AM (2).jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.15 AM.jpeg" alt="رأي طالب">
+      </div>
+      <div class="review-card">
+        <img src="./imgs/WhatsApp Image 2026-01-20 at 11.46.16 AM (1).jpeg" alt="رأي طالب">
+      </div>
+
+      <!-- كمل لحد 25 صورة -->
+    </div>
+
+    <button class="review-btn next" id="nextBtn">❯</button>
+
+  </div>
+</section>
 <!-- FOOTER -->
 <footer class="footer" id="contact">
     <div class="footer-content">
@@ -2753,48 +2967,66 @@ body {
         });
     });
 
-    // ========== COURSE PAGINATION ==========
-    let currentPage = 1;
-    const totalPages = 2;
+   // ========== COURSE PAGINATION ==========
+let currentPage = 1;
+const totalPages = 2;
+const CARDS_PER_PAGE = 12; // 4 كروت × 3 صفوف = 12 كارد لكل صفحة
 
-    // Initially show page 1 cards
-    document.querySelectorAll('.page-1').forEach(card => {
-        card.style.display = 'block';
+// تنظيم الكروت تلقائياً حسب الصفحات
+function organizeCardsByPages() {
+    const allCards = document.querySelectorAll('.card');
+    
+    // إزالة كلاسات الصفحات القديمة
+    allCards.forEach(card => {
+        card.classList.remove('page-1', 'page-2');
     });
+    
+    // إضافة كلاسات الصفحات الجديدة
+    allCards.forEach((card, index) => {
+        if (index < CARDS_PER_PAGE) {
+            card.classList.add('page-1');
+        } else if (index < CARDS_PER_PAGE * 2) {
+            card.classList.add('page-2');
+        }
+        // لو عندك أكثر من صفحتين، زود الشرط هنا
+    });
+}
 
-    document.querySelectorAll('.page-2').forEach(card => {
+// عرض صفحة معينة
+function showPage(page) {
+    // إخفاء جميع الكروت
+    document.querySelectorAll('.card').forEach(card => {
         card.style.display = 'none';
     });
+    
+    // عرض كروت الصفحة المطلوبة
+    document.querySelectorAll('.page-' + page).forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    // تحديث الصفحة الحالية
+    currentPage = page;
+}
 
-    function showPage(page) {
-        // Hide all cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.display = 'none';
-        });
-        
-        // Show cards for selected page
-        document.querySelectorAll('.page-' + page).forEach(card => {
-            card.style.display = 'block';
-        });
-        
-        // Update current page
-        currentPage = page;
+// التهيئة الأولية
+document.addEventListener('DOMContentLoaded', function() {
+    organizeCardsByPages(); // تنظيم الكروت
+    showPage(1); // عرض الصفحة الأولى
+});
+
+document.getElementById("next").addEventListener('click', function() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
     }
+});
 
-    document.getElementById("next").addEventListener('click', function() {
-        if (currentPage < totalPages) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    });
-
-    document.getElementById("prev").addEventListener('click', function() {
-        if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-        }
-    });
-
+document.getElementById("prev").addEventListener('click', function() {
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+    }
+});
     // ========== SHOPPING CART FUNCTIONALITY ==========
     const cartButton = document.getElementById('cartButton');
     const cartModal = document.getElementById('cartModal');
@@ -2936,7 +3168,8 @@ body {
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
             
-            alert('تمت إضافة الكورس إلى السلة');
+            // إزالة الرسالة المنبثقة
+            // alert('تمت إضافة الكورس إلى السلة');
         });
     });
 
@@ -2944,344 +3177,9 @@ body {
     updateCartCount();
 
     // ========== UNIVERSITIES DROPDOWN FUNCTIONALITY ==========
-    const universitiesBtn = document.getElementById('universitiesBtn');
-    const universitiesDropdown = document.getElementById('universitiesDropdown');
-    const universitySearch = document.getElementById('universitySearch');
-
-    // Show/hide universities dropdown
-    universitiesBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        universitiesDropdown.classList.toggle('show');
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!universitiesBtn.contains(e.target) && !universitiesDropdown.contains(e.target)) {
-            universitiesDropdown.classList.remove('show');
-        }
-    });
-
-    // Filter universities when typing in search
-    universitySearch.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const items = universitiesDropdown.querySelectorAll('.university-item');
-        
-        items.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            if (text.includes(searchTerm)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-
-    // Handle university selection - FIXED TO NAVIGATE TO COURSES
-    document.querySelectorAll('.university-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const university = this.getAttribute('data-university');
-            
-            // Close dropdown
-            universitiesDropdown.classList.remove('show');
-            universitySearch.value = '';
-            
-            // Scroll to courses section
-            document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-            
-            // Show notification
-            showNotification(`يتم عرض كورسات ${this.textContent}`, 'success');
-            
-            // Filter courses based on university
-            filterCoursesByUniversity(university);
-        });
-    });
-
-    // Function to filter courses by university
-    function filterCoursesByUniversity(university) {
-        const allCards = document.querySelectorAll('.card');
-        
-        // Show all cards first
-        allCards.forEach(card => {
-            card.style.display = 'none';
-        });
-        
-        if (university === 'all') {
-            // Show all cards
-            allCards.forEach(card => {
-                card.style.display = 'block';
-            });
-            return;
-        }
-        
-        // خريطة الجامعات للبحث
-        const universityMap = {
-            'king-khalid': ['الملك خالد'],
-            'king-faisal': ['الملك فيصل'],
-            'taibah': ['طيبة'],
-            'taif': ['الطائف'],
-            'jeddah': ['جدة'],
-            'umm-alqura': ['أم القرى'],
-            'al-baha': ['الباحة', 'الباحه'],
-            'qassim': ['القصيم']
-        };
-        
-        // البحث عن الكورسات المطابقة
-        allCards.forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const searchTerms = universityMap[university] || [];
-            
-            let isMatch = false;
-            if (searchTerms.length > 0) {
-                for (const term of searchTerms) {
-                    if (cardText.includes(term.toLowerCase())) {
-                        isMatch = true;
-                        break;
-                    }
-                }
-            }
-            
-            if (isMatch) {
-                card.style.display = 'block';
-            }
-        });
-    }
-
-    // ========== ENHANCED REVIEWS SLIDER FUNCTIONALITY ==========
-    function initReviewsSlider() {
-        const slider = document.getElementById('reviewsSlider');
-        const prevBtn = document.getElementById('prevReviewBtn');
-        const nextBtn = document.getElementById('nextReviewBtn');
-        
-        if (!slider || !prevBtn || !nextBtn) return;
-        
-        // Generate review cards dynamically
-        const names = ["بدر","سارة","أحمد","هند","محمد","ليلى","منة الله","رامي","هالة","ليلى","سعاد","أحمد","هند","رامي","سارة","أحمد","هالة","نور","عمر","مريم","كريم","ياسمين","يوسف","سميرة","طارق"];
-        const courses = ["تفاضل","اقتصاد كلي","محاسبة مالية","رياضيات التمويل","احصاء تطبيقي","اقتصاد جزئي","محاسبة تكاليف","ادارة مالية 2","مبادئ الاقتصاد","الإحصاء التطبيقي","محاسبة الزكاة","مبادئ المحاسبة"];
-        
-        // Clear existing cards except the first one
-        while (slider.children.length > 1) {
-            slider.removeChild(slider.lastChild);
-        }
-        
-        // Add 24 more review cards
-        for(let i = 1; i < 25; i++) {
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `<div class="review-header">
-                                <div class="reviewer-avatar">${names[i % names.length][0]}</div>
-                                <div class="reviewer-info">
-                                    <div class="reviewer-name">${names[i % names.length]}</div>
-                                    <div class="reviewer-course">${courses[i % courses.length]}</div>
-                                    <div class="stars">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="review-text">تجربة تعليمية ممتازة ومميزة، المحتوى غني ومفيد.</p>
-                            <span class="review-date">10 فبراير 2024</span>`;
-            slider.appendChild(card);
-        }
-        
-        const cards = slider.querySelectorAll('.review-card');
-        if (cards.length === 0) return;
-        
-        let currentIndex = 0;
-        const cardsPerSlide = getCardsPerSlide();
-        
-        function getCardsPerSlide() {
-            if (window.innerWidth <= 480) return 1;
-            if (window.innerWidth <= 768) return 2;
-            if (window.innerWidth <= 1024) return 3;
-            return 4;
-        }
-        
-        function updateSlider() {
-            const cardWidth = 100 / cardsPerSlide;
-            // التصحيح: في RTL نستخدم translateX موجبة للانتقال لليسار
-            const translateX = currentIndex * cardWidth;
-            slider.style.transform = `translateX(${translateX}%)`;
-            updateButtons();
-        }
-        
-        function updateButtons() {
-            const maxIndex = Math.max(0, cards.length - cardsPerSlide);
-            // تصحيح التسميات: السهم الأيمن للعرض السابق، السهم الأيسر للعرض التالي
-            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-            nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex >= maxIndex;
-        }
-        
-        function nextSlide() {
-            const maxIndex = Math.max(0, cards.length - cardsPerSlide);
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateSlider();
-            }
-        }
-        
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateSlider();
-            }
-        }
-        
-        // تصحيح: في RTL، السهم الأيسر (›) يذهب للتالي، السهم الأيمن (‹) يذهب للسابق
-        // لكن بناءً على HTML، يجب أن نربط بشكل صحيح
-        // HTML الحالي: <button class="slider-btn prev" id="prevReviewBtn">❮</button>
-        //               <button class="slider-btn next" id="nextReviewBtn">❯</button>
-        
-        // تصحيح الربط: في RTL، ❮ (سهم لليمين) يجب أن يذهب للسابق
-        //             ❯ (سهم لليسار) يجب أن يذهب للتالي
-        nextBtn.addEventListener('click', nextSlide);      // ❯ يذهب للتالي
-        prevBtn.addEventListener('click', prevSlide);      // ❮ يذهب للسابق
-        
-        // Initialize
-        slider.style.display = 'flex';
-        slider.style.transition = 'transform 0.5s ease';
-        slider.style.gap = '20px';
-        
-        cards.forEach(card => {
-            card.style.flex = `0 0 calc(${100 / cardsPerSlide}% - 15px)`;
-        });
-        
-        // Update on window resize
-        window.addEventListener('resize', function() {
-            const newCardsPerSlide = getCardsPerSlide();
-            cards.forEach(card => {
-                card.style.flex = `0 0 calc(${100 / newCardsPerSlide}% - 15px)`;
-            });
-            // Reset to first slide
-            currentIndex = 0;
-            updateSlider();
-        });
-        
-        // Initialize slider
-        updateSlider();
-    }
-
-    // ========== FIXED UNIVERSITY SLIDER FUNCTIONALITY ==========
-    function initUniversitySlider() {
-        const slider = document.getElementById("slider");
-        const arrowLeft = document.getElementById("arrowLeft");
-        const arrowRight = document.getElementById("arrowRight");
-        
-        if (!slider || !arrowLeft || !arrowRight) {
-            console.log("❌ لم يتم العثور على عناصر السلايدر!");
-            return;
-        }
-        
-        console.log("✅ تم العثور على عناصر السلايدر");
-        
-        let currentPosition = 0;
-        let cardWidth = 0;
-        let visibleCards = 0;
-
-        // ========== حساب أبعاد السلايدر ==========
-        function calculateSliderValues() {
-            const card = slider.querySelector('.uni-card');
-            if (card) {
-                const cardStyle = window.getComputedStyle(card);
-                cardWidth = card.offsetWidth + parseInt(cardStyle.marginLeft || 0) + parseInt(cardStyle.marginRight || 0);
-                visibleCards = Math.floor(slider.parentElement.offsetWidth / cardWidth);
-                console.log(`📏 عرض البطاقة: ${cardWidth}px، عدد البطاقات المرئية: ${visibleCards}`);
-            }
-        }
-
-        // ========== تحديث حالة الأزرار ==========
-        function updateArrows() {
-            const maxPosition = Math.max(0, slider.children.length - visibleCards);
-            
-            arrowLeft.style.pointerEvents = currentPosition === 0 ? 'none' : 'all';
-            arrowRight.style.pointerEvents = currentPosition >= maxPosition ? 'none' : 'all';
-            
-            arrowLeft.style.opacity = currentPosition === 0 ? '0.5' : '1';
-            arrowRight.style.opacity = currentPosition >= maxPosition ? '0.5' : '1';
-            
-            arrowLeft.disabled = currentPosition === 0;
-            arrowRight.disabled = currentPosition >= maxPosition;
-            
-            console.log(`📍 الموضع الحالي: ${currentPosition}, الموضع الأقصى: ${maxPosition}`);
-        }
-
-        // ========== حركة السلايدر ==========
-        function slideToPosition(position) {
-            calculateSliderValues();
-            const maxPosition = Math.max(0, slider.children.length - visibleCards);
-            
-            if (position < 0) position = 0;
-            if (position > maxPosition) position = maxPosition;
-            
-            currentPosition = position;
-            
-            // في RTL: translateX موجبة تتحرك لليمين
-            slider.style.transform = `translateX(${currentPosition * cardWidth}px)`;
-            slider.style.transition = 'transform 0.5s ease';
-            
-            updateArrows();
-            console.log(`🔄 تحريك إلى الموضع: ${currentPosition}, الترجمة: ${currentPosition * cardWidth}px`);
-        }
-
-        // ========== إعداد المستمعين الجدد ==========
-        function setupEventListeners() {
-            // إضافة مستمعين جدد للأزرار
-            arrowLeft.addEventListener('click', function() {
-                console.log("⬅️ النقر على زر ‹ (يمين) - للذهاب للتالي");
-                slideToPosition(currentPosition + 1);
-            });
-            
-            arrowRight.addEventListener('click', function() {
-                console.log("➡️ النقر على زر › (يسار) - للذهاب للسابق");
-                slideToPosition(currentPosition - 1);
-            });
-            
-            console.log("🎯 تم إعداد مستمعي الأحداث بنجاح");
-        }
-
-        // ========== التهيئة الأولية ==========
-        function initializeSlider() {
-            calculateSliderValues();
-            setupEventListeners();
-            slideToPosition(0);
-            
-            // تأخير للتأكد من التحميل الصحيح
-            setTimeout(() => {
-                calculateSliderValues();
-                updateArrows();
-            }, 100);
-            
-            console.log("🚀 تم تهيئة السلايدر بنجاح");
-        }
-
-        // ========== إعداد أحداث النافذة ==========
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                console.log("🔄 تغيير حجم النافذة");
-                initializeSlider();
-            }, 250);
-        });
-
-        // بدء التشغيل
-        initializeSlider();
-    }
-
-    // ========== بدء التشغيل عند تحميل الصفحة ==========
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log("📄 تم تحميل DOM بالكمل");
-        
-        // تأخير قصير لضمان تحميل كل العناصر
-        setTimeout(() => {
-            console.log("🔄 بدء تهيئة سلايدر المراجعات");
-            initReviewsSlider();
-            console.log("✅ تم تهيئة سلايدر المراجعات");
-            
-            console.log("🔄 بدء تهيئة سلايدر الجامعات");
-            initUniversitySlider();
-            console.log("✅ تم تهيئة سلايدر الجامعات");
-        }, 100);
-    });
+    
+   
+  
 
     // ========== BUTTON FUNCTIONALITY ==========
     // Hero CTA button
@@ -3291,7 +3189,8 @@ body {
 
     // Trial button
     document.getElementById('trialButton').addEventListener('click', function() {
-        alert('سيتم توجيهك إلى صفحة التجربة المجانية');
+        // إزالة الرسالة المنبثقة
+        // alert('سيتم توجيهك إلى صفحة التجربة المجانية');
     });
 
     // Login and register buttons
@@ -3341,24 +3240,7 @@ body {
     }
 
     // ========== FUNCTION TO SHOW NOTIFICATION ==========
-    function showNotification(message, type) {
-        // Remove existing notification
-        const existing = document.querySelector('.university-notification');
-        if (existing) existing.remove();
-        
-        const notification = document.createElement('div');
-        notification.className = `university-notification ${type}`;
-        notification.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-            <span>${message}</span>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
+   
 
     // ========== SEARCH FUNCTIONALITY ==========
     const searchInput = document.getElementById('searchInput');
@@ -3545,6 +3427,354 @@ body {
             dropdownMenu.classList.remove('show');
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // ========== REVIEWS SLIDER FUNCTIONALITY ==========
+  function initReviewsSlider() {
+      const container = document.getElementById("reviewsContainer");
+      const nextBtn = document.getElementById("nextBtn");
+      const prevBtn = document.getElementById("prevBtn");
+
+      if (!container || !nextBtn || !prevBtn) {
+          console.log("❌ لم يتم العثور على عناصر سلايدر المراجعات!");
+          return;
+      }
+
+      console.log("✅ تم العثور على عناصر سلايدر المراجعات");
+
+      nextBtn.addEventListener("click", () => {
+          container.scrollBy({ left: 350, behavior: "smooth" });
+      });
+
+      prevBtn.addEventListener("click", () => {
+          container.scrollBy({ left: -350, behavior: "smooth" });
+      });
+
+      // تفعيل السحب بالماوس مع منع السلوك الافتراضي
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      container.addEventListener('mousedown', (e) => {
+          isDown = true;
+          container.style.cursor = 'grabbing';
+          startX = e.pageX - container.offsetLeft;
+          scrollLeft = container.scrollLeft;
+      });
+
+      container.addEventListener('mouseleave', () => {
+          isDown = false;
+          container.style.cursor = 'grab';
+      });
+
+      container.addEventListener('mouseup', () => {
+          isDown = false;
+          container.style.cursor = 'grab';
+      });
+
+      container.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - container.offsetLeft;
+          const walk = (x - startX) * 2;
+          container.scrollLeft = scrollLeft - walk;
+      });
+  }
+
+  // تهيئة سلايدر المراجعات عند تحميل الصفحة
+  document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+          initReviewsSlider();
+      }, 100);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========== JOIN BUTTON DROPDOWN FUNCTIONALITY ==========
+const joinBtn = document.getElementById('joinBtn');
+const joinDropdown = document.getElementById('joinDropdown');
+
+if (joinBtn && joinDropdown) {
+    // Show dropdown on hover
+    joinBtn.addEventListener('mouseenter', function() {
+        joinDropdown.classList.add('show');
+    });
+    
+    // Hide dropdown when mouse leaves button or dropdown
+    joinBtn.addEventListener('mouseleave', function() {
+        setTimeout(() => {
+            if (!joinDropdown.matches(':hover')) {
+                joinDropdown.classList.remove('show');
+            }
+        }, 200);
+    });
+    
+    joinDropdown.addEventListener('mouseleave', function() {
+        joinDropdown.classList.remove('show');
+    });
+    
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!joinBtn.contains(e.target) && !joinDropdown.contains(e.target)) {
+            joinDropdown.classList.remove('show');
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById("slider");
+            const arrowLeft = document.getElementById("arrowLeft");
+            const arrowRight = document.getElementById("arrowRight");
+            const cards = document.querySelectorAll('.uni-card');
+            
+            let currentIndex = 0;
+            let cardsToShow = 4; // عدد البطاقات المرئية
+            
+            // حساب عدد البطاقات المرئية حسب حجم الشاشة
+            function calculateVisibleCards() {
+                const containerWidth = slider.parentElement.offsetWidth;
+                const cardWidth = cards[0].offsetWidth + 30; // عرض البطاقة + الجاب
+                
+                if (containerWidth < 600) {
+                    cardsToShow = 1;
+                } else if (containerWidth < 900) {
+                    cardsToShow = 2;
+                } else if (containerWidth < 1200) {
+                    cardsToShow = 3;
+                } else {
+                    cardsToShow = 4;
+                }
+                
+                console.log(`🔍 عدد البطاقات المرئية: ${cardsToShow}`);
+                return cardsToShow;
+            }
+            
+            // تحديث حالة الأسهم
+            function updateArrows() {
+                const visibleCards = calculateVisibleCards();
+                const maxIndex = Math.max(0, cards.length - visibleCards);
+                
+                // زر اليسار (‹) - للتحرك للأمام (لعرض البطاقات على اليمين)
+                if (currentIndex >= maxIndex) {
+                    arrowLeft.disabled = true;
+                    arrowLeft.style.opacity = '0.5';
+                    arrowLeft.style.cursor = 'not-allowed';
+                } else {
+                    arrowLeft.disabled = false;
+                    arrowLeft.style.opacity = '1';
+                    arrowLeft.style.cursor = 'pointer';
+                }
+                
+                // زر اليمين (›) - للتحرك للخلف (لعرض البطاقات على اليسار)
+                if (currentIndex <= 0) {
+                    arrowRight.disabled = true;
+                    arrowRight.style.opacity = '0.5';
+                    arrowRight.style.cursor = 'not-allowed';
+                } else {
+                    arrowRight.disabled = false;
+                    arrowRight.style.opacity = '1';
+                    arrowRight.style.cursor = 'pointer';
+                }
+                
+                console.log(`📍 المؤشر الحالي: ${currentIndex}, الأقصى: ${maxIndex}`);
+            }
+            
+            // تحريك السلايدر
+            function slideTo(index) {
+                const visibleCards = calculateVisibleCards();
+                const maxIndex = Math.max(0, cards.length - visibleCards);
+                
+                // التأكد من حدود المؤشر
+                if (index < 0) index = 0;
+                if (index > maxIndex) index = maxIndex;
+                
+                currentIndex = index;
+                
+                // في RTL: للتحريك للأمام (لعرض البطاقات على اليمين) نستخدم translateX موجب
+                const cardWidth = cards[0].offsetWidth + 30;
+                const translateX = currentIndex * cardWidth;
+                
+                // معكوس: نستخدم translateX موجب للذهاب للأمام
+                slider.style.transform = `translateX(${translateX}px)`;
+                slider.style.transition = 'transform 0.5s ease';
+                
+                console.log(`🔄 تحريك إلى المؤشر: ${currentIndex}, الترجمة: ${translateX}px`);
+                
+                updateArrows();
+            }
+            
+            // حدث زر اليسار (‹) - للتحرك للأمام (لعرض البطاقات على اليمين)
+            arrowLeft.addEventListener('click', function() {
+                if (!arrowLeft.disabled) {
+                    console.log("➡️ ضغط على زر اليسار (‹) للتحرك للأمام");
+                    slideTo(currentIndex + 1);
+                }
+            });
+            
+            // حدث زر اليمين (›) - للتحرك للخلف (لعرض البطاقات على اليسار)
+            arrowRight.addEventListener('click', function() {
+                if (!arrowRight.disabled) {
+                    console.log("⬅️ ضغط على زر اليمين (›) للتحرك للخلف");
+                    slideTo(currentIndex - 1);
+                }
+            });
+            
+            // إعادة الحساب عند تغيير حجم النافذة
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    console.log("📱 تغيير حجم الشاشة");
+                    slideTo(currentIndex); // إعادة ضبط الموضع
+                }, 250);
+            });
+            
+            // إضافة السحب بالماوس (معكوس)
+            let isDown = false;
+            let startX;
+            
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                startX = e.pageX;
+                slider.style.transition = 'none';
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+                slider.style.transition = 'transform 0.5s ease';
+                
+                // عند إنهاء السحب، تحريك إلى أقرب بطاقة
+                const cardWidth = cards[0].offsetWidth + 30;
+                const currentTranslate = parseInt(slider.style.transform.replace('translateX(', '').replace('px)', '') || 0);
+                const nearestIndex = Math.round(currentTranslate / cardWidth);
+                slideTo(nearestIndex);
+            });
+            
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                
+                const cardWidth = cards[0].offsetWidth + 30;
+                const movement = startX - e.pageX;
+                const translateChange = movement / 2; // تقسيم ليكون السحب أبطأ
+                
+                // حساب الترجمة الحالية
+                const currentTranslate = currentIndex * cardWidth;
+                const newTranslate = currentTranslate + translateChange;
+                
+                // الحدود
+                const visibleCards = calculateVisibleCards();
+                const maxIndex = Math.max(0, cards.length - visibleCards);
+                const minTranslate = 0;
+                const maxTranslate = maxIndex * cardWidth;
+                const limitedTranslate = Math.max(minTranslate, Math.min(newTranslate, maxTranslate));
+                
+                slider.style.transform = `translateX(${limitedTranslate}px)`;
+            });
+            
+            // التهيئة الأولية
+            function initSlider() {
+                console.log("🚀 بدء تهيئة السلايدر");
+                calculateVisibleCards();
+                slideTo(0);
+                
+                // إضافة مؤشر السحب
+                slider.style.cursor = 'grab';
+                
+                console.log("✅ تم تهيئة السلايدر بنجاح");
+                console.log("📌 ملاحظة: الأسهم معكوسة حسب الطلب:");
+                console.log("   - زر اليسار (‹) ← يحرك للأمام (لليمين)");
+                console.log("   - زر اليمين (›) ← يحرك للخلف (لليسار)");
+            }
+            
+            // بدء التشغيل
+            initSlider();
+            
+            // تحميل الصور
+            const images = document.querySelectorAll('.uni-card img');
+            images.forEach(img => {
+                img.onload = function() {
+                    console.log(`✅ تم تحميل صورة: ${img.alt}`);
+                };
+                img.onerror = function() {
+                    console.log(`❌ فشل تحميل صورة: ${img.alt}`);
+                    img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9IiNGMkYyRjIiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjODg4ODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+JUQ4JUE3JUQ5JTg4JUQ4JUE4PC90ZXh0Pjwvc3ZnPg==';
+                };
+            });
+        });
 </script>
 </body>
 </html>

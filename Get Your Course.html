@@ -140,7 +140,7 @@
                 <div class="form-group">
                     <label class="form-label">
                         <i class="fas fa-user-circle"></i>
-                        <span>اسمك بالكامل</span>
+                        <span>الاسم </span>
                     </label>
                     <div class="input-with-icon">
                         <i class="fas fa-user"></i>
@@ -155,10 +155,11 @@
                     </label>
                     <div class="phone-input">
                         <div class="country-code">
-                            <span class="flag">🇪🇬</span>
-                            <span class="code">+20</span>
+                            <span class="flag"></span>
+                            <span class="code">+966</span>
                         </div>
-                        <input type="tel" placeholder="10 0123 4567" class="form-input" required>
+                        <input type="tel" placeholder="+966 5X XXX XXXX
+" class="form-input" required>
                     </div>
                 </div>
 
@@ -169,7 +170,7 @@
                     </label>
                     <div class="input-with-icon">
                         <i class="fas fa-graduation-cap"></i>
-                        <input type="text" placeholder="مثال: جامعة القاهرة" class="form-input" required>
+                        <input type="text" placeholder="مثال:  جامعة الملك خالد" class="form-input" required>
                     </div>
                 </div>
 
@@ -180,28 +181,26 @@
                     </label>
                     <div class="input-with-icon">
                         <i class="fas fa-book-open"></i>
-                        <input type="text" placeholder="مثال: المحاسبة المتوسطة 1" class="form-input" required>
+                        <input type="text" placeholder=":   " class="form-input" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">
-                        <i class="fas fa-code-branch"></i>
-                        <span>التخصص</span>
-                    </label>
-                    <div class="input-with-icon">
-                        <i class="fas fa-network-wired"></i>
-                        <select class="form-input" required>
-                            <option value="">اختر تخصصك</option>
-                            <option value="accounting">محاسبة</option>
-                            <option value="finance">مالية</option>
-                            <option value="management">إدارة أعمال</option>
-                            <option value="economics">اقتصاد</option>
-                            <option value="marketing">تسويق</option>
-                            <option value="other">أخرى</option>
-                        </select>
-                    </div>
-                </div>
+               <div class="form-group">
+    <label class="form-label">
+        <i class="fas fa-code-branch"></i>
+        <span>التخصص</span>
+    </label>
+    <div class="input-with-icon">
+        <i class="fas fa-network-wired"></i>
+        <input 
+            type="text" 
+            placeholder=" " 
+            class="form-input" 
+            required
+        >
+    </div>
+</div>
+
 
                 <div class="form-group">
                     <label class="form-label">
@@ -240,7 +239,7 @@
     </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer المصغر -->
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-section">
@@ -262,12 +261,12 @@
             <a href="#">كورسات متنوعة</a>
             <a href="#">تدريب مهني</a>
         </div>
-        
-        <div class="footer-section">
-            <h3>تواصل معنا</h3>
-            <p><i class="fas fa-phone"></i> +20 10 15117547</p>
-        </div>
     </div>
+    
+    <!-- زر واتساب -->
+    <a href="https://wa.me/201015117547" target="_blank" class="whatsapp-chat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     
     <div class="footer-bottom">
         <p>© 2024 ابتكر. جميع الحقوق محفوظة</p>
@@ -275,6 +274,43 @@
 </footer>
 
 <style>
+.whatsapp-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366, var(--primary-gold));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+    }
+}
+
+.whatsapp-chat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
 /* نفس الCSS للنافبار */
 :root {
     --primary-gold: #D4AF37;
@@ -979,7 +1015,7 @@ body {
 
 /* ========== REQUEST COURSE SECTION ========== */
 .request-course {
-    margin: 120px auto 80px;
+    margin: 120px auto 60px;
     padding: 0 20px;
     max-width: 800px;
 }
@@ -1172,13 +1208,13 @@ body {
     font-size: 16px;
 }
 
-/* Footer */
+/* ========== FOOTER المصغر ========== */
 .footer {
     background: #000;
     color: white;
-    padding: 60px 40px;
+    padding: 40px 30px 20px;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .footer-content {
@@ -1186,36 +1222,45 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .footer-section h3 {
     color: var(--primary-gold);
-    margin-bottom: 20px;
-    font-size: 18px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 .footer-section p,
 .footer-section a {
-    color: #999;
+    color: #bbb;
     text-decoration: none;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: block;
     transition: color 0.3s ease;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-section p {
+    margin-bottom: 0;
 }
 
 .footer-section a:hover {
     color: var(--primary-gold);
+    transform: translateX(-5px);
 }
 
 .footer-bottom {
-    margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #999;
+    font-size: 14px;
 }
 
-/* Responsive */
+/* Responsive Footer */
 @media(max-width: 768px) {
     .form-grid {
         grid-template-columns: 1fr;
@@ -1251,18 +1296,26 @@ body {
     }
     
     .request-course {
-        margin: 100px auto 60px;
+        margin: 100px auto 50px;
         padding: 0 15px;
     }
     
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .footer {
+        padding: 35px 20px 20px;
+        margin-top: 50px;
     }
 }
 
 @media(max-width: 480px) {
     .footer-content {
         grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
     }
     
     .request-header h2 {
@@ -1271,6 +1324,14 @@ body {
     
     .request-subtitle {
         font-size: 16px;
+    }
+    
+    .whatsapp-chat {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+        bottom: 15px;
+        right: 15px;
     }
 }
 </style>
@@ -1589,4 +1650,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </body>
-</html>   
+</html>

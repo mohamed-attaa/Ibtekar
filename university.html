@@ -2380,7 +2380,6 @@ function updateCartModal() {
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartModal();
             updateCartCount();
-            showNotification('تم إزالة الكورس من السلة', 'warning');
         });
     });
     
@@ -2417,7 +2416,6 @@ continueBtn.addEventListener('click', function() {
 // Checkout button
 checkoutBtn.addEventListener('click', function() {
     if (cart.length === 0) {
-        showNotification('عربة التسوق فارغة', 'info');
         return;
     }
     
@@ -2568,10 +2566,6 @@ function navigateToCourse(courseTitle) {
         setTimeout(() => {
             foundCard.classList.remove('highlight');
         }, 3000);
-        
-        showNotification(`تم العثور على الكورس: ${courseTitle}`, 'success');
-    } else {
-        showNotification('لم يتم العثور على الكورس المطلوب', 'warning');
     }
 }
 
@@ -2604,8 +2598,6 @@ mobileSearchButton.addEventListener('click', function() {
             sidebarOverlay.classList.remove('active');
             document.body.style.overflow = 'auto';
             mobileSearchInput.value = '';
-        } else {
-            showNotification('لم يتم العثور على نتائج', 'info');
         }
     }
 });
@@ -2635,7 +2627,6 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         // Check if item already in cart
         const existingItem = cart.find(item => item.title === title);
         if (existingItem) {
-            showNotification('هذا الكورس مضاف بالفعل إلى السلة!', 'info');
             return;
         }
         
@@ -2658,8 +2649,6 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
             this.innerHTML = originalText;
             this.style.background = '';
         }, 2000);
-        
-        showNotification('تم إضافة الكورس إلى السلة بنجاح!', 'success');
     });
 });
 
@@ -2725,7 +2714,6 @@ document.getElementById('checkoutModal').addEventListener('click', function(e) {
 // Confirm order
 confirmOrder.addEventListener('click', function() {
     if (!checkoutForm.checkValidity()) {
-        showNotification('يرجى ملء جميع الحقول المطلوبة', 'warning');
         return;
     }
     
@@ -2754,9 +2742,6 @@ confirmOrder.addEventListener('click', function() {
         // Reset button
         this.innerHTML = 'تأكيد الطلب';
         this.disabled = false;
-        
-        // Show success message
-        showNotification('تم تأكيد طلبك بنجاح! ستصلك تفاصيل الدفع على بريدك الإلكتروني', 'success');
     }, 2000);
 });
 
@@ -2775,65 +2760,6 @@ document.getElementById('prev').onclick = () => {
     currentGroup = (currentGroup - 1 + groups.length) % groups.length;
     groups[currentGroup].classList.add('active');
 };
-
-// ========== NOTIFICATION SYSTEM ==========
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'info' ? 'info-circle' : 'exclamation-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    const style = document.createElement('style');
-    style.textContent = `
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${type === 'success' ? '#4CAF50' : type === 'info' ? '#2196F3' : '#ff9800'};
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 9999;
-            animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-        }
-        
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-        }
-        
-        .notification i {
-            font-size: 20px;
-        }
-    `;
-    
-    document.head.appendChild(style);
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.remove();
-        style.remove();
-    }, 3000);
-}
 
 // ========== UNIVERSITIES FILTER ==========
 const universitiesBtn = document.getElementById('universitiesBtn');
@@ -2915,7 +2841,6 @@ clearFilter.addEventListener('click', function() {
     filterIndicator.style.display = 'none';
     universitiesBtn.textContent = 'جميع الجامعات';
     showAllCourses();
-    showNotification('تم عرض جميع الكورسات', 'info');
 });
 
 // Function to filter courses by university
@@ -2953,13 +2878,6 @@ function filterCoursesByUniversity(universityName) {
             card.style.display = 'none';
         }
     });
-    
-    // Show notification
-    if (coursesShown > 0) {
-        showNotification(`تم عرض ${coursesShown} كورس من ${universityNames[universityName]}`, 'success');
-    } else {
-        showNotification(`لا توجد كورسات متاحة لـ ${universityNames[universityName]}`, 'info');
-    }
     
     // Ensure at least one group is active
     let hasVisibleCards = false;
@@ -3143,30 +3061,6 @@ function adjustNavbarForScreenSize() {
 // Run on load and resize
 window.addEventListener('load', adjustNavbarForScreenSize);
 window.addEventListener('resize', adjustNavbarForScreenSize);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
