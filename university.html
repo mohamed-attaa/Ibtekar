@@ -1124,8 +1124,8 @@ body {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: #ffffff;
-    color: rgb(0, 0, 0);
+    background: #000000;
+    color: rgb(255, 255, 255);
     padding: 60px 40px;
     text-align: center;
 }
@@ -1146,7 +1146,7 @@ body {
 
 .footer-section p,
 .footer-section a {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
     margin-bottom: 10px;
     display: block;
@@ -1477,6 +1477,55 @@ body {
     100% { transform: scale(1); }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.whatsapp-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366, var(--primary-gold));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    }
+    50% { 
+        transform: scale(1.1);
+        box-shadow: 0 20px 45px rgba(37, 211, 102, 0.6);
+    }
+}
+
+.whatsapp-chat:hover {
+    transform: scale(1.15);
+    box-shadow: 0 25px 50px rgba(37, 211, 102, 0.7);
+    animation: none;
+}
 </style>
 </head>
 <body>
@@ -1490,7 +1539,7 @@ body {
     <!-- Logo and Links on Right -->
     <div class="nav-logo-section">
         <a href="index.html" class="logo">
-            <img src="./Imges/logo.jpeg" alt="ابتكر" class="logo-img">
+            <img src="./imgs/logoss.png" alt="ابتكر" class="logo-img">
         </a>
         
         <div class="logo-links">
@@ -2200,10 +2249,7 @@ body {
             <a href="#">تدريب مهني</a>
         </div>
         
-        <div class="footer-section">
-            <h3>تواصل معنا</h3>
-            <p><i class="fas fa-phone"></i> +20 10 15117547</p>
-        </div>
+       
     </div>
     
     <div class="footer-bottom">
@@ -2258,7 +2304,9 @@ body {
         </div>
     </div>
 </div>
-
+<a href="https://wa.me/201015117547" target="_blank" class="whatsapp-chat">
+    <i class="fab fa-whatsapp"></i>
+</a>
 <script>
 // ========== MOBILE MENU ==========
 const menuToggle = document.getElementById('menuToggle');

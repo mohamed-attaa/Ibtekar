@@ -697,11 +697,7 @@ body {
 
 .hero-advanced {
     position: relative;
-    min-height: calc(100vh - 80px);
-    background-image: url(./imgs/logoss.png);
-    background-position: center 2%;   /* ⚡ قريب جدًا جدًا من الأعلى */
-    background-size: 280px auto;      /* حجم الصورة */
-    background-repeat: no-repeat;
+    min-height: calc(100vh - 100px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -709,7 +705,21 @@ body {
     margin-top: 90px;
     padding: 40px 5%;
 }
-
+.hero-advanced::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./imgs/logoss.png);
+    background-position: center 2%;
+    background-size: 280px auto;
+    background-repeat: no-repeat;
+    opacity: 0.08;   /* 🔥 تحكم في درجة المائية */
+    pointer-events: none;
+    z-index: 0;
+}
 
 /* Animated Background Particles */
 .hero-particles {
@@ -1115,11 +1125,20 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* تم التعديل من 4 إلى 3 */
+    grid-template-columns: repeat(4, 1fr); /* 4 كروت للشاشات الكبيرة */
     gap: 30px;
     width: 100%;
 }
-
+@media (max-width: 1024px) and (min-width: 769px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 كروت للتابلت */
+        gap: 25px;
+    }
+    
+    .card {
+        margin-bottom: 0; /* إزالة الهوامب الإضافية */
+    }
+}
 
 .card {
     background: var(--white);
@@ -1220,8 +1239,8 @@ body, html {
 
 
 .footer {
-    background: linear-gradient(135deg, var(--white) 0%, var(--white) 100%);
-    color: var(--black);
+    background: linear-gradient(135deg, var(--black) 0%, var(--black) 100%);
+    color: var(--white);
     padding: 40px 0 20px; /* بدون هوامش جانبية */
     text-align: center;
     position: relative;
@@ -1269,7 +1288,7 @@ body, html {
 }
 
 .footer-links a {
-    color: #000000;
+    color: #fdfdfd;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
@@ -1289,7 +1308,7 @@ body, html {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgb(0, 0, 0);
+    background: rgb(212, 145, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1741,6 +1760,7 @@ body, html {
 .university-notification.info {
     background: #2196F3;
 }
+
 
 /* ========== ENHANCED RESPONSIVE FOR HERO ANIMATIONS ========== */
 @media (max-width: 1024px) {
@@ -2432,7 +2452,7 @@ body, html {
     <!-- Logo and Links on Right -->
     <div class="nav-logo-section">
         <a href="#" class="logo">
-            <img src="./Imges/logo.jpeg" alt="ابتكر" class="logo-img">
+            <img src="./imgs/logoss.png" alt="ابتكر" class="logo-img">
         </a>
         
         <div class="logo-links">
@@ -2618,7 +2638,8 @@ body, html {
 
 <!-- FEATURES SECTION -->
 <section class="features-section">
-    <h2 class="features-title">   ليش ابتكر هيا الخيار الانسب ليك </h2>
+    <h2 class="features-title">      لماذ ابتكر هي الخيار الافضل ليك
+  انت تستاهل الافضل</h2>
 
     <div class="features-container">
         <!-- كارد احترافي 1 -->
@@ -2630,6 +2651,15 @@ body, html {
             <p>
                 نقدم محتوى تعليمي مخصص يناسب جميع التخصصات والمستويات، مع مراعاة احتياجات كل طالب على حدة لضمان أفضل تجربة تعليمية.
             </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+            <h3>ميزة السعر</h3>
+            <p>
+               السعر حطيناه بعناية، وراعينا الطالب في المقام الأول…
+عشان يناسبك ويقدّم لك أقصى استفادة ممكنه
         </div>
 
         <!-- كارد احترافي 2 -->
@@ -2924,7 +2954,7 @@ body, html {
 <footer class="footer" id="contact">
     <div class="footer-content">
         <div class="footer-logo">
-            <img src="./Imges/logo.jpeg" alt="ابتكر" class="footer-logo-img">
+            <img src="./imgs/logoss.png" alt="ابتكر" class="footer-logo-img">
             <span>ابتكر</span>
         </div>
         
@@ -3192,7 +3222,139 @@ document.getElementById("prev").addEventListener('click', function() {
     updateCartCount();
 
     // ========== UNIVERSITIES DROPDOWN FUNCTIONALITY ==========
+const universitiesBtn = document.getElementById('universitiesBtn');
+const universitiesDropdown = document.getElementById('universitiesDropdown');
+const universitySearch = document.getElementById('universitySearch');
+const universityItems = document.querySelectorAll('.university-item');
+
+// تظهر/تخفي القائمة عند النقر
+if (universitiesBtn && universitiesDropdown) {
+    universitiesBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        universitiesDropdown.classList.toggle('show');
+    });
     
+    // البحث في الجامعات
+    universitySearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        universityItems.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+    
+    // عند اختيار جامعة
+    universityItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const university = this.getAttribute('data-university');
+            universitiesDropdown.classList.remove('show');
+            
+            // عرض كورسات الجامعة المختارة
+            filterCoursesByUniversity(university);
+            
+            // الانتقال لقسم الكورسات
+            document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    
+    // إغلاق القائمة عند النقر خارجها
+    document.addEventListener('click', function(e) {
+        if (!universitiesBtn.contains(e.target) && !universitiesDropdown.contains(e.target)) {
+            universitiesDropdown.classList.remove('show');
+        }
+    });
+    
+    // منع إغلاق القائمة عند النقر داخلها
+    universitiesDropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+}
+
+// دالة لتصفية الكورسات حسب الجامعة
+function filterCoursesByUniversity(university) {
+    const allCards = document.querySelectorAll('.card');
+    
+    if (university === 'all') {
+        // عرض جميع الكورسات
+        allCards.forEach(card => {
+            card.style.display = 'block';
+        });
+        // العودة للصفحة الأولى
+        showPage(1);
+        return;
+    }
+    
+    // إخفاء جميع الكورسات أولاً
+    allCards.forEach(card => {
+        card.style.display = 'none';
+    });
+    
+    // تصفية وعرض الكورسات المناسبة
+    const filteredCards = Array.from(allCards).filter(card => {
+        const cardText = card.querySelector('p').textContent.toLowerCase();
+        
+        // تحويل اختيارات الجامعة لنصوص البحث المناسبة
+        const universityMap = {
+            'king-khalid': ['الملك خالد', 'king khalid'],
+            'king-faisal': ['الملك فيصل', 'king faisal'],
+            'taibah': ['طيبة', 'taibah'],
+            'taif': ['الطائف', 'taif'],
+            'jeddah': ['جدة', 'jeddah'],
+            'umm-alqura': ['أم القرى', 'umm alqura'],
+            'al-baha': ['الباحة', 'al baha'],
+            'qassim': ['القصيم', 'qassim']
+        };
+        
+        if (universityMap[university]) {
+            return universityMap[university].some(keyword => 
+                cardText.includes(keyword.toLowerCase())
+            );
+        }
+        return false;
+    });
+    
+    // عرض الكورسات المصفاة
+    filteredCards.forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    // إظهار إشعار بعدد النتائج
+    showUniversityNotification(`تم عرض ${filteredCards.length} كورس لـ ${getUniversityArabicName(university)}`);
+}
+
+// دالة للحصول على الاسم العربي للجامعة
+function getUniversityArabicName(englishName) {
+    const names = {
+        'all': 'جميع الجامعات',
+        'king-khalid': 'جامعة الملك خالد',
+        'king-faisal': 'جامعة الملك فيصل',
+        'taibah': 'جامعة طيبة',
+        'taif': 'جامعة الطائف',
+        'jeddah': 'جامعة جدة',
+        'umm-alqura': 'جامعة أم القرى',
+        'al-baha': 'جامعة الباحة',
+        'qassim': 'جامعة القصيم'
+    };
+    return names[englishName] || 'الجامعة';
+}
+
+// دالة لعرض إشعار
+function showUniversityNotification(message) {
+    // إزالة أي إشعارات سابقة
+    const oldNotification = document.querySelector('.university-notification');
+    if (oldNotification) oldNotification.remove();
+    
+  
+    
+    
+    
+}
    
   
 
